@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VoetbalAcademieVis</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; color: #333; }
-    header { background: #0d1b2a; color: white; padding: 1rem 2rem; }
-    nav a { color: white; margin-right: 1rem; text-decoration: none; font-weight: bold; }
-    section { padding: 2rem; }
-    footer { background: #0d1b2a; color: white; text-align: center; padding: 1rem; }
-    .container { max-width: 1000px; margin: 0 auto; }
-    h1, h2 { color: #0d1b2a; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voetbalacademie VIS</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>VoetbalAcademieVis</h1>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#over">Over ons</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <div class="logo">VOETBALACADEMIE VIS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#over">Over ons</a></li>
+        <li><a href="#aanbod">Aanbod</a></li>
+        <li><a href="aanmelden.html">Aanmelden</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section id="home">
-    <div class="container">
-      <h2>Welkom op de site van VoetbalAcademieVis</h2>
-      <p>Wij bieden professionele techniektrainingen aan voor jonge voetballers (8-15 jaar) die hun talent willen ontwikkelen. Met persoonlijke begeleiding en een duidelijke visie helpen wij spelers het beste uit zichzelf te halen.</p>
-    </div>
+  <section class="hero">
+    <h1>Train als een prof. Groei met VIS.</h1>
+    <p>Dé plek voor jong talent met ambitie. Techniek, tactiek, mentaliteit.</p>
+    <a href="aanmelden.html" class="cta-button">Meld je nu aan</a>
   </section>
 
-  <section id="over">
-    <div class="container">
-      <h2>Over ons</h2>
-      <p>Onze academie is opgericht door een jonge ambitieuze trainer met een passie voor jeugdontwikkeling. Wij geloven in dat je technisch altijd kan groeien en dat elke speler de kans moet krijgen om zich te ontwikkelen, ongeacht financiële situatie en niveau. Iedereen is welkom bij ons.
-      Ik ben Bart, ambitieuze en jonge trainer die bezig is met zijn trainerspapieren en die nu hoofdtrainer is bij JO11-1 CVW (Slootdorp). Ik wil altijd beter worden en dat kan je ook zien in de manier van trainen. Als je een keer een proeftraining wilt of wilt kijken dan kan je mij een berichtje sturen op Whatsapp, bij het telefoonnummer onder het kopje Over Ons.</p>
-    </div>
+  <section id="over" class="intro">
+    <h2>Over Voetbalacademie VIS</h2>
+    <p>
+      Wij zijn de voetbalacademie voor ambitieuze jeugd van 8 t/m 15 jaar.
+      Wij begeleiden je met persoonlijke aandacht, moderne technieken en
+      een scherp oog voor jouw ontwikkeling. We geloven in trainen met passie en
+      resultaat.
+    </p>
   </section>
 
-  <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Email: voetbalacademievis@gmail.com<br>
-         Telefoon: 0657927473<br>
-         Adres: Jupiterstraat 37, Wieringerwerf.</p>
-    </div>
+  <section id="aanbod" class="aanbod">
+    <h2>Ons aanbod</h2>
+    <ul>
+      <li>Individuele en GroepsTechniektrainingen</li>
+      <li>Individuele spelersanalyse met persoonlijke feedback</li>
+      <li>Elke periode een vaardigheidstest</li>
+      <li>Trainingen aangepast aan leeftijd en niveau</li>
+    </ul>
   </section>
 
-  <footer>
-    <div class="container">
-      &copy; 2025 VoetbalAcademieVis. Alle rechten voorbehouden.
+  <section class="aanmelden-home">
+    <h2>Meld je direct aan</h2>
+    <form>
+      <input type="text" placeholder="Naam" required />
+      <input type="email" placeholder="E-mail" required />
+      <input type="number" placeholder="Leeftijd" required />
+      <button type="submit">Verstuur</button>
+    </form>
+  </section>
+
+  <footer id="contact">
+    <p>Contact: <a href="mailto:voetbalacademievis@gmail.com">voetbalacademievis@gmail.com</a></p>
+    <div class="socials">
+      <a href="https://instagram.com/VoetbalAcademieVis" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://youtube.com/@VoetbalAcademieVis" target="_blank" rel="noopener noreferrer">YouTube</a>
     </div>
   </footer>
 </body>
