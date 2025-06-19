@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voetbalacademie VIS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">VOETBALACADEMIE VIS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#over">Over ons</a></li>
+        <li><a href="#aanbod">Aanbod</a></li>
+        <li><a href="aanmelden.html">Aanmelden</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Train als een prof. Groei met VIS.</h1>
+    <p>Dé plek voor jong talent met ambitie. Techniek, tactiek, mentaliteit.</p>
+    <a href="aanmelden.html" class="cta-button">Meld je nu aan</a>
+  </section>
+
+  <section id="over" class="intro">
+    <h2>Over Voetbalacademie VIS</h2>
+    <p>
+      Wij zijn de voetbalacademie voor ambitieuze jeugd van 8 t/m 18 jaar.
+      Onze trainers begeleiden je met persoonlijke aandacht, moderne technieken en
+      een scherp oog voor jouw ontwikkeling. We geloven in trainen met passie en
+      resultaat.
+    </p>
+  </section>
+
+  <section id="aanbod" class="aanbod">
+    <h2>Ons aanbod</h2>
+    <ul>
+      <li>Techniektraining en positiespel</li>
+      <li>Individuele spelersanalyse met persoonlijke feedback</li>
+      <li>Elite clinics en deelname aan toernooien</li>
+      <li>Trainingen aangepast aan leeftijd en niveau</li>
+    </ul>
+  </section>
+
+  <section class="aanmelden-home">
+    <h2>Meld je direct aan</h2>
+    <form>
+      <input type="text" placeholder="Naam" required />
+      <input type="email" placeholder="E-mail" required />
+      <input type="number" placeholder="Leeftijd" required />
+      <button type="submit">Verstuur</button>
+    </form>
+  </section>
+
+  <footer id="contact">
+    <p>Contact: <a href="mailto:voetbalacademievis@gmail.com">voetbalacademievis@gmail.com</a></p>
+    <div class="socials">
+      <a href="https://instagram.com/VoetbalAcademieVis" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://youtube.com/@VoetbalAcademieVis" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </footer>
+</body>
+</html>
