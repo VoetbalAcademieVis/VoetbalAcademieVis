@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!DOCTYPE html><html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VoetbalAcademieVis</title>
+  <meta name="description" content="VoetbalAcademieVis biedt techniektrainingen en persoonlijke begeleiding voor jeugdspelers van 8 t/m 15 jaar." />
+  <title>VoetbalAcademieVis – Techniektraining voor jeugdspelers (8–15 jaar)</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
@@ -80,60 +80,69 @@
   <header>
     <h1>VoetbalAcademieVis</h1>
     <p>Techniek. Rendement. Groei.</p>
-  </header>
-  <section id="over ons">
+  </header>  <section id="over-ons">
     <h2>Wie zijn wij?</h2>
     <p>
-      Hey, Ik ben Bart oprichter en trainer van VoetbalAcademieVis, na zelf jarenlang te hebben gevoetbald en dat nog te doen ben ik 2 jaar geleden verliefd geworden op het trainersvak.
-      Na een stage bij JO14-1 van DWOW Wieringerwerf en een stage bij L.T. Voetbalacademie was ik om, Ik wil mijn eigen voetbalacademie starten.
-      Na die 2 jaren weet ik nu hoe ik spelers persoonlijk kan begeleiden zodat ze op de beste manier zichzelf ontwikkelen.
-      Ik ga dit jaar aan de slag als Hoofdtrainer bij JO11-1 van CVW Wieringermeer en ben ik assistent trainer bij JO17-1 van CVW Wieringermeer voor mijn VC 1 (Eerst UEFA C) papieren. Ook loop ik volgend seizoen wekelijks mee bij RKAV Volendam om daar nog meer ervaring op te doen en door te groeien als trainer.
-      Kortom, ik ben enthousiast, leergierig en ik wil heel graag jonge spelers helpen met het verbeteren van hun voetbalkwaliteiten.
+      Mijn naam is Bart, oprichter en trainer van VoetbalAcademieVis. Na jarenlange ervaring als voetballer werd ik twee jaar geleden gegrepen door het trainersvak.
+      Via stages bij JO14-1 van DWOW en L.T. Voetbalacademie heb ik waardevolle ervaring opgedaan in het persoonlijk begeleiden van spelers. Inmiddels ben ik hoofdtrainer bij JO11-1 en assistent-trainer bij JO17-1 van CVW Wieringermeer. Vanaf dit seizoen loop ik ook wekelijks mee bij RKAV Volendam.
+      Mijn doel? Spelers persoonlijk helpen hun voetbalkwaliteiten te ontwikkelen op een gestructureerde en resultaatgerichte manier.
     </p>
-  <section id="Wie?">
-    <h2>Voor wie is dit?</h2>
+  </section>  <section id="voor-wie">
+    <h2>Voor wie is VoetbalAcademieVis?</h2>
     <p>
-      Ben jij een jonge voetballer of voetbalster en tussen de 8 en 15 jaar oud?
-      Dan hebben wij iets voor jou.
+      Ben jij een fanatieke speler tussen de 8 en 15 jaar oud? Dan is VoetbalAcademieVis er voor jou. Of je nu beginner bent of op hoog amateurniveau speelt — wij helpen je technisch en mentaal groeien.
     </p>
-    <h2>Wat ga je leren?</h2>
+  </section>  <section id="groepstraining">
+    <h2>Groepstrainingen</h2>
+    <p>
+      In kleine groepen werk je aan techniek, rendement en spelinzicht. De trainingen zijn uitdagend, met veel herhaling en tempo.
+    </p>
+    <h3>Wat leer je?</h3>
     <ul>
-      <li>Je leert alle technische aspecten in het voetbal en hoe deze toe te passen tijdens wedstrijden.</li>
-      <li>En je leert niet alleen hoe, maar ook waarom.</li>
+      <li>Technische vaardigheden onder weerstand.</li>
+      <li>Besluitvorming in kleine ruimtes.</li>
+      <li>Functionele techniek toepassen in spelsituaties.</li>
     </ul>
+    <p><strong>Startdatum:</strong> Maandag 30 juli 2025 – beperkt aantal plekken beschikbaar.</p>
+    <a class="btn" href="https://wa.me/31657927473?text=Ik%20wil%20trainen%20bij%20VoetbalAcademieVis!" target="_blank">Aanmelden Groepstraining</a>
+  </section>  <section id="privetraining">
+    <h2>Privétrainingen</h2>
+    <p>
+      Persoonlijke begeleiding op maat voor maximaal resultaat. Je kiest zelf je trainingspakket én je beschikbare tijden. Je ontvangt een WhatsApp-bericht met bevestiging van je gewenste tijdslot.
+    </p><form name="privetraining" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="privetraining" />
 
-    <h2>Wat krijg je?</h2>
-    <ul>
-      <li>Een trainingsplan op jouw niveau en naar jouw behoefte.</li>
-      <li>WhatsApp-groep met tips, opdrachten en feedback.</li>
-      <li>Elke periode een voetbaltest.</li>
-    </ul>
+  <label for="name">Naam speler</label>
+  <input type="text" id="name" name="name" required />
 
-    <h2>Startdatum</h2>
-    <p>Maandag 30 juli 2025 – beperkt aantal plekken beschikbaar.</p>
+  <label for="age">Leeftijd</label>
+  <input type="number" id="age" name="age" required />
 
-    <a class="btn" href="https://wa.me/31657927473?text=Ik%20wil%20trainen%20bij%20VoetbalAcademieVis!" target="_blank">Aanmelding Groepstraining</a>
-  </section>
+  <label for="package">Kies een pakket</label>
+  <select id="package" name="package" required>
+    <option value="">-- Selecteer een pakket --</option>
+    <option value="Beginner">Beginner (3 sessies – €65,34 incl. btw)</option>
+    <option value="Amateur">Amateur (6 sessies – €123,42 incl. btw)</option>
+    <option value="Semi">Semi (12 sessies – €232,32 incl. btw) – inclusief evaluatie & feedbackmoment</option>
+    <option value="Prof">Prof (24 sessies – €435,60 incl. btw) – inclusief voortgangsrapportage & evaluatiegesprek</option>
+  </select>
 
-  <section id="inschrijven">
-    <h2>Inschrijven voor Privétraining</h2>
-    <form name="privetraining" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="privetraining" />
+  <label for="availability">Geef je beschikbaarheid aan</label>
+  <textarea id="availability" name="availability" rows="3" required placeholder="Bijv: maandag 16:00–16:45, woensdag 15:15–16:00"></textarea>
 
-      <label for="name">Naam speler</label>
-      <input type="text" id="name" name="name" required />
+  <p><strong>Beschikbare tijden:</strong></p>
+  <ul>
+    <li>Maandag: 16:00–16:45, 16:45–17:30, 17:30–18:15</li>
+    <li>Woensdag: 15:15–16:00, 16:00–16:45</li>
+    <li>Donderdag: 15:15–16:00, 16:00–16:45</li>
+    <li>Vrijdag: 15:15–16:00, 16:00–16:45, 16:45–17:30, 19:00–19:45, 19:45–20:30</li>
+  </ul>
 
-      <label for="age">Leeftijd</label>
-      <input type="number" id="age" name="age" required />
+  <button type="submit">Aanvraag versturen</button>
+</form>
 
-      <label for="package">Kies een pakket</label>
-      <select id="package" name="package" required>
-        <option value="">-- Selecteer een pakket --</option>
-        <option value="Beginner">Beginner (3 sessies – €65,34 incl. btw)</option>
-        <option value="Amateur">Amateur (6 sessies – €123,42 incl. btw)</option>
-        <option value="Semi">Semi (12 sessies – €232,32 incl. btw) – inclusief evaluatie & feedbackmoment</option>
-        <option value="Prof">Prof (24 sessies – €435,60 incl. btw) – inclusief voortgangsrapportage & evaluatiegesprek</option>
-      </select>
-
-      <label for="availability">Beschikbare dagen en tijden</label>
-<textarea id="availability" name="availability" rows="3" required placeholder= maandag 16:00 – 17:00, 17:05-18:05 , woensdag 16:15-17:15"></textarea>
+  </section>  <footer>
+    <p>&copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden</p>
+  </footer>
+</body>
+</html>ll
