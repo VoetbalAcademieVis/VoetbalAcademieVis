@@ -175,15 +175,17 @@
     &copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden
   </footer>
 
-  <script>
-    function sendToWhatsApp(event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value;
-      const age = document.getElementById("age").value;
-      const pack = document.getElementById("package").value;
-      const time = document.getElementById("availability").value;
+<script>
+  function sendToWhatsApp(event) {
+    event.preventDefault();
+    const name = encodeURIComponent(document.getElementById("name").value);
+    const age = encodeURIComponent(document.getElementById("age").value);
+    const pack = encodeURIComponent(document.getElementById("package").value);
+    const time = encodeURIComponent(document.getElementById("availability").value);
 
-      const message = `Hallo Bart,%0A%0AIk wil graag een privétraining aanvragen:%0A- Naam: ${name}%0A- Leeftijd: ${age}%0A- Pakket: ${pack}%0A- Gewenste tijd: ${time}`;
+    const message = `Hallo Bart,%0A%0AIk wil graag een privétraining aanvragen:%0A- Naam: ${name}%0A- Leeftijd: ${age}%0A- Pakket: ${pack}%0A- Gewenste tijd: ${time}`;
 
-      const url = `https://wa.me/31657927473?text=${message}`;
-      window.open(url, "_blank");
+    const url = `https://wa.me/31657927473?text=${message}`;
+    window.open(url, "_blank");
+  }
+                                   </script>
