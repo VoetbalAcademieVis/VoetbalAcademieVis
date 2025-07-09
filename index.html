@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="nl">
+<!DOCTYPE html>
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,35 +54,91 @@
       padding: 1rem;
       margin-top: 4rem;
     }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    form button {
+      background-color: #d90429;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #a5031f;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>VoetbalAcademieVis</h1>
     <p>Techniek. Rendement. Groei.</p>
-  </header>  <div class="hero">
-  </div>  <section id="over">
+  </header>
+
+  <div class="hero">
+    <!-- Optioneel hero-tekst -->
+  </div>
+
+  <section id="over ons">
+    <h2>Wie zijn wij?</h2>
+    <p>
+      Hey, Ik ben Bart oprichter en trainer van VoetbalAcademieVis na zelf jarenlang te hebben gevoetbald en dat nog te doen ben ik 2 jaar geleden verloefd geworden op het trainersvak.
+      Na een stage bij JO14-1 van DWOW Wieringerwerf en een stage bij L.T. Voetbalacademie was ik om, Ik wil mijn eigen voetbalacademie starten.
+      Na die 2 jaren weet ik nu hoe ik spelers persoonlijk kan begeleiden zodat ze op de beste manier zichzelf ontwikkelen.
+      Ik ga dit jaar aan de slag als Hoofdtrainer bij JO11-1 van CVW Wieringermeer en ben ik assistent trainer bij JO17-1 van CVW Wieringermeer voor mijn VC 1 (Eerst UEFA C) papieren. Ook loop ik volgend seizoen wekelijks mee bij RKAV Volendam om daar nog meer ervaring op te doen en door te groeien als trainer.
+      Kortom, ik ben enthousiast, leergierig en ik wil heel graag jonge spelers helpen met het verbeteren van hun voetbalkwaliteiten.
+    </p>
+  <section id="Wie?">
     <h2>Voor wie is dit?</h2>
     <p>
       Ben jij een jonge voetballer of voetbalster en tussen de 8 en 15 jaar oud?
       Dan hebben wij iets voor jou.
-    </p><h2>Wat ga je leren?</h2>
-<ul>
-  <li>je leert alle technische aspecten in het voetbal en hoe deze toe te passen tijdens wedstrijden.
-en je leert niet alleen hoe maar ook waarom.
-<h2>Wat krijg je?</h2>
-<ul>
-  <li>een trainingsplan op jou niveau en naar jou behoefte.</li>
-  <li>WhatsApp-groep met tips, opdrachten en feedback</li>
-  <li>Elke Periode een voetbaltest.</li>
-</ul>
+    </p>
 
-<h2>Startdatum</h2>
-<p>Maandag 29 juli 2025 – beperkt aantal plekken beschikbaar.</p>
+    <h2>Wat ga je leren?</h2>
+    <ul>
+      <li>Je leert alle technische aspecten in het voetbal en hoe deze toe te passen tijdens wedstrijden.</li>
+      <li>En je leert niet alleen hoe, maar ook waarom.</li>
+    </ul>
 
-<a class="btn" href="https://wa.me/31657927473?text=Ik%20wil%20trainen%20bij%20VoetbalAcademieVis!" target="_blank">Meld je aan via WhatsApp</a>
-  </section>  <footer>
-    &copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden
-  </footer>
-</body>
-  </html>
+    <h2>Wat krijg je?</h2>
+    <ul>
+      <li>Een trainingsplan op jouw niveau en naar jouw behoefte.</li>
+      <li>WhatsApp-groep met tips, opdrachten en feedback.</li>
+      <li>Elke periode een voetbaltest.</li>
+    </ul>
+
+    <h2>Startdatum</h2>
+    <p>Maandag 30 juli 2025 – beperkt aantal plekken beschikbaar.</p>
+
+    <a class="btn" href="https://wa.me/31657927473?text=Ik%20wil%20trainen%20bij%20VoetbalAcademieVis!" target="_blank">Aanmelding Groepstraining</a>
+  </section>
+
+  <section id="inschrijven">
+    <h2>Inschrijven voor Privétraining</h2>
+    <form name="privetraining" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="privetraining" />
+
+      <label for="name">Naam speler</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="age">Leeftijd</label>
+      <input type="number" id="age" name="age" required />
+
+      <label for="package">Kies een pakket</label>
+      <select id="package" name="package" required>
+        <option value="">-- Selecteer een pakket --</option>
+        <option value="Beginner">Beginner (3 sessies – €65,34 incl. btw)</option>
+        <option value="Amateur">Amateur (6 sessies – €123,42 incl. btw)</option>
+        <option value="Semi">Semi (12 sessies – €232,32 incl. btw) – inclusief evaluatie & feedbackmoment</option>
+        <option value="Prof">Prof (24 sessies – €435,60 incl. btw) – inclusief voortgangsrapportage & evaluatiegesprek</option>
+      </select>
+
+      <label for="availability">Beschikbare dagena
