@@ -149,25 +149,6 @@
 
       <button type="submit">Verstuur via WhatsApp</button>
     </form>
-  </section>
-
-  <footer>
-    &copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden
-  </footer>
-
-  <script>
-    function sendToWhatsApp(event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value;
-      const age = document.getElementById("age").value;
-      const pack = document.getElementById("package").value;
-      const time = document.getElementById("availability").value;
-
-      const message = `Hallo Bart,%0A%0AIk wil graag een privétraining aanvragen:%0A- Naam: ${name}%0A- Leeftijd: ${age}%0A- Pakket: ${pack}%0A- Gewenste tijd: ${time}`;
-
-      const url = `https://wa.me/31657927473?text=${message}`;
-      window.open(url, "_blank");
-     
   <section id="privacy">
     <h2>Privacyverklaring</h2>
     <p><strong>Wie zijn wij?</strong><br />
@@ -189,4 +170,21 @@
       Recht op inzage, correctie, verwijdering, intrekken toestemming en dataportabiliteit.</p>
 
     <p><strong>Hoe kun je jouw rechten uitoefenen?</strong><br />
-      Neem contact op via <a href="mailto:voetbalacademie
+      Neem contact op via <a href="mailto: voetbalacademievis@gmail.com
+                            
+  <footer>
+    &copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden
+  </footer>
+
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const pack = document.getElementById("package").value;
+      const time = document.getElementById("availability").value;
+
+      const message = `Hallo Bart,%0A%0AIk wil graag een privétraining aanvragen:%0A- Naam: ${name}%0A- Leeftijd: ${age}%0A- Pakket: ${pack}%0A- Gewenste tijd: ${time}`;
+
+      const url = `https://wa.me/31657927473?text=${message}`;
+      window.open(url, "_blank");
