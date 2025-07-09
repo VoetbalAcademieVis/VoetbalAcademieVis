@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="nl">
+<!DOCTYPE html>
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="VoetbalAcademieVis biedt techniektrainingen en persoonlijke begeleiding voor jeugdspelers van 8 t/m 15 jaar." />
-  <title>VoetbalAcademieVis – Techniektraining voor jeugdspelers (8–15 jaar)</title>
+  <title>VoetbalAcademieVis</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
@@ -80,69 +80,94 @@
   <header>
     <h1>VoetbalAcademieVis</h1>
     <p>Techniek. Rendement. Groei.</p>
-  </header>  <section id="over-ons">
+  </header>
+
+  <div class="hero"></div>
+
+  <section>
     <h2>Wie zijn wij?</h2>
     <p>
-      Mijn naam is Bart, oprichter en trainer van VoetbalAcademieVis. Na jarenlange ervaring als voetballer werd ik twee jaar geleden gegrepen door het trainersvak.
-      Via stages bij JO14-1 van DWOW en L.T. Voetbalacademie heb ik waardevolle ervaring opgedaan in het persoonlijk begeleiden van spelers. Inmiddels ben ik hoofdtrainer bij JO11-1 en assistent-trainer bij JO17-1 van CVW Wieringermeer. Vanaf dit seizoen loop ik ook wekelijks mee bij RKAV Volendam.
-      Mijn doel? Spelers persoonlijk helpen hun voetbalkwaliteiten te ontwikkelen op een gestructureerde en resultaatgerichte manier.
+      Hey, ik ben Bart, oprichter en trainer van VoetbalAcademieVis. Na jaren voetballen ben ik verliefd geworden op het trainersvak. Met ervaring bij DWOW, L.T. Voetbalacademie en stages bij RKAV Volendam werk ik nu als hoofdtrainer bij JO11-1 en assistent bij JO17-1 van CVW Wieringermeer. Mijn doel: spelers persoonlijk beter maken.
     </p>
-  </section>  <section id="voor-wie">
-    <h2>Voor wie is VoetbalAcademieVis?</h2>
-    <p>
-      Ben jij een fanatieke speler tussen de 8 en 15 jaar oud? Dan is VoetbalAcademieVis er voor jou. Of je nu beginner bent of op hoog amateurniveau speelt — wij helpen je technisch en mentaal groeien.
-    </p>
-  </section>  <section id="groepstraining">
+  </section>
+
+  <section>
     <h2>Groepstrainingen</h2>
-    <p>
-      In kleine groepen werk je aan techniek, rendement en spelinzicht. De trainingen zijn uitdagend, met veel herhaling en tempo.
-    </p>
-    <h3>Wat leer je?</h3>
+    <p>Voor jongens en meisjes van 8 t/m 15 jaar.</p>
     <ul>
-      <li>Technische vaardigheden onder weerstand.</li>
-      <li>Besluitvorming in kleine ruimtes.</li>
-      <li>Functionele techniek toepassen in spelsituaties.</li>
+      <li>Techniek en rendement verbeteren</li>
+      <li>Trainingsplan op maat</li>
+      <li>WhatsApp-groep met tips & opdrachten</li>
+      <li>Voetbaltest per periode</li>
     </ul>
-    <p><strong>Startdatum:</strong> Maandag 30 juli 2025 – beperkt aantal plekken beschikbaar.</p>
-    <a class="btn" href="https://wa.me/31657927473?text=Ik%20wil%20trainen%20bij%20VoetbalAcademieVis!" target="_blank">Aanmelden Groepstraining</a>
-  </section>  <section id="privetraining">
+    <p><strong>Start:</strong> Maandag 30 juli 2025</p>
+    <a class="btn" href="https://wa.me/31657927473?text=Ik%20wil%20meedoen%20aan%20de%20groepstraining%20bij%20VoetbalAcademieVis!" target="_blank">Aanmelden Groepstraining</a>
+  </section>
+
+  <section>
     <h2>Privétrainingen</h2>
-    <p>
-      Persoonlijke begeleiding op maat voor maximaal resultaat. Je kiest zelf je trainingspakket én je beschikbare tijden. Je ontvangt een WhatsApp-bericht met bevestiging van je gewenste tijdslot.
-    </p><form name="privetraining" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="privetraining" />
+    <p>Kies een pakket dat bij jou past:</p>
+    <ul>
+      <li><strong>Beginner:</strong> 3 sessies – €18 per sessie (excl. btw)</li>
+      <li><strong>Amateur:</strong> 6 sessies – €17 per sessie (excl. btw)</li>
+      <li><strong>Semi:</strong> 12 sessies – €16 per sessie (excl. btw)<br>Incl. evaluatie & feedbackmoment</li>
+      <li><strong>Prof:</strong> 24 sessies – €15 per sessie (excl. btw)<br>Incl. voortgangsrapportage & evaluatiegesprek</li>
+    </ul>
 
-  <label for="name">Naam speler</label>
-  <input type="text" id="name" name="name" required />
+    <form id="privetrainingForm" onsubmit="sendToWhatsApp(event)">
+      <label for="name">Naam speler</label>
+      <input type="text" id="name" name="name" required />
 
-  <label for="age">Leeftijd</label>
-  <input type="number" id="age" name="age" required />
+      <label for="age">Leeftijd</label>
+      <input type="number" id="age" name="age" required />
 
-  <label for="package">Kies een pakket</label>
-  <select id="package" name="package" required>
-    <option value="">-- Selecteer een pakket --</option>
-    <option value="Beginner">Beginner (3 sessies – €65,34 incl. btw)</option>
-    <option value="Amateur">Amateur (6 sessies – €123,42 incl. btw)</option>
-    <option value="Semi">Semi (12 sessies – €232,32 incl. btw) – inclusief evaluatie & feedbackmoment</option>
-    <option value="Prof">Prof (24 sessies – €435,60 incl. btw) – inclusief voortgangsrapportage & evaluatiegesprek</option>
-  </select>
+      <label for="package">Kies een pakket</label>
+      <select id="package" name="package" required>
+        <option value="">-- Selecteer een pakket --</option>
+        <option value="Beginner">Beginner (3 sessies – €65,34 incl. btw)</option>
+        <option value="Amateur">Amateur (6 sessies – €123,42 incl. btw)</option>
+        <option value="Semi">Semi (12 sessies – €232,32 incl. btw)</option>
+        <option value="Prof">Prof (24 sessies – €435,60 incl. btw)</option>
+      </select>
 
-  <label for="availability">Geef je beschikbaarheid aan</label>
-  <textarea id="availability" name="availability" rows="3" required placeholder="Bijv: maandag 16:00–16:45, woensdag 15:15–16:00"></textarea>
+      <label for="availability">Beschikbare tijdstippen</label>
+      <select id="availability" name="availability" required>
+        <option value="">-- Kies een tijd --</option>
+        <option value="Maandag 16:00-16:45">Maandag 16:00-16:45</option>
+        <option value="Maandag 16:45-17:30">Maandag 16:45-17:30</option>
+        <option value="Maandag 17:30-18:15">Maandag 17:30-18:15</option>
+        <option value="Woensdag 15:15-16:00">Woensdag 15:15-16:00</option>
+        <option value="Woensdag 16:00-16:45">Woensdag 16:00-16:45</option>
+        <option value="Donderdag 15:15-16:00">Donderdag 15:15-16:00</option>
+        <option value="Donderdag 16:00-16:45">Donderdag 16:00-16:45</option>
+        <option value="Vrijdag 15:15-16:00">Vrijdag 15:15-16:00</option>
+        <option value="Vrijdag 16:00-16:45">Vrijdag 16:00-16:45</option>
+        <option value="Vrijdag 16:45-17:30">Vrijdag 16:45-17:30</option>
+        <option value="Vrijdag 19:00-19:45">Vrijdag 19:00-19:45</option>
+        <option value="Vrijdag 19:45-20:30">Vrijdag 19:45-20:30</option>
+      </select>
 
-  <p><strong>Beschikbare tijden:</strong></p>
-  <ul>
-    <li>Maandag: 16:00–16:45, 16:45–17:30, 17:30–18:15</li>
-    <li>Woensdag: 15:15–16:00, 16:00–16:45</li>
-    <li>Donderdag: 15:15–16:00, 16:00–16:45</li>
-    <li>Vrijdag: 15:15–16:00, 16:00–16:45, 16:45–17:30, 19:00–19:45, 19:45–20:30</li>
-  </ul>
+      <button type="submit">Verstuur via WhatsApp</button>
+    </form>
+  </section>
 
-  <button type="submit">Aanvraag versturen</button>
-</form>
-
-  </section>  <footer>
-    <p>&copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden</p>
+  <footer>
+    &copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden
   </footer>
+
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const pack = document.getElementById("package").value;
+      const time = document.getElementById("availability").value;
+
+      const message = `Hallo Bart,%0A%0AIk wil graag een privétraining aanvragen:%0A- Naam: ${name}%0A- Leeftijd: ${age}%0A- Pakket: ${pack}%0A- Gewenste tijd: ${time}`;
+
+      const url = `https://wa.me/31657927473?text=${message}`;
+      window.open(url, "_blank");
+    }
+  </script>
 </body>
-</html>ll
+</html>
