@@ -105,6 +105,9 @@
 
     <p><strong>Hoe kun je jouw rechten uitoefenen?</strong><br />
       Neem contact op via WhatsApp of mail: voetbalacademievis@gmail.com
+    </p>
+  </section>
+
   <section>
     <h2>Wie zijn wij?</h2>
     <p>
@@ -151,40 +154,61 @@
         <option value="Prof">Prof (24 sessies – €435,60 incl. btw)</option>
       </select>
 
-      <label for="availability">Beschikbare tijdstippen</label>
-      <select id="availability" name="availability" multiple size="5" required>
-  <option value="Maandag 16:00-16:45">Maandag 16:00-16:45</option>
-  <option value="Maandag 16:45-17:30">Maandag 16:45-17:30</option>
-  <option value="Maandag 17:30-18:15">Maandag 17:30-18:15</option>
-  <option value="Woensdag 15:15-16:00">Woensdag 15:15-16:00</option>
-  <option value="Woensdag 16:00-16:45">Woensdag 16:00-16:45</option>
-  <option value="Donderdag 15:15-16:00">Donderdag 15:15-16:00</option>
-  <option value="Donderdag 16:00-16:45">Donderdag 16:00-16:45</option>
-  <option value="Vrijdag 15:15-16:00">Vrijdag 15:15-16:00</option>
-  <option value="Vrijdag 16:00-16:45">Vrijdag 16:00-16:45</option>
-  <option value="Vrijdag 16:45-17:30">Vrijdag 16:45-17:30</option>
-  <option value="Vrijdag 19:00-19:45">Vrijdag 19:00-19:45</option>
-  <option value="Vrijdag 19:45-20:30">Vrijdag 19:45-20:30</option>
+      <label for="availability">Beschikbare tijdstippen (houd Ctrl/Cmd ingedrukt om meerdere te selecteren)</label>
+      <select id="availability" name="availability" multiple size="7" required>
+        <option value="Maandag 16:00-16:45">Maandag 16:00-16:45</option>
+        <option value="Maandag 16:45-17:30">Maandag 16:45-17:30</option>
+        <option value="Maandag 17:30-18:15">Maandag 17:30-18:15</option>
+        <option value="Woensdag 15:15-16:00">Woensdag 15:15-16:00</option>
+        <option value="Woensdag 16:00-16:45">Woensdag 16:00-16:45</option>
+        <option value="Donderdag 15:15-16:00">Donderdag 15:15-16:00</option>
+        <option value="Donderdag 16:00-16:45">Donderdag 16:00-16:45</option>
+        <option value="Vrijdag 15:15-16:00">Vrijdag 15:15-16:00</option>
+        <option value="Vrijdag 16:00-16:45">Vrijdag 16:00-16:45</option>
+        <option value="Vrijdag 16:45-17:30">Vrijdag 16:45-17:30</option>
+        <option value="Vrijdag 19:00-19:45">Vrijdag 19:00-19:45</option>
+        <option value="Vrijdag 19:45-20:30">Vrijdag 19:45-20:30</option>
       </select>
 
       <button type="submit">Verstuur via WhatsApp</button>
     </form>
+  </section>
 
   <footer>
     &copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden
   </footer>
 
-<script>
-  function sendToWhatsApp(event) {
-    event.preventDefault();
-    const name = encodeURIComponent(document.getElementById("name").value);
-    const age = encodeURIComponent(document.getElementById("age").value);
-    const pack = encodeURIComponent(document.getElementById("package").value);
-    const time = encodeURIComponent(document.getElementById("availability").value);
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
 
-    const message = `Hallo Bart,%0A%0AIk wil graag een privétraining aanvragen:%0A- Naam: ${name}%0A- Leeftijd: ${age}%0A- Pakket: ${pack}%0A- Gewenste tijd: ${time}`;
+      const name = document.getElementById("name").value.trim();
+      const age = document.getElementById("age").value.trim();
+      const pack = document.getElementById("package").value.trim();
 
-    const url = `https://wa.me/31657927473?text=${message}`;
-    window.open(url, "_blank");
-  }
-                                   </script>
+      const select = document.getElementById("availability");
+      const selectedOptions = Array.from(select.selectedOptions);
+
+      if (selectedOptions.length === 0) {
+        alert('Selecteer minstens één beschikbaar tijdstip.');
+        return;
+      }
+
+      const selectedTimes = selectedOptions.map(option => option.value);
+      const timesString = selectedTimes.join(', ');
+
+      const message = `Hallo Bart,
+
+Ik wil graag een privétraining aanvragen:
+- Naam: ${name}
+- Leeftijd: ${age}
+- Pakket: ${pack}
+- Gewenste tijdstippen: ${timesString}`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const url = `https://wa.me/31657927473?text=${encodedMessage}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+  </html>
