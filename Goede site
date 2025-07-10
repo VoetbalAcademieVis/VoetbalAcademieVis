@@ -2,213 +2,94 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VoetbalAcademieVis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voetbalacademie VIS</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f8f8;
-    }
-    header {
-      background-color: #000;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .hero {
-      background: url('https://via.placeholder.com/1600x400') center/cover no-repeat;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    }
-    .btn {
-      display: inline-block;
-      background-color: #d90429;
-      color: white;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-    .btn:hover {
-      background-color: #a5031f;
-    }
-    footer {
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 4rem;
-    }
-    form input, form select, form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.25rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    form button {
-      background-color: #d90429;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    form button:hover {
-      background-color: #a5031f;
-    }
-  </style>
 </head>
 <body>
   <header>
-    <h1>VoetbalAcademieVis</h1>
-    <p>Techniek. Rendement. Groei.</p>
+    <div class="logo">VOETBALACADEMIE VIS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#over">Over ons</a></li>
+        <li><a href="#aanbod">Aanbod</a></li>
+        <li><a href="#pakketten">Pakketten</a></li>
+        <li><a href="aanmelden.html">Aanmelden</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="hero"></div>
-  <section id="privacy">
-    <h2>Privacyverklaring</h2>
-    <p><strong>Wie zijn wij?</strong><br />
-      VoetbalAcademieVis, gevestigd in Nederland, is verantwoordelijk voor de verwerking van persoonsgegevens zoals genoemd in deze privacyverklaring.</p>
-
-    <p><strong>Welke gegevens verzamelen wij?</strong><br />
-      Naam, leeftijd, contactgegevens, beschikbaarheid voor trainingen en eventuele andere gegevens die je zelf aan ons geeft via het inschrijfformulier.</p>
-
-    <p><strong>Waarom verzamelen wij deze gegevens?</strong><br />
-      Om jouw inschrijving voor privé- of groepstrainingen te verwerken, contact met je op te nemen over de trainingen en voor het geven van persoonlijke feedback en begeleiding.</p>
-
-    <p><strong>Hoe bewaren en beveiligen wij jouw gegevens?</strong><br />
-      Wij bewaren je gegevens veilig en alleen zolang als nodig is voor de hierboven genoemde doelen. We nemen passende beveiligingsmaatregelen om misbruik, verlies of ongeautoriseerde toegang te voorkomen.</p>
-
-    <p><strong>Met wie delen wij jouw gegevens?</strong><br />
-      Je gegevens worden niet gedeeld met derden, behalve indien dit wettelijk verplicht is of noodzakelijk is voor de uitvoering van de training.</p>
-
-    <p><strong>Wat zijn jouw rechten?</strong><br />
-      Recht op inzage, correctie, verwijdering, intrekken toestemming en dataportabiliteit.</p>
-
-    <p><strong>Hoe kun je jouw rechten uitoefenen?</strong><br />
-      Neem contact op via WhatsApp of mail: voetbalacademievis@gmail.com
-    </p>
+  <section class="hero">
+    <h1>Train als een prof. Groei met VIS.</h1>
+    <p>Dé plek voor jong talent met ambitie. Techniek, tactiek, mentaliteit.</p>
+    <a href="aanmelden.html" class="cta-button">Meld je nu aan</a>
   </section>
 
-  <section>
-    <h2>Wie zijn wij?</h2>
+  <section id="over" class="intro">
+    <h2>Over Voetbalacademie VIS</h2>
     <p>
-      Hey, ik ben Bart, oprichter en trainer van VoetbalAcademieVis. Na jaren voetballen ben ik verliefd geworden op het trainersvak. Met ervaring bij DWOW, L.T. Voetbalacademie en stages bij RKAV Volendam werk ik nu als hoofdtrainer bij JO11-1 en assistent bij JO17-1 van CVW Wieringermeer. Mijn doel: spelers persoonlijk beter maken.
+      Wij zijn de voetbalacademie voor ambitieuze jeugd van 8 t/m 15 jaar.
+      Wij begeleiden je met persoonlijke aandacht, moderne technieken en
+      een scherp oog voor jouw ontwikkeling. We geloven in trainen met passie en
+      resultaat.
     </p>
   </section>
 
-  <section>
-    <h2>Groepstrainingen</h2>
-    <p>Voor jongens en meisjes van 8 t/m 15 jaar.</p>
+  <section id="aanbod" class="aanbod">
+    <h2>Ons aanbod</h2>
     <ul>
-      <li>Techniek en rendement verbeteren</li>
-      <li>Trainingsplan op maat</li>
-      <li>WhatsApp-groep met tips & opdrachten</li>
-      <li>Voetbaltest per periode</li>
+      <li>Individuele en groepstechniektrainingen</li>
+      <li>Individuele spelersanalyse met persoonlijke feedback</li>
+      <li>Elke periode een vaardigheidstest</li>
+      <li>Trainingen aangepast aan leeftijd en niveau</li>
     </ul>
-    <p><strong>Start:</strong> Maandag 30 juli 2025</p>
-    <a class="btn" href="https://wa.me/31657927473?text=Ik%20wil%20meedoen%20aan%20de%20groepstraining%20bij%20VoetbalAcademieVis!" target="_blank">Aanmelden Groepstraining</a>
   </section>
 
-  <section>
-    <h2>Privétrainingen</h2>
-    <p>Kies een pakket dat bij jou past:</p>
+  <section id="pakketten" class="pakketten">
+    <h2>Pakketten en prijzen</h2>
+
+    <h3>Privétraining</h3>
     <ul>
-      <li><strong>Beginner:</strong> 3 sessies – €18 per sessie (excl. btw)</li>
-      <li><strong>Amateur:</strong> 6 sessies – €17 per sessie (excl. btw)</li>
-      <li><strong>Semi:</strong> 12 sessies – €16 per sessie (excl. btw)<br>Incl. evaluatie & feedbackmoment</li>
-      <li><strong>Prof:</strong> 24 sessies – €15 per sessie (excl. btw)<br>Incl. voortgangsrapportage & evaluatiegesprek</li>
+      <li><strong>Prof:</strong> 24 sessies – €432 ex. btw</li>
+      <li><strong>Semi:</strong> 18 sessies – €324 ex. btw</li>
+      <li><strong>Amateur:</strong> 12 sessies – €228 ex. btw</li>
+      <li><strong>Beginner:</strong> 6 sessies – €114 ex. btw</li>
     </ul>
 
-    <form id="privetrainingForm" onsubmit="sendToWhatsApp(event)">
-      <label for="name">Naam speler</label>
-      <input type="text" id="name" name="name" required />
+    <h3>Groepstraining (50% goedkoper per sessie)</h3>
+    <ul>
+      <li><strong>Prof:</strong> 24 sessies – €216 ex. btw</li>
+      <li><strong>Semi:</strong> 18 sessies – €162 ex. btw</li>
+      <li><strong>Amateur:</strong> 12 sessies – €114 ex. btw</li>
+      <li><strong>Beginner:</strong> 6 sessies – €57 ex. btw</li>
+    </ul>
+  </section>
 
-      <label for="age">Leeftijd</label>
-      <input type="number" id="age" name="age" required />
+  <section id="contact" class="contact">
+    <h2>Contact & locatie</h2>
+    <p>Heb je vragen? Neem gerust contact op via <a href="mailto:info@voetbalacademievis.nl">info@voetbalacademievis.nl</a></p>
 
-      <label for="package">Kies een pakket</label>
-      <select id="package" name="package" required>
-        <option value="">-- Selecteer een pakket --</option>
-        <option value="Beginner">Beginner (3 sessies – €65,34 incl. btw)</option>
-        <option value="Amateur">Amateur (6 sessies – €123,42 incl. btw)</option>
-        <option value="Semi">Semi (12 sessies – €232,32 incl. btw)</option>
-        <option value="Prof">Prof (24 sessies – €435,60 incl. btw)</option>
-      </select>
+    <h3>Trainingslocatie</h3>
+    <p>Jupiterstraat 37, 1771 CM Wieringerwerf</p>
 
-      <label for="availability">Beschikbare tijdstippen (houd Ctrl/Cmd ingedrukt om meerdere te selecteren)</label>
-      <select id="availability" name="availability" multiple size="7" required>
-        <option value="Maandag 16:00-16:45">Maandag 16:00-16:45</option>
-        <option value="Maandag 16:45-17:30">Maandag 16:45-17:30</option>
-        <option value="Maandag 17:30-18:15">Maandag 17:30-18:15</option>
-        <option value="Woensdag 15:15-16:00">Woensdag 15:15-16:00</option>
-        <option value="Woensdag 16:00-16:45">Woensdag 16:00-16:45</option>
-        <option value="Donderdag 15:15-16:00">Donderdag 15:15-16:00</option>
-        <option value="Donderdag 16:00-16:45">Donderdag 16:00-16:45</option>
-        <option value="Vrijdag 15:15-16:00">Vrijdag 15:15-16:00</option>
-        <option value="Vrijdag 16:00-16:45">Vrijdag 16:00-16:45</option>
-        <option value="Vrijdag 16:45-17:30">Vrijdag 16:45-17:30</option>
-        <option value="Vrijdag 19:00-19:45">Vrijdag 19:00-19:45</option>
-        <option value="Vrijdag 19:45-20:30">Vrijdag 19:45-20:30</option>
-      </select>
-
-      <button type="submit">Verstuur via WhatsApp</button>
-    </form>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.1587258972633!2d5.016312315969795!3d52.86393917986426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c88cf13eeb4d3b%3A0x776c8d76ad352ae9!2sJupiterstraat%2037%2C%201771%20CM%20Wieringerwerf!5e0!3m2!1snl!2snl!4v1720594328000!5m2!1snl!2snl"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
   </section>
 
   <footer>
-    &copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden
+    <p>&copy; 2025 Voetbalacademie VIS – Alle rechten voorbehouden</p>
+    <p><a href="privacy.html">Privacyverklaring</a></p>
   </footer>
-
-  <script>
-    function sendToWhatsApp(event) {
-      event.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const age = document.getElementById("age").value.trim();
-      const pack = document.getElementById("package").value.trim();
-
-      const select = document.getElementById("availability");
-      const selectedOptions = Array.from(select.selectedOptions);
-
-      if (selectedOptions.length === 0) {
-        alert('Selecteer minstens één beschikbaar tijdstip.');
-        return;
-      }
-
-      const selectedTimes = selectedOptions.map(option => option.value);
-      const timesString = selectedTimes.join(', ');
-
-      const message = `Hallo Bart,
-
-Ik wil graag een privétraining aanvragen:
-- Naam: ${name}
-- Leeftijd: ${age}
-- Pakket: ${pack}
-- Gewenste tijdstippen: ${timesString}`;
-
-      const encodedMessage = encodeURIComponent(message);
-      const url = `https://wa.me/31657927473?text=${encodedMessage}`;
-      window.open(url, "_blank");
-    }
-  </script>
 </body>
 </html>
