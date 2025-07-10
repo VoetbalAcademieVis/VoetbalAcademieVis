@@ -15,7 +15,6 @@
         <li><a href="#over">Over ons</a></li>
         <li><a href="#aanbod">Aanbod</a></li>
         <li><a href="#pakketten">Pakketten</a></li>
-        <li><a href="aanmelden.html">Aanmelden</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -24,8 +23,7 @@
   <section class="hero">
     <h1>Train als een prof. Groei met VIS.</h1>
     <p>Dé plek voor jong talent met ambitie. Techniek, tactiek, mentaliteit.</p>
-    <a href="aanmelden.html" class="cta-button">Meld je nu aan</a>
-  </section>
+   </p>Meld je nu aan via onderstaand formulier</
 
   <section id="over" class="intro">
     <h2>Over Voetbalacademie VIS</h2>
@@ -76,24 +74,23 @@
       <label for="leeftijd">Leeftijd speler:</label><br />
       <input type="number" id="leeftijd" name="leeftijd" min="8" max="15" required /><br /><br />
 
-      <label for="dag">Kies een dag:</label><br />
-      <select id="dag" name="dag" required>
-        <option value="" disabled selected>-- Selecteer dag --</option>
-        <option>Maandag</option>
-        <option>Dinsdag</option>
-        <option>Woensdag</option>
-        <option>Donderdag</option>
-        <option>Vrijdag</option>
-      </select><br /><br />
+      <label for="dag">Kies een of meer dagen:</label><br />
+<select id="dag" name="dag[]" multiple required size="5">
+  <option value="maandag">Maandag</option>
+  <option value="dinsdag">Dinsdag</option>
+  <option value="woensdag">Woensdag</option>
+  <option value="donderdag">Donderdag</option>
+  <option value="vrijdag">Vrijdag</option>
+</select><br /><br />
 
-      <label for="tijd">Kies een tijd:</label><br />
-      <select id="tijd" name="tijd" required>
+      <label for="tijd">Kies een of meer tijden:</label><br />
+      <select id="tijd" name="tijd[]" multiple required size="5">
         <option value="" disabled selected>-- Selecteer tijd --</option>
-        <option>15:00 (alle dagen)</option>
-        <option>16:00 (alle dagen)</option>
-        <option>17:00 (maandag en vrijdag)</option>
-        <option>19:00 (alleen vrijdag)</option>
-        <option>20:00 (alleen vrijdag)</option>
+        <option value="15:00">15:00 (alle dagen)</option>
+        <option value="16:00">16:00 (alle dagen)</option>
+        <option value="17:00">17:00 (maandag en vrijdag)</option>
+        <option value="19:00">19:00 (alleen vrijdag)</option>
+        <option value="20:00">20:00 (alleen vrijdag)</option>
       </select><br /><br />
 
       <label for="pakket">Kies een pakket:</label><br />
