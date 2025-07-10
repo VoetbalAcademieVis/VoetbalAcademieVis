@@ -52,19 +52,71 @@
 
     <h3>Privétraining</h3>
     <ul>
-      <li><strong>Prof:</strong> 24 sessies – €432 ex. btw</li>
-      <li><strong>Semi:</strong> 18 sessies – €324 ex. btw</li>
-      <li><strong>Amateur:</strong> 12 sessies – €228 ex. btw</li>
-      <li><strong>Beginner:</strong> 6 sessies – €114 ex. btw</li>
+      <li><strong>Prof:</strong> 24 sessies – €435,60 incl. btw</li>
+      <li><strong>Semi:</strong> 12 sessies – €232,32 incl. btw</li>
+      <li><strong>Amateur:</strong> 6 sessies – €123,42 incl. btw</li>
+      <li><strong>Beginner:</strong> 3 sessies – €65,34 incl. btw</li>
     </ul>
 
     <h3>Groepstraining (50% goedkoper per sessie)</h3>
     <ul>
-      <li><strong>Prof:</strong> 24 sessies – €216 ex. btw</li>
-      <li><strong>Semi:</strong> 18 sessies – €162 ex. btw</li>
-      <li><strong>Amateur:</strong> 12 sessies – €114 ex. btw</li>
-      <li><strong>Beginner:</strong> 6 sessies – €57 ex. btw</li>
+      <li><strong>Prof:</strong> 24 sessies – €217,80 incl. btw</li>
+      <li><strong>Semi:</strong> 12 sessies – €116,16 incl. btw</li>
+      <li><strong>Amateur:</strong> 6 sessies – €61,71 incl. btw</li>
+      <li><strong>Beginner:</strong> 3 sessies – €32,67 incl. btw</li>
     </ul>
+  </section>
+
+  <section id="aanmelden" class="aanmelden">
+    <h2>Aanmeldformulier</h2>
+    <form id="aanmeldFormulier">
+      <label for="naam">Naam speler:</label><br />
+      <input type="text" id="naam" name="naam" required /><br /><br />
+
+      <label for="leeftijd">Leeftijd speler:</label><br />
+      <input type="number" id="leeftijd" name="leeftijd" min="8" max="15" required /><br /><br />
+
+      <label for="dag">Kies een dag:</label><br />
+      <select id="dag" name="dag" required>
+        <option value="" disabled selected>-- Selecteer dag --</option>
+        <option>Maandag</option>
+        <option>Dinsdag</option>
+        <option>Woensdag</option>
+        <option>Donderdag</option>
+        <option>Vrijdag</option>
+        <option>Zaterdag</option>
+        <option>Zondag</option>
+      </select><br /><br />
+
+      <label for="tijd">Kies een tijd:</label><br />
+      <select id="tijd" name="tijd" required>
+        <option value="" disabled selected>-- Selecteer tijd --</option>
+        <option>15:00</option>
+        <option>16:00</option>
+        <option>17:00</option>
+        <option>18:00</option>
+        <option>19:00</option>
+      </select><br /><br />
+
+      <label for="pakket">Kies een pakket:</label><br />
+      <select id="pakket" name="pakket" required>
+        <option value="" disabled selected>-- Selecteer pakket --</option>
+        <optgroup label="Privétraining">
+          <option>Prof - 24 sessies (€435,60 incl. btw)</option>
+          <option>Semi - 12 sessies (€232,32 incl. btw)</option>
+          <option>Amateur - 6 sessies (€123,42 incl. btw)</option>
+          <option>Beginner - 3 sessies (€65,34 incl. btw)</option>
+        </optgroup>
+        <optgroup label="Groepstraining">
+          <option>Prof - 24 sessies (€217,80 incl. btw)</option>
+          <option>Semi - 12 sessies (€116,16 incl. btw)</option>
+          <option>Amateur - 6 sessies (€61,71 incl. btw)</option>
+          <option>Beginner - 3 sessies (€32,67 incl. btw)</option>
+        </optgroup>
+      </select><br /><br />
+
+      <button type="submit">Verstuur via WhatsApp</button>
+    </form>
   </section>
 
   <section id="contact" class="contact">
@@ -91,5 +143,31 @@
     <p>&copy; 2025 Voetbalacademie VIS – Alle rechten voorbehouden</p>
     <p><a href="privacy.html">Privacyverklaring</a></p>
   </footer>
-</body>
-</html>
+
+  <script>
+    document.getElementById('aanmeldFormulier').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const naam = document.getElementById('naam').value.trim();
+      const leeftijd = document.getElementById('leeftijd').value.trim();
+      const dag = document.getElementById('dag').value;
+      const tijd = document.getElementById('tijd').value;
+      const pakket = document.getElementById('pakket').value;
+
+      if (!naam || !leeftijd || !dag || !tijd || !pakket) {
+        alert('Vul alle velden in alstublieft.');
+        return;
+      }
+
+      const bericht = `Aanmelding Voetbalacademie VIS:%0A` +
+                      `Naam speler: ${naam}%0A` +
+                      `Leeftijd: ${leeftijd}%0A` +
+                      `Dag: ${dag}%0A` +
+                      `Tijd: ${tijd}%0A` +
+                      `Pakket: ${pakket}`;
+
+      const telefoonnummer = '31657927473'; // Landcode +31, zonder 0
+
+      const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${bericht}`;
+
+      window.open(whatsappUrl
