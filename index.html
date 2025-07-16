@@ -23,12 +23,13 @@
   <section class="hero">
     <h1>Train als een prof. Groei met VIS.</h1>
     <p>Dé plek voor jong talent met ambitie. Techniek, tactiek, mentaliteit.</p>
-   </p>Meld je nu aan via onderstaand formulier</
+    <p>Meld je nu aan via onderstaand formulier</p>
+  </section>
 
   <section id="over" class="intro">
     <h2>Over Voetbalacademie VIS</h2>
     <p>
-      Wij zijn de voetbalacademie voor ambitieuze jeugd van 8 t/m 15 jaar.
+      Wij zijn de voetbalacademie voor ambitieuze jeugd van 8 t/m 15 jaar (bij een andere leeftijd en alsnog interesse, stuur ons dan een mail via onderstaande mail).
       Wij begeleiden je met persoonlijke aandacht, moderne technieken en
       een scherp oog voor jouw ontwikkeling. We geloven in trainen met passie en
       resultaat.
@@ -75,17 +76,16 @@
       <input type="number" id="leeftijd" name="leeftijd" min="8" max="15" required /><br /><br />
 
       <label for="dag">Kies een of meer dagen:</label><br />
-<select id="dag" name="dag[]" multiple required size="5">
-  <option value="maandag">Maandag</option>
-  <option value="dinsdag">Dinsdag</option>
-  <option value="woensdag">Woensdag</option>
-  <option value="donderdag">Donderdag</option>
-  <option value="vrijdag">Vrijdag</option>
-</select><br /><br />
+      <select id="dag" name="dag[]" multiple required size="5">
+        <option value="maandag">Maandag</option>
+        <option value="dinsdag">Dinsdag</option>
+        <option value="woensdag">Woensdag</option>
+        <option value="donderdag">Donderdag</option>
+        <option value="vrijdag">Vrijdag</option>
+      </select><br /><br />
 
       <label for="tijd">Kies een of meer tijden:</label><br />
       <select id="tijd" name="tijd[]" multiple required size="5">
-        <option value="" disabled selected>-- Selecteer tijd --</option>
         <option value="15:00">15:00 (alle dagen)</option>
         <option value="16:00">16:00 (alle dagen)</option>
         <option value="17:00">17:00 (maandag en vrijdag)</option>
@@ -116,14 +116,14 @@
 
   <section id="contact" class="contact">
     <h2>Contact & locatie</h2>
-    <p>Heb je vragen? Neem gerust contact op via <a href="mailto voetbalacademievis@gmail.com"voetbalacademievis@gmail.com</a></p>
+    <p>Heb je vragen? Neem gerust contact op via <a href="mailto:voetbalacademievis@gmail.com">voetbalacademievis@gmail.com</a></p>
 
     <h3>Trainingslocatie</h3>
-    <p>Jupiterstraat 37, 1771 CM Wieringerwerf</p>
+    <p>Jupiterstraat 37, 1771 BH Wieringerwerf</p>
 
     <div class="map">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.1587258972633!2d5.016312315969795!3d52.86393917986426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c88cf13eeb4d3b%3A0x776c8d76ad352ae9!2sJupiterstraat%2037%2C%201771%20CM%20Wieringerwerf!5e0!3m2!1snl!2snl!4v1720594328000!5m2!1snl!2snl"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.1587258972633!2d5.016312315969795!3d52.86393917986426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c88cf13eeb4d3b%3A0x776c8d76ad352ae9!2sJupiterstraat%2037%2C%201771%20BH%20Wieringerwerf!5e0!3m2!1snl!2snl!4v1720594328000!5m2!1snl!2snl"
         width="100%"
         height="300"
         style="border:0;"
@@ -145,11 +145,13 @@
 
       const naam = document.getElementById('naam').value.trim();
       const leeftijd = document.getElementById('leeftijd').value.trim();
-      const dag = document.getElementById('dag').value;
-      const tijd = document.getElementById('tijd').value;
+
+      const dagen = Array.from(document.getElementById('dag').selectedOptions).map(opt => opt.value).join(', ');
+      const tijden = Array.from(document.getElementById('tijd').selectedOptions).map(opt => opt.value).join(', ');
+
       const pakket = document.getElementById('pakket').value;
 
-      if (!naam || !leeftijd || !dag || !tijd || !pakket) {
+      if (!naam || !leeftijd || !dagen || !tijden || !pakket) {
         alert('Vul alle velden in alstublieft.');
         return;
       }
@@ -157,12 +159,16 @@
       const bericht = `Aanmelding Voetbalacademie VIS:%0A` +
                       `Naam speler: ${naam}%0A` +
                       `Leeftijd: ${leeftijd}%0A` +
-                      `Dag: ${dag}%0A` +
-                      `Tijd: ${tijd}%0A` +
-                      `Pakket: ${pakket}`;
+                      `Voorkeursdagen: ${dagen}%0A` +
+                      `Voorkeurtijden: ${tijden}%0A` +
+                      `Gekozen pakket: ${pakket}`;
 
-      const telefoonnummer = '31657927473'; // Landcode +31, zonder 0
+      const telefoonnummer = '31657927473'; // zonder de eerste 0, dus 06 → 316
 
-      const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${bericht}`;
+      const whatsappUrl = `https://wa.me/${+31657927473}?text=${encodeURIComponent(bericht)}`;
 
-      window.open(whatsappUrl
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+</body>
+</html>
