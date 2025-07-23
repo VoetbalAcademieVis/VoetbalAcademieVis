@@ -3,18 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Voetbalacademie VIS</title>
+  <title>VoetbalAcademieVis</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .faq details { margin-bottom: 1rem; }
+    .faq summary { cursor: pointer; font-weight: bold; }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">VOETBALACADEMIE VIS</div>
+    <div class="logo">VoetbalAcademieVis</div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="#over">Over ons</a></li>
         <li><a href="#aanbod">Aanbod</a></li>
+        <li><a href="#uitleg-pakketten">Pakketinfo</a></li>
         <li><a href="#pakketten">Pakketten</a></li>
+        <li><a href="#aanmelden">Aanmelden</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -23,11 +31,11 @@
   <section class="hero">
     <h1>Train als een prof. Groei met VIS.</h1>
     <p>Dé plek voor jong talent met ambitie. Techniek, tactiek, mentaliteit.</p>
-    <p>Meld je nu aan via onderstaand formulier</p>
+    <p>Meld je nu aan!r</p>
   </section>
 
   <section id="over" class="intro">
-    <h2>Over Voetbalacademie VIS</h2>
+    <h2>Over VoetbalAcademieVis/h2>
     <p>
       Wij zijn de voetbalacademie voor ambitieuze jeugd van 8 t/m 15 jaar (bij een andere leeftijd en alsnog interesse, stuur ons dan een mail via onderstaande mail).
       Wij begeleiden je met persoonlijke aandacht, moderne technieken en
@@ -45,6 +53,80 @@
       <li>Trainingen aangepast aan leeftijd en niveau</li>
     </ul>
   </section>
+
+  <section id="uitleg-pakketten" class="uitleg-pakketten">
+    <h2>Welke training past bij jou?</h2>
+    <p>
+      Bij Voetbalacademie VIS kun je kiezen uit vier verschillende pakketten, afgestemd op jouw niveau, motivatie en doelen.
+    </p>
+    <ul>
+      <li><strong>Beginner:</strong> Maak kennis met onze manier van trainen en ontdek je potentie.</li>
+      <li><strong>Amateur:</strong> Werk doelgericht aan je techniek en inzicht met persoonlijke aandacht.</li>
+      <li><strong>Semi:</strong> Voor spelers die serieus werk willen maken van hun ontwikkeling.</li>
+      <li><strong>Prof:</strong> Het meest intensieve pakket voor spelers met topambitie en volledige begeleiding.</li>
+    </ul>
+    <h3>Voordelen Amateur-pakket</h3>
+    <ul>
+      <li>6 gerichte trainingen met vaste trainer</li>
+      <li>Korting op vaardigheidstest</li>
+    </ul>
+    
+    <h3>Voordelen Semi-pakket</h3>
+    <ul>
+      <li>12 gerichte trainingen met vaste trainer</li>
+      <li>Tussentijdse evaluatie met tips en verbeterpunten</li>
+      <li>Persoonlijk feedbackmoment via WhatsApp of mail</li>
+      <li>Optie tot deelname aan vaardigheidstest</li>
+    </ul>
+
+    <h3>Voordelen Prof-pakket</h3>
+    <ul>
+      <li>Goedkoopste pakket per sessie</li>
+      <li>24 trainingen met maximale individuele aandacht</li>
+      <li>Start- en eindmeting (techniek, wendbaarheid, inzicht)</li>
+      <li>Voortgangsrapport met persoonlijke analyse</li>
+      <li>Voorrang bij inschrijving voor clinics en extra’s</li>
+      <li>Gratis deelname aan 1 groepssessie (bij privepakket) en vaardigheidstest per periode (periode is 6 weken)</li>
+    </ul>
+  </section>
+  
+<h3>Privétraining vs. Groepstraining</h3>
+<table style="width:100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="text-align:left; border-bottom: 2px solid #ccc;">Kenmerk</th>
+      <th style="text-align:left; border-bottom: 2px solid #ccc;">Privétraining</th>
+      <th style="text-align:left; border-bottom: 2px solid #ccc;">Groepstraining</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1-op-1 aandacht</td>
+      <td>100% focus op jouw ontwikkeling</td>
+      <td>De trainer verdeelt aandacht over max. 4-6 spelers</td>
+    </tr>
+    <tr>
+      <td>Training op maat</td>
+      <td>Volledig afgestemd op jouw leerdoelen</td>
+      <td>Combi van individuele en gezamenlijke doelen</td>
+    </tr>
+    <tr>
+      <td>Prijs per sessie</td>
+      <td>Hoger (intensievere begeleiding)</td>
+      <td>50% goedkoper per sessie</td>
+    </tr>
+    <tr>
+      <td>Spelers per training</td>
+      <td>1 speler</td>
+      <td>4–6 spelers</td>
+    </tr>
+    <tr>
+      <td>Type oefeningen</td>
+      <td>Specifiek, detailgericht</td>
+      <td>Afwisseling tussen techniek & samenspel</td>
+    </tr>
+  </tbody>
+</table>
 
   <section id="pakketten" class="pakketten">
     <h2>Pakketten en prijzen</h2>
@@ -83,7 +165,9 @@
         <option value="donderdag">Donderdag</option>
         <option value="vrijdag">Vrijdag</option>
         <option value="zondag">Zondag</option>
-      </select><br /><br />
+      </select><br />
+      <small>Houd Ctrl (Windows) of Cmd (Mac) ingedrukt om meerdere dagen te selecteren.</small><br /><br />
+
       <label for="tijd">Kies een of meer tijden:</label><br />
       <select id="tijd" name="tijd[]" multiple required size="5">
         <option value="13:30">13:30 (zondag, prive)</option>
@@ -91,11 +175,10 @@
         <option value="15:00">15:00 (alle dagen, zondag prive)</option>
         <option value="15:45">15:45 (zondag, prive)</option>
         <option value="16:00">16:00 (alle dagen)</option>
-
         <option value="17:00">17:00 (maandag en vrijdag)</option>
         <option value="19:00">19:00 (alleen vrijdag)</option>
         <option value="20:00">20:00 (alleen vrijdag)</option>
-      </select><br /><br />
+      </select><br />
 
       <label for="pakket">Kies een pakket:</label><br />
       <select id="pakket" name="pakket" required>
@@ -114,32 +197,45 @@
         </optgroup>
       </select><br /><br />
 
-      <button type="submit">Verstuur via WhatsApp</button>
+      <button type="submit">Aanmelding via Whatsapp</button>
     </form>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact & locatie</h2>
-    <p>Heb je vragen? Neem gerust contact op via <a href="mailto:voetbalacademievis@gmail.com">voetbalacademievis@gmail.com</a></p>
+  <section id="faq" class="faq">
+    <h2>Veelgestelde vragen</h2>
 
-    <h3>Trainingslocatie</h3>
-    <p>Jupiterstraat 37, 1771 BH Wieringerwerf</p>
+    <details>
+      <summary>Voor welke leeftijden is VoetbalAcademieVis?</summary>
+      <p>Onze trainingen zijn gericht op jeugdspelers van 8 t/m 15 jaar. Bij een andere leeftijd kun je altijd contact met ons opnemen voor maatwerk.</p>
+    </details>
 
-    <div class="map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.1587258972633!2d5.016312315969795!3d52.86393917986426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c88cf13eeb4d3b%3A0x776c8d76ad352ae9!2sJupiterstraat%2037%2C%201771%20BH%20Wieringerwerf!5e0!3m2!1snl!2snl!4v1720594328000!5m2!1snl!2snl"
-        width="100%"
-        height="300"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
+    <details>
+      <summary>Wat is het verschil tussen privé- en groepstraining?</summary>
+      <p>Privétraining is 1-op-1 en volledig op maat. Groepstraining is met max. 4 spelers en focust op techniek in spelvormen. Groepstraining is 50% goedkoper per sessie.</p>
+    </details>
+
+    <details>
+      <summary>Moet je op een bepaald niveau spelen?</summary>
+      <p>Wij trainen spelers van elk niveau. We kijken vooral naar motivatie, inzet en leervermogen. Van beginner tot selectie- of BVO-niveau.</p>
+    </details>
+
+    <details>
+      <summary>Waar vinden de trainingen plaats?</summary>
+      <p>Op het veld van CVW in Slootdorp en op het veld van DWOW in Wieringerwerf.</p>
+    </details>
+
+    <details>
+      <summary>Hoe kan ik mij aanmelden?</summary>
+      <p>Via het formulier op deze pagina. Na invullen word je doorgestuurd naar WhatsApp om de aanmelding direct te versturen.</p>
+    </details>
   </section>
 
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Heb je vragen? Neem gerust contact op via <a href="mailto:voetbalacademievis@gmail.com">voetbalacademievis@gmail.com</a></p>
+    
   <footer>
-    <p>&copy; 2025 Voetbalacademie VIS – Alle rechten voorbehouden</p>
+    <p>&copy; 2025 Voetbala=AcademieVis – Alle rechten voorbehouden</p>
     <p><a href="privacy.html">Privacyverklaring</a></p>
   </footer>
 
@@ -160,21 +256,14 @@
         return;
       }
 
-      const bericht = `Aanmelding Voetbalacademie VIS:` +
+      const bericht = `Aanmelding VoetbalAcademieVis:\n\n` +
+                      `Naam speler: ${naam}\n` +
+                      `Leeftijd: ${leeftijd}\n` +
+                      `Voorkeursdagen: ${dagen}\n` +
+                      `Voorkeurtijden: ${tijden}\n` +
+                      `Gekozen pakket: ${pakket}`;
 
-                      `Naam speler: ${naam}` +
-
-                      `Leeftijd: ${leeftijd}` +
-
-                      `Voorkeursdagen: ${dagen}` +
-
-                      `Voorkeurtijden: ${tijden}` +
-                      
-`Gekozen pakket: ${pakket}`;
-
-      const telefoonnummer = '31657927473'; // zonder de eerste 0, dus 06 → 316
-
-      const whatsappUrl = `https://wa.me/${31657927473}?text=${encodeURIComponent(bericht)}`;
+      const whatsappUrl = `https://wa.me/31657927473?text=${encodeURIComponent(bericht)}`;
 
       window.open(whatsappUrl, '_blank');
     });
