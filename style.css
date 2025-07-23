@@ -1,53 +1,237 @@
-/* Algemene opmaak */ body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #111; line-height: 1.6; }
+/* Algemene opmaak */
+html {
+  scroll-behavior: smooth;
+}
 
-/* Header */ header { background-color: #000; color: white; display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; position: sticky; top: 0; z-index: 999; }
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #111;
+  line-height: 1.6;
+}
 
-.logo { font-weight: bold; font-size: 1.3rem; letter-spacing: 1px; }
+/* Header */
+header {
+  background-color: #000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
-nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+.logo {
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
 
-nav ul li { margin-left: 20px; }
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
 
-nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+nav ul li {
+  margin-left: 20px;
+}
 
-nav ul li a:hover { color: #f44336; /* rood accent */ }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
 
-/* Hero sectie */ .hero { background: url('hero.jpg') center/cover no-repeat; color: white; padding: 100px 20px; text-align: center; background-color: #111; }
+nav ul li a:hover {
+  color: #f44336; /* rood accent */
+}
 
-.hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+/* Hero sectie */
+.hero {
+  background: url('hero.jpg') center/cover no-repeat;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  background-color: #111;
+}
 
-.hero p { font-size: 1.2rem; margin-bottom: 10px; }
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
 
-.cta-button { display: inline-block; background-color: #f44336; color: white; padding: 12px 24px; border-radius: 8px; font-weight: bold; text-decoration: none; margin-top: 15px; }
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
 
-/* Secties algemeen */ section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+.cta-button {
+  display: inline-block;
+  background-color: #f44336;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 15px;
+}
 
-h2 { color: #f44336; margin-bottom: 20px; font-size: 2rem; }
+/* Secties algemeen */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-/* Aanbodlijst */ .aanbod ul { list-style: none; padding-left: 0; }
+h2 {
+  color: #f44336;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
 
-.aanbod li::before { content: '⚽'; margin-right: 10px; color: #f44336; }
+/* Aanbodlijst */
+.aanbod ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-/* Pakketkaarten */ .pakketten ul { display: flex; flex-wrap: wrap; gap: 20px; padding: 0; list-style: none; }
+.aanbod li::before {
+  content: '⚽';
+  margin-right: 10px;
+  color: #f44336;
+}
 
-.pakketten li { background: #f9f9f9; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 15px; flex: 1 1 200px; text-align: center; }
+/* Pakketkaarten */
+.pakketten ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
 
-/* Formulier */ .aanmelden form { background-color: #f5f5f5; padding: 30px; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
+.pakketten li {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  flex: 1 1 200px;
+  text-align: center;
+}
 
-.aanmelden input, select, button { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #ccc; font-size: 1rem; }
+/* Formulier */
+.aanmelden form {
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: auto;
+}
 
-.aanmelden button { background-color: #25D366; /* WhatsApp groen */ color: white; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
+.aanmelden input,
+select,
+button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
 
-.aanmelden button:hover { background-color: #1ebe57; }
+.aanmelden button {
+  background-color: #25D366; /* WhatsApp groen */
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-/* Footer */ footer { background-color: #000; color: white; text-align: center; padding: 20px; }
+.aanmelden button:hover {
+  background-color: #1ebe57;
+}
 
-footer a { color: #f44336; text-decoration: none; }
+/* Footer */
+footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 
-/* Responsive */ @media (max-width: 768px) { nav ul { flex-direction: column; align-items: flex-start; }
+footer a {
+  color: #f44336;
+  text-decoration: none;
+}
 
-.pakketten ul { flex-direction: column; }
+/* FAQ sectie */
+.faq details {
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
 
-.hero h1 { font-size: 2rem; }
+.faq summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
 
-.hero p { font-size: 1rem; } }
+/* Tabel: Privé vs Groep */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+/* Extra instructieteksten */
+form small {
+  color: #666;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pakketten ul {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
