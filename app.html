@@ -225,3 +225,58 @@
           updateBar(`${onderdeel}Bar`, slider.value);
           stuurDataDoor();
         };
+      });
+    }
+
+    // Sliders en voortgangsbalk synchroniseren
+    function setSliderValue(sliderId, barId, value) {
+      const val = parseInt(value) || 0;
+      document.getElementById(sliderId).value = val;
+      updateBar(barId, val);
+    }
+
+    // Data naar Google Sheet sturen
+    function stuurDataDoor() {
+      const code = localStorage.getItem('code');
+      if (!code) return;
+
+      const payload = {
+        code: code,
+        techniek: document.getElementById('sliderTechniek').value,
+        fysiek: document.getElementById('sliderFysiek').value,
+        tactiek: document.getElementById('sliderTactiek').value,
+        mentaal: document.getElementById('sliderMentaal').value
+      };
+
+      fetch(webAppURL, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json' }
+      }).catch(() => {
+        // Swallow errors silently, maar je kan hier nog error handling doen
+      });
+    }
+
+    // Automatisch inloggen als code lokaal is opgeslagen
+    window.onload = () => {
+      const savedCode = localStorage.getItem('code');
+      if (savedCode) {
+        document.getElementById("toegangscode").value = savedCode;
+        login();
+      }
+    };
+
+    // Uitloggen
+    uitloggenBtn.onclick = () => {
+      localStorage.removeItem('code');
+      dashboard.style.display = 'none';
+      loginScherm.style.display = 'block';
+      uitloggenBtn.style.display = 'none';
+      loginError.style.display = 'none';
+      document.getElementById("toegangscode").value = '';
+    };
+
+  </script>
+
+</body>
+</html>
