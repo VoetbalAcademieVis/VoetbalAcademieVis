@@ -2,161 +2,98 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VIS Trainingsdashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voetbalacademie VIS - Dashboard</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
+      font-family: 'Arial', sans-serif;
       margin: 0;
-      padding: 0;
+      background: #111;
+      color: #fff;
     }
     header {
-      background: #cc0000;
-      color: white;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      color: white;
-      text-decoration: underline;
-      font-size: 0.9rem;
+      background-color: #c00000;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
     .container {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #cc0000;
-    }
-    .progress-group {
-      margin-bottom: 30px;
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #222;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
     }
     label {
-      font-weight: bold;
       display: block;
-      margin-bottom: 6px;
+      margin-top: 1.5rem;
     }
-    input[type="range"] {
+    input[type="text"], textarea, input[type="range"] {
       width: 100%;
-    }
-    .progress-bar {
-      background: #ddd;
-      border-radius: 10px;
-      height: 20px;
-      overflow: hidden;
-      margin-top: 6px;
-    }
-    .progress-fill {
-      height: 100%;
-      background: #cc0000;
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-    .video {
-      margin-bottom: 30px;
-    }
-    iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-      border-radius: 10px;
-    }
-    .feedback {
-      background: #f9f9f9;
-      padding: 16px;
-      border-left: 5px solid #cc0000;
-      margin-top: 20px;
-    }
-    #loginContainer {
-      max-width: 400px;
-      margin: 80px auto;
-      background: white;
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    input[type="text"] {
-      padding: 10px;
-      width: 80%;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
       border-radius: 8px;
+      border: none;
     }
     button {
-      background: #cc0000;
+      background-color: #c00000;
       color: white;
-      padding: 10px 20px;
+      padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 8px;
+      margin-top: 1.5rem;
       cursor: pointer;
+      font-weight: bold;
+    }
+    #inlogscherm {
+      display: none;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    #dashboard {
+      display: none;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+  <header>VIS Speler Dashboard</header>
 
-  <div id="loginContainer" style="display: none;">
-    <h2>VIS Trainingsdashboard</h2>
-    <p>Voer je toegangscode in (via WhatsApp ontvangen)</p>
+  <div class="container" id="inlogscherm">
+    <h2>Log in</h2>
     <input type="text" id="toegangscode" placeholder="Toegangscode" />
-    <br />
     <button onclick="login()">Inloggen</button>
   </div>
 
-  <div id="dashboard" style="display: none;">
-    <header>
-      <h1>Dashboard – <span id="spelerNaam"></span></h1>
-      <a href="#" onclick="logout()">Uitloggen</a>
-    </header>
+  <div class="container" id="dashboard">
+    <p><strong>Naam:</strong> <span id="naam"></span></p>
 
-    <div class="container">
-      <h2>Trainingsdoelen</h2>
-      <div id="doelenText"></div>
+    <label>Doelen:</label>
+    <textarea id="doelen" rows="3"></textarea>
 
-      <h2>Voortgang per onderdeel</h2>
+    <label>Techniek</label>
+    <div class="slider-label"><span>0</span><span>10</span></div>
+    <input type="range" min="0" max="10" id="techniek" />
 
-      <div class="progress-group">
-        <label>Techniek</label>
-        <div class="progress-bar"><div id="TechniekBar" class="progress-fill"></div></div>
-      </div>
+    <label>Fysiek</label>
+    <div class="slider-label"><span>0</span><span>10</span></div>
+    <input type="range" min="0" max="10" id="fysiek" />
 
-      <div class="progress-group">
-        <label>Fysiek</label>
-        <div class="progress-bar"><div id="FysiekBar" class="progress-fill"></div></div>
-      </div>
-      
-      <div class="progress-group">
-        <label>Tactiek</label>
-        <div class="progress-bar"><div id="TactiekBar" class="progress-fill"></div></div>
-      </div>
-      
-      <div class="progress-group">
-        <label>Mentaal</label>
-        <div class="progress-bar"><div id="MentaalBar" class="progress-fill"></div></div>
-      </div>
+    <label>Tactiek</label>
+    <div class="slider-label"><span>0</span><span>10</span></div>
+    <input type="range" min="0" max="10" id="tactiek" />
 
-      <h2>Oefeningen & Video's</h2>
+    <label>Mentaal</label>
+    <div class="slider-label"><span>0</span><span>10</span></div>
+    <input type="range" min="0" max="10" id="mentaal" />
 
-      <div class="video">
-        <p>Oefening 1</p>
-        <iframe src="https://www.youtube.com/embed/Z" allowfullscreen></iframe>
-      </div>
-
-      <div class="video">
-        <p>Oefening 2</p>
-        <iframe src="https://www.youtube.com/embed/" allowfullscreen></iframe>
-      </div>
-
-      <h2>Feedback van de Coach</h2>
-      <div class="feedback" id="coachFeedback">Wordt geladen...</div>
-    </div>
+    <button onclick="opslaan()">Voortgang opslaan</button>
   </div>
 
   <script>
@@ -176,24 +113,15 @@
           window.location.reload();
         }
       } catch (err) {
-        alert("Er is een fout opgetreden bij het inloggen.");
+        alert("Fout bij inloggen.");
         console.error(err);
       }
-    }
-
-    function logout() {
-      localStorage.removeItem("code");
-      window.location.reload();
-    }
-
-    function updateBar(id, value) {
-      document.getElementById(id).style.width = value + "%";
     }
 
     async function laadData() {
       const code = localStorage.getItem("code");
       if (!code) {
-        document.getElementById("loginContainer").style.display = "block";
+        document.getElementById("inlogscherm").style.display = "block";
         return;
       }
 
@@ -202,27 +130,54 @@
         const data = await res.json();
 
         if (data.error) {
-          alert("Code ongeldig. Log opnieuw in.");
-          logout();
-          return;
-        }
+          localStorage.removeItem("code");
+          window.location.reload();
+        } else {
+          document.getElementById("inlogscherm").style.display = "none";
+          document.getElementById("dashboard").style.display = "block";
 
-        document.getElementById("dashboard").style.display = "block";
-        document.getElementById("spelerNaam").innerText = data.naam || "Speler";
-        document.getElementById("doelenText").innerText = data.doelen || "Geen doelen opgegeven.";
-        updateBar("TechniekBar", data.techniek || 0);
-        updateBar("FysiekBar", data.fysiek || 0);
-        updateBar("TactiekBar", data.tactiek || 0);
-        updateBar("MentaalBar", data.mentaal || 0);
-        document.getElementById("coachFeedback").innerText = data.feedback || "Nog geen feedback.";
+          document.getElementById("naam").textContent = data.naam || "-";
+          document.getElementById("doelen").value = data.doelen || "";
+          document.getElementById("techniek").value = data.techniek || 0;
+          document.getElementById("fysiek").value = data.fysiek || 0;
+          document.getElementById("tactiek").value = data.tactiek || 0;
+          document.getElementById("mentaal").value = data.mentaal || 0;
+        }
       } catch (err) {
-        alert("Fout bij het laden van gegevens.");
+        alert("Fout bij het laden van data.");
+        console.error(err);
+      }
+    }
+
+    async function opslaan() {
+      const code = localStorage.getItem("code");
+      const data = {
+        code: code,
+        doelen: document.getElementById("doelen").value,
+        techniek: document.getElementById("techniek").value,
+        fysiek: document.getElementById("fysiek").value,
+        tactiek: document.getElementById("tactiek").value,
+        mentaal: document.getElementById("mentaal").value,
+      };
+
+      try {
+        const res = await fetch(webAppURL, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const result = await res.json();
+        alert(result.status || "Opgeslagen");
+      } catch (err) {
+        alert("Fout bij opslaan.");
         console.error(err);
       }
     }
 
     laadData();
   </script>
-
 </body>
 </html>
