@@ -2,212 +2,159 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VIS Trainingsdashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoetbalAcademieVis - Trainingsdashboard</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
       margin: 0;
       padding: 0;
     }
     header {
-      background: #cc0000;
-      color: white;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      color: white;
-      text-decoration: underline;
-      font-size: 0.9rem;
+      background-color: #d00;
+      padding: 16px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
     .container {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px;
     }
-    h1, h2 {
-      color: #cc0000;
+    .hidden {
+      display: none;
     }
-    .progress-group {
-      margin-bottom: 30px;
+    .form-group {
+      margin-bottom: 15px;
     }
     label {
-      font-weight: bold;
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
-    input[type="range"] {
+    input[type="text"] {
       width: 100%;
-    }
-    .progress-bar {
-      background: #ddd;
-      border-radius: 10px;
-      height: 20px;
-      overflow: hidden;
-      margin-top: 6px;
-    }
-    .progress-fill {
-      height: 100%;
-      background: #cc0000;
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-    .video {
-      margin-bottom: 30px;
-    }
-    iframe {
-      width: 100%;
-      height: 200px;
+      padding: 10px;
       border: none;
-      border-radius: 10px;
+      border-radius: 5px;
     }
-    .feedback {
-      background: #f9f9f9;
-      padding: 16px;
-      border-left: 5px solid #cc0000;
-      margin-top: 20px;
+    button {
+      background-color: #d00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
     }
-    #loginScherm {
-      padding: 20px;
-      text-align: center;
+    h1 {
+      font-size: 1.8rem;
+    }
+    #spelerNaam {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: white;
+      margin-left: 10px;
+    }
+    .slider-group {
+      margin: 20px 0;
+    }
+    .slider-label {
+      margin-bottom: 5px;
+    }
+    .slider-value {
+      float: right;
     }
   </style>
 </head>
 <body>
+  <header>VoetbalAcademie VIS</header>
+  <div class="container">
+    <div id="loginContainer">
+      <div class="form-group">
+        <label for="accessCode">Toegangscode:</label>
+        <input type="text" id="accessCode" placeholder="Voer je toegangscode in" />
+      </div>
+      <button onclick="checkAccessCode()">Inloggen</button>
+      <p id="loginError" style="color:red;"></p>
+    </div>
 
-  <div id="loginScherm">
-    <h2>Log in met je toegangscode</h2>
-    <input type="text" id="toegangscode" placeholder="Bijv. 1234">
-    <button onclick="login()">Inloggen</button>
-  </div>
-
-  <div id="appContent" style="display: none;">
-    <header>
+    <div id="dashboard" class="hidden">
       <h1>Trainingsdashboard <span id="spelerNaam"></span></h1>
-      <a href="#" onclick="logout()">Uitloggen</a>
-    </header>
 
-    <div class="container">
-
-      <h2>Voortgang per onderdeel</h2>
-
-      <div class="progress-group">
-        <label>Techniek</label>
-        <input type="range" min="0" max="100" value="0" oninput="updateBar('TechniekBar', this.value)">
-        <div class="progress-bar"><div id="TechniekBar" class="progress-fill"></div></div>
+      <div class="slider-group">
+        <label class="slider-label">Techniek <span class="slider-value" id="techniekValue">0</span></label>
+        <input type="range" min="0" max="10" value="0" id="techniekSlider" oninput="updateValue('techniek')">
       </div>
 
-      <div class="progress-group">
-        <label>Fysiek</label>
-        <input type="range" min="0" max="100" value="0" oninput="updateBar('FysiekBar', this.value)">
-        <div class="progress-bar"><div id="FysiekBar" class="progress-fill"></div></div>
+      <div class="slider-group">
+        <label class="slider-label">Inzicht <span class="slider-value" id="inzichtValue">0</span></label>
+        <input type="range" min="0" max="10" value="0" id="inzichtSlider" oninput="updateValue('inzicht')">
       </div>
 
-      <div class="progress-group">
-        <label>Tactiek</label>
-        <input type="range" min="0" max="100" value="0" oninput="updateBar('TactiekBar', this.value)">
-        <div class="progress-bar"><div id="TactiekBar" class="progress-fill"></div></div>
+      <div class="slider-group">
+        <label class="slider-label">Fysiek <span class="slider-value" id="fysiekValue">0</span></label>
+        <input type="range" min="0" max="10" value="0" id="fysiekSlider" oninput="updateValue('fysiek')">
       </div>
 
-      <div class="progress-group">
-        <label>Mentaal</label>
-        <input type="range" min="0" max="100" value="0" oninput="updateBar('MentaalBar', this.value)">
-        <div class="progress-bar"><div id="MentaalBar" class="progress-fill"></div></div>
-      </div>
-
-      <h2>Feedback / Doelen</h2>
-      <div class="feedback" id="coachFeedback">Geen feedback geladen...</div>
-
-      <h2>Oefeningen & Video's</h2>
-
-      <div class="video">
-        <p>Oefening 1</p>
-        <iframe src="https://www.youtube.com/embed/Z" allowfullscreen></iframe>
-      </div>
-
-      <div class="video">
-        <p>Oefening 2</p>
-        <iframe src="https://www.youtube.com/embed/" allowfullscreen></iframe>
-      </div>
-
+      <button onclick="opslaan()">Voortgang opslaan</button>
     </div>
   </div>
 
-<script>
-  const webAppURL = "https://script.google.com/macros/s/AKfycbyUCewU8Bv79TG5wUl3x6hEGXMIzWv8Mk97rtWR7UBajRLQMvxeKu-W2fI10OlLhYFk/exec";
+  <script>
+    const webAppURL = "https://script.google.com/macros/s/AKfycbyUCewU8Bv79TG5wUl3x6hEGXMIzWv8Mk97rtWR7UBajRLQMvxeKu-W2fI10OlLhYFk/exec";
+    let spelerRij = -1;
 
-  function updateBar(id, value) {
-    document.getElementById(id).style.width = value + "%";
-  }
-
-  function login() {
-    const code = document.getElementById("toegangscode").value.trim();
-    if (!code) return alert("Vul een toegangscode in.");
-    localStorage.setItem("code", code);
-    laadData();
-  }
-
-  function logout() {
-    localStorage.removeItem("code");
-    location.reload();
-  }
-
-  async function laadData() {
-    const code = localStorage.getItem("code");
-    if (!code) return;
-
-    document.getElementById("loginScherm").style.display = "none";
-    document.getElementById("appContent").style.display = "block";
-
-    try {
-      const res = await fetch(`${webAppURL}?code=${code}`);
-      const data = await res.json();
-
-      if (data.error) throw new Error("Ongeldige code");
-
-      document.getElementById("spelerNaam").innerText = `– ${data.naam}`;
-      document.getElementById("TechniekBar").style.width = data.techniek + "%";
-      document.getElementById("FysiekBar").style.width = data.fysiek + "%";
-      document.getElementById("TactiekBar").style.width = data.tactiek + "%";
-      document.getElementById("MentaalBar").style.width = data.mentaal + "%";
-      document.querySelector('input[oninput*="TechniekBar"]').value = data.techniek;
-      document.querySelector('input[oninput*="FysiekBar"]').value = data.fysiek;
-      document.querySelector('input[oninput*="TactiekBar"]').value = data.tactiek;
-      document.querySelector('input[oninput*="MentaalBar"]').value = data.mentaal;
-
-      document.getElementById("coachFeedback").innerText = data.doelen || "Geen doelen beschikbaar.";
-
-      // live bijwerken
-      document.querySelectorAll('input[type="range"]').forEach(slider => {
-        slider.oninput = () => {
-          const techniek = document.querySelector('input[oninput*="TechniekBar"]').value;
-          const fysiek = document.querySelector('input[oninput*="FysiekBar"]').value;
-          const tactiek = document.querySelector('input[oninput*="TactiekBar"]').value;
-          const mentaal = document.querySelector('input[oninput*="MentaalBar"]').value;
-
-          fetch(webAppURL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ code, techniek, fysiek, tactiek, mentaal })
-          });
-        };
-      });
-
-    } catch (err) {
-      alert("Fout bij laden van data: " + err.message);
-      logout();
+    function checkAccessCode() {
+      const code = document.getElementById("accessCode").value;
+      fetch(webAppURL + '?code=' + code)
+        .then(response => response.json())
+        .then(data => {
+          if (data.valid) {
+            spelerRij = data.rij;
+            document.getElementById("spelerNaam").innerText = "– " + data.naam;
+            document.getElementById("techniekSlider").value = data.techniek;
+            document.getElementById("inzichtSlider").value = data.inzicht;
+            document.getElementById("fysiekSlider").value = data.fysiek;
+            updateValue('techniek');
+            updateValue('inzicht');
+            updateValue('fysiek');
+            document.getElementById("loginContainer").classList.add("hidden");
+            document.getElementById("dashboard").classList.remove("hidden");
+          } else {
+            document.getElementById("loginError").innerText = "Ongeldige toegangscode.";
+          }
+        })
+        .catch(error => {
+          console.error('Fout bij ophalen gegevens:', error);
+          document.getElementById("loginError").innerText = "Er ging iets mis bij het laden van gegevens.";
+        });
     }
-  }
 
-  window.onload = laadData;
-</script>
+    function updateValue(onderdeel) {
+      const slider = document.getElementById(`${onderdeel}Slider`);
+      const value = document.getElementById(`${onderdeel}Value`);
+      value.innerText = slider.value;
+    }
 
+    function opslaan() {
+      if (spelerRij === -1) return;
+      const data = {
+        rij: spelerRij,
+        techniek: document.getElementById("techniekSlider").value,
+        inzicht: document.getElementById("inzichtSlider").value,
+        fysiek: document.getElementById("fysiekSlider").value,
+      };
+      fetch(webAppURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(res => res.text())
+      .then(res => alert("Voortgang opgeslagen!"))
+      .catch(err => alert("Fout bij opslaan: " + err));
+    }
+  </script>
 </body>
 </html>
