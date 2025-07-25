@@ -19,7 +19,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="#over">Over ons</a></li>
         <li><a href="#aanbod">Aanbod</a></li>
-        <li<a href="#app">Trainingsapp</a></li>
+        <li><a href="#app">Trainingsapp</a></li>
         <li><a href="#uitleg-pakketten">Pakketinfo</a></li>
         <li><a href="#pakketten">Pakketten</a></li>
         <li><a href="#aanmelden">Aanmelden</a></li>
@@ -53,9 +53,11 @@
       <li>Individuele spelersanalyse met persoonlijke feedback</li>
       <li>Elke periode een vaardigheidstest</li>
       <li>Trainingen aangepast aan leeftijd en niveau</li>
-   <section id="app" class="app">
-      <a href="#app.html">Trainingsapp</a>
     </ul>
+  </section>
+
+  <section id="app" class="app">
+    <a href="app.html">Trainingsapp</a>
   </section>
 
   <section id="uitleg-pakketten" class="uitleg-pakketten">
@@ -92,8 +94,7 @@
       <li>Voorrang bij inschrijving voor clinics en extra’s</li>
       <li>Gratis deelname aan 1 groep of privesessie (verschilt per pakket) en vaardigheidstest per periode (periode is 6 weken)</li>
     </ul>
-  </section>
-  
+
 <h3>Privétraining vs. Groepstraining</h3>
 <table style="width:100%; border-collapse: collapse;">
   <thead>
@@ -279,14 +280,14 @@
         return;
       }
 
-      const bericht = `Aanmelding VoetbalAcademieVis:\n\n` +
-                      `Naam speler: ${naam}\n` +
-                      `Leeftijd: ${leeftijd}\n` +
-                      `Voorkeursdagen: ${dagen}\n` +
-                      `Voorkeurtijden: ${tijden}\n` +
-                      `Gekozen pakket: ${pakket}`;
+      const bericht = Aanmelding VoetbalAcademieVis:\n\n +
+                      Naam speler: ${naam}\n +
+                      Leeftijd: ${leeftijd}\n +
+                      Voorkeursdagen: ${dagen}\n +
+                      Voorkeurtijden: ${tijden}\n +
+                      Gekozen pakket: ${pakket};
 
-      const whatsappUrl = `https://wa.me/31657927473?text=${encodeURIComponent(bericht)}`;
+      const whatsappUrl = https://wa.me/31657927473?text=${encodeURIComponent(bericht)};
 
       window.open(whatsappUrl, '_blank');
     });
