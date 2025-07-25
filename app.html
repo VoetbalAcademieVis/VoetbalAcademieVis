@@ -157,12 +157,24 @@
       document.getElementById(id).style.width = value + "%";
     }
 
-    function login() {
-      const code = document.getElementById("toegangscode").value.trim();
-      if (code) {
-        localStorage.setItem("code", code);
-        window.location.reload();
-      }
+   async function login() {
+  const code = document.getElementById("toegangscode").value;
+
+  try {
+    const res = await fetch(`${webAppURL}?code=${code}`);
+    const data = await res.json();
+
+    if (data.error) {
+      alert("Ongeldige toegangscode.");
+    } else {
+      localStorage.setItem("code", code);
+      window.location.reload(); // laad dashboard met data
+    }
+  } catch (err) {
+    alert("Er is een fout opgetreden bij het inloggen.");
+    console.error(err);
+  }
+}
     }
 
     function logout() {
