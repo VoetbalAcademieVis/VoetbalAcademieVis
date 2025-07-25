@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VIS Trainingsdashboard</title>
   <style>
     body {
@@ -105,8 +105,8 @@
   <div id="loginContainer" style="display: none;">
     <h2>VIS Trainingsdashboard</h2>
     <p>Voer je toegangscode in (via WhatsApp ontvangen)</p>
-    <input type="text" id="toegangscode" placeholder="Toegangscode">
-    <br>
+    <input type="text" id="toegangscode" placeholder="Toegangscode" />
+    <br />
     <button onclick="login()">Inloggen</button>
   </div>
 
@@ -117,4 +117,112 @@
     </header>
 
     <div class="container">
-      <h2>Trainingsdoelen
+      <h2>Trainingsdoelen</h2>
+      <div id="doelenText"></div>
+
+      <h2>Voortgang per onderdeel</h2>
+
+      <div class="progress-group">
+        <label>Techniek</label>
+        <div class="progress-bar"><div id="TechniekBar" class="progress-fill"></div></div>
+      </div>
+
+      <div class="progress-group">
+        <label>Fysiek</label>
+        <div class="progress-bar"><div id="FysiekBar" class="progress-fill"></div></div>
+      </div>
+      
+      <div class="progress-group">
+        <label>Tactiek</label>
+        <div class="progress-bar"><div id="TactiekBar" class="progress-fill"></div></div>
+      </div>
+      
+      <div class="progress-group">
+        <label>Mentaal</label>
+        <div class="progress-bar"><div id="MentaalBar" class="progress-fill"></div></div>
+      </div>
+
+      <h2>Oefeningen & Video's</h2>
+
+      <div class="video">
+        <p>Oefening 1</p>
+        <iframe src="https://www.youtube.com/embed/Z" allowfullscreen></iframe>
+      </div>
+
+      <div class="video">
+        <p>Oefening 2</p>
+        <iframe src="https://www.youtube.com/embed/" allowfullscreen></iframe>
+      </div>
+
+      <h2>Feedback van de Coach</h2>
+      <div class="feedback" id="coachFeedback">Wordt geladen...</div>
+    </div>
+  </div>
+
+  <script>
+    const webAppURL = "https://script.google.com/macros/s/AKfycbz6JSoX4QKMXaWDXa-Re7p_D_jRCIAR3p--js2FiYk/dev";
+
+    async function login() {
+      const code = document.getElementById("toegangscode").value;
+
+      try {
+        const res = await fetch(`${webAppURL}?code=${code}`);
+        const data = await res.json();
+
+        if (data.error) {
+          alert("Ongeldige toegangscode.");
+        } else {
+          localStorage.setItem("code", code);
+          window.location.reload();
+        }
+      } catch (err) {
+        alert("Er is een fout opgetreden bij het inloggen.");
+        console.error(err);
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("code");
+      window.location.reload();
+    }
+
+    function updateBar(id, value) {
+      document.getElementById(id).style.width = value + "%";
+    }
+
+    async function laadData() {
+      const code = localStorage.getItem("code");
+      if (!code) {
+        document.getElementById("loginContainer").style.display = "block";
+        return;
+      }
+
+      try {
+        const res = await fetch(`${webAppURL}?code=${code}`);
+        const data = await res.json();
+
+        if (data.error) {
+          alert("Code ongeldig. Log opnieuw in.");
+          logout();
+          return;
+        }
+
+        document.getElementById("dashboard").style.display = "block";
+        document.getElementById("spelerNaam").innerText = data.naam || "Speler";
+        document.getElementById("doelenText").innerText = data.doelen || "Geen doelen opgegeven.";
+        updateBar("TechniekBar", data.techniek || 0);
+        updateBar("FysiekBar", data.fysiek || 0);
+        updateBar("TactiekBar", data.tactiek || 0);
+        updateBar("MentaalBar", data.mentaal || 0);
+        document.getElementById("coachFeedback").innerText = data.feedback || "Nog geen feedback.";
+      } catch (err) {
+        alert("Fout bij het laden van gegevens.");
+        console.error(err);
+      }
+    }
+
+    laadData();
+  </script>
+
+</body>
+</html>
