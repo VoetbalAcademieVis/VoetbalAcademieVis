@@ -1,16 +1,82 @@
-import React from "react"; import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button";
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spelersdashboard - Liam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      padding: 20px;
+    }
+    h1 {
+      color: #e60000;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      margin-top: 5px;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background: #e60000;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dashboard Liam</h1>
+    <form name="trainingsformulier" id="formulier" onsubmit="handleSubmit(event)">
+      <label>Trainingsdoel</label>
+      <textarea name="doel" required></textarea>
 
-function Home() { return ( <div className="p-6 text-center"> <h1 className="text-3xl font-bold text-red-600">VoetbalAcademie VIS</h1> <p className="mt-2 text-gray-700">Welkom bij jouw persoonlijke trainingsplatform</p> </div> ); }
+      <label>Voortgang (%)</label>
+      <input type="number" name="voortgang" min="0" max="100" required />
 
-function Videos() { return ( <div className="p-4"> <h2 className="text-2xl font-semibold mb-4">Trainingsvideo's</h2> <Card className="mb-4"> <CardContent> <iframe
-className="w-full aspect-video"
-src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-title="Voorbeeldvideo"
-frameBorder="0"
-allowFullScreen
-></iframe> </CardContent> </Card> </div> ); }
+      <button type="submit">Opslaan</button>
+    </form>
+    <p id="status"></p>
+  </div>
 
-function Goals() { return ( <div className="p-4"> <h2 className="text-2xl font-semibold mb-4">Trainingsdoelen</h2> <p className="text-gray-600">Hier kun je per speler doelen instellen (later uitbreiden met Firebase).</p> </div> ); }
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/___HIER_JE_WEBAPP_URL___/exec';
 
-function Progress() { return ( <div className="p-4"> <h2 className="text-2xl font
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.forms['trainingsformulier'];
+      document.getElementById('status').innerText = 'Opslaan...';
 
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(() => {
+          document.getElementById('status').innerText = 'Opgeslagen!';
+          form.reset();
+        })
+        .catch(error => {
+          console.error('Fout bij opslaan', error);
+          document.getElementById('status').innerText = 'Fout bij opslaan';
+        });
+    }
+  </script>
+</body>
+</html>
