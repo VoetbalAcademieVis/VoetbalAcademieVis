@@ -1,54 +1,33 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VoetbalAcademieVis - Trainingsdashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIS Trainingsdashboard</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #111;
-      color: #fff;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
     }
-    header {
-      background-color: #d00;
-      padding: 16px;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+
     .container {
+      max-width: 800px;
+      margin: 40px auto;
       padding: 20px;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
     }
-    .hidden {
-      display: none;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #d00;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+
     h1 {
-      font-size: 1.8rem;
+      text-align: center;
+      color: red;
     }
+
     #spelerNaam {
       background-color: rgba(255, 255, 255, 0.15);
       padding: 4px 8px;
@@ -57,104 +36,123 @@
       color: white;
       margin-left: 10px;
     }
-    .slider-group {
-      margin: 20px 0;
+
+    .hidden {
+      display: none;
     }
-    .slider-label {
-      margin-bottom: 5px;
+
+    label {
+      display: block;
+      margin-top: 10px;
     }
-    .slider-value {
-      float: right;
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 5px;
+      color: white;
+    }
+
+    button {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: darkred;
     }
   </style>
 </head>
+
 <body>
-  <header>VoetbalAcademie VIS</header>
-  <div class="container">
-    <div id="loginContainer">
-      <div class="form-group">
-        <label for="accessCode">Toegangscode:</label>
-        <input type="text" id="accessCode" placeholder="Voer je toegangscode in" />
-      </div>
-      <button onclick="checkAccessCode()">Inloggen</button>
-      <p id="loginError" style="color:red;"></p>
-    </div>
+  <div class="container" id="loginContainer">
+    <h1>VIS Trainingsdashboard</h1>
+    <label for="code">Toegangscode:</label>
+    <input type="text" id="code" placeholder="Voer je code in">
+    <button onclick="checkCode()">Inloggen</button>
+    <p id="loginFout" class="hidden" style="color:red;">Ongeldige code, probeer opnieuw.</p>
+  </div>
 
-    <div id="dashboard" class="hidden">
-      <h1>Trainingsdashboard <span id="spelerNaam"></span></h1>
-
-      <div class="slider-group">
-        <label class="slider-label">Techniek <span class="slider-value" id="techniekValue">0</span></label>
-        <input type="range" min="0" max="10" value="0" id="techniekSlider" oninput="updateValue('techniek')">
-      </div>
-
-      <div class="slider-group">
-        <label class="slider-label">Inzicht <span class="slider-value" id="inzichtValue">0</span></label>
-        <input type="range" min="0" max="10" value="0" id="inzichtSlider" oninput="updateValue('inzicht')">
-      </div>
-
-      <div class="slider-group">
-        <label class="slider-label">Fysiek <span class="slider-value" id="fysiekValue">0</span></label>
-        <input type="range" min="0" max="10" value="0" id="fysiekSlider" oninput="updateValue('fysiek')">
-      </div>
-
-      <button onclick="opslaan()">Voortgang opslaan</button>
-    </div>
+  <div class="container hidden" id="dashboardContainer">
+    <h1>Trainingsdashboard <span id="spelerNaam"></span></h1>
+    <label for="doelen">Doelen</label>
+    <textarea id="doelen" rows="3"></textarea>
+    <label for="techniek">Techniek</label>
+    <textarea id="techniek" rows="2"></textarea>
+    <label for="fysiek">Fysiek</label>
+    <textarea id="fysiek" rows="2"></textarea>
+    <label for="tactiek">Tactiek</label>
+    <textarea id="tactiek" rows="2"></textarea>
+    <label for="mentaal">Mentaal</label>
+    <textarea id="mentaal" rows="2"></textarea>
+    <button onclick="opslaan()">Opslaan</button>
+    <p id="opslaanStatus" style="margin-top: 10px;"></p>
   </div>
 
   <script>
-    const webAppURL = "https://script.google.com/macros/s/AKfycbyUCewU8Bv79TG5wUl3x6hEGXMIzWv8Mk97rtWR7UBajRLQMvxeKu-W2fI10OlLhYFk/exec";
-    let spelerRij = -1;
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyUCewU8Bv79TG5wUl3x6hEGXMIzWv8Mk97rtWR7UBajRLQMvxeKu-W2fI10OlLhYFk/exec";
 
-    function checkAccessCode() {
-      const code = document.getElementById("accessCode").value;
-      fetch(webAppURL + '?code=' + code)
-        .then(response => response.json())
+    let spelerData = [];
+    function checkCode() {
+      const code = document.getElementById("code").value.trim().toLowerCase();
+      fetch(scriptURL + "?action=getData")
+        .then(res => res.json())
         .then(data => {
-          if (data.valid) {
-            spelerRij = data.rij;
-            document.getElementById("spelerNaam").innerText = "– " + data.naam;
-            document.getElementById("techniekSlider").value = data.techniek;
-            document.getElementById("inzichtSlider").value = data.inzicht;
-            document.getElementById("fysiekSlider").value = data.fysiek;
-            updateValue('techniek');
-            updateValue('inzicht');
-            updateValue('fysiek');
+          spelerData = data;
+          const speler = data.find(row => row.code.trim().toLowerCase() === code);
+          if (speler) {
             document.getElementById("loginContainer").classList.add("hidden");
-            document.getElementById("dashboard").classList.remove("hidden");
+            document.getElementById("dashboardContainer").classList.remove("hidden");
+            document.getElementById("spelerNaam").innerText = `– ${speler.naam}`;
+            document.getElementById("doelen").value = speler.doelen;
+            document.getElementById("techniek").value = speler.techniek;
+            document.getElementById("fysiek").value = speler.fysiek;
+            document.getElementById("tactiek").value = speler.tactiek;
+            document.getElementById("mentaal").value = speler.mentaal;
           } else {
-            document.getElementById("loginError").innerText = "Ongeldige toegangscode.";
+            document.getElementById("loginFout").classList.remove("hidden");
           }
         })
-        .catch(error => {
-          console.error('Fout bij ophalen gegevens:', error);
-          document.getElementById("loginError").innerText = "Er ging iets mis bij het laden van gegevens.";
-        });
-    }
-
-    function updateValue(onderdeel) {
-      const slider = document.getElementById(`${onderdeel}Slider`);
-      const value = document.getElementById(`${onderdeel}Value`);
-      value.innerText = slider.value;
+        .catch(err => alert("Fout bij laden van data"));
     }
 
     function opslaan() {
-      if (spelerRij === -1) return;
-      const data = {
-        rij: spelerRij,
-        techniek: document.getElementById("techniekSlider").value,
-        inzicht: document.getElementById("inzichtSlider").value,
-        fysiek: document.getElementById("fysiekSlider").value,
-      };
-      fetch(webAppURL, {
+      const naam = document.getElementById("spelerNaam").innerText.replace("– ", "").trim();
+      const doelen = document.getElementById("doelen").value;
+      const techniek = document.getElementById("techniek").value;
+      const fysiek = document.getElementById("fysiek").value;
+      const tactiek = document.getElementById("tactiek").value;
+      const mentaal = document.getElementById("mentaal").value;
+
+      fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          naam,
+          doelen,
+          techniek,
+          fysiek,
+          tactiek,
+          mentaal
+        })
       })
-      .then(res => res.text())
-      .then(res => alert("Voortgang opgeslagen!"))
-      .catch(err => alert("Fout bij opslaan: " + err));
+        .then(res => res.text())
+        .then(msg => {
+          document.getElementById("opslaanStatus").innerText = msg;
+        })
+        .catch(err => {
+          document.getElementById("opslaanStatus").innerText = "Fout bij opslaan.";
+        });
     }
   </script>
 </body>
+
 </html>
