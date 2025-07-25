@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VIS Trainingsdashboard</title>
+  <li><a href="index.html">Website</a></li>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -65,7 +66,7 @@
 <body>
 
   <header>
-    <h1>Trainingsdashboard – VoetbalAcademie VIS</h1>
+    <h1>Trainingsdashboard – VoetbalAcademieVis</h1>
   </header>
 
   <div class="container">
