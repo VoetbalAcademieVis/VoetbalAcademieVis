@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <div id="loginScherm" style="padding: 20px;">
+  <h2>Log in met je toegangscode</h2>
+  <input type="text" id="toegangscode" placeholder="Bijv. 1234">
+  <button onclick="login()">Inloggen</button>
+</div>
+
   <title>VIS Trainingsdashboard</title>
   <style>
     body {
@@ -142,11 +148,60 @@
 
     // Simpele feedback per speler (later via database of Google Sheet)
     const feedbackData = {
-      liam: "Liam, je dribbels zijn sterk! Werk aan je afwerking met je rechterbeen. Oefen oefening 2 deze week 3x.",
-      jayden: "Jayden, goed bezig met je 1v1! Probeer je tempo te verhogen bij versnellingen na een schijnbeweging."
     };
 
     document.getElementById("coachFeedback").innerText = feedbackData[speler] || "Geen feedback beschikbaar.";
+    const webAppURL = "JOUW_WEBAPP_URL_HIER"; // vul in met jouw echte URL
+
+function login() {
+  const code = document.getElementById("toegangscode").value;
+  localStorage.setItem("code", code);
+  window.location.reload();
+}
+
+async function laadData() {
+  const code = localStorage.getItem("code");
+  if (!code) return;
+
+  document.getElementById("loginScherm").style.display = "none";
+
+  const res = await fetch(`${webAppURL}?code=${code}`);
+  const data = await res.json();
+
+  if (data.error) {
+    alert("Ongeldige code");
+    localStorage.removeItem("code");
+    window.location.reload();
+    return;
+  }
+
+  document.getElementById("spelerNaam").innerText = `– ${data.naam}`;
+  document.getElementById("TechniekBar").style.width = data.techniek + "%";
+  document.getElementById("FysiekBar").style.width = data.fysiek + "%";
+  document.getElementById("TactiekBar").style.width = data.tactiek + "%";
+  document.getElementById("MentaalBar").style.width = data.mentaal + "%";
+
+  document.getElementById("coachFeedback").innerText = data.doelen;
+
+  // sliders meegeven
+  document.querySelectorAll('input[type="range"]').forEach(slider => {
+    slider.oninput = () => {
+      const techniek = document.querySelector('input[oninput*="TechniekBar"]').value;
+      const fysiek = document.querySelector('input[oninput*="FysiekBar"]').value;
+      const tactiek = document.querySelector('input[oninput*="TactiekBar"]').value;
+      const mentaal = document.querySelector('input[oninput*="MentaalBar"]').value;
+
+      fetch(webAppURL, {
+        method: "POST",
+        body: JSON.stringify({ code, techniek, fysiek, tactiek, mentaal }),
+        headers: { "Content-Type": "application/json" }
+      });
+    };
+  });
+}
+
+laadData();
+
   </script>
 
 </body>
