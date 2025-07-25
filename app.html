@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VIS Trainingsdashboard</title>
   <style>
     body {
@@ -30,7 +30,7 @@
       background: white;
       padding: 24px;
       border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     h1, h2 {
       color: #cc0000;
@@ -74,165 +74,47 @@
       border-left: 5px solid #cc0000;
       margin-top: 20px;
     }
-    #loginScherm {
-      padding: 20px;
+    #loginContainer {
       max-width: 400px;
-      margin: 100px auto;
+      margin: 80px auto;
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       text-align: center;
     }
-    #loginScherm input {
-      padding: 8px;
-      margin: 10px 0;
+    input[type="text"] {
+      padding: 10px;
       width: 80%;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
-    #loginScherm button {
+    button {
       background: #cc0000;
       color: white;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border: none;
+      border-radius: 8px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <div id="loginScherm">
-    <h2>Log in met je toegangscode</h2>
-    <input type="text" id="toegangscode" placeholder="Bijv. 1234" />
-    <br />
+  <div id="loginContainer" style="display: none;">
+    <h2>VIS Trainingsdashboard</h2>
+    <p>Voer je toegangscode in (via WhatsApp ontvangen)</p>
+    <input type="text" id="toegangscode" placeholder="Toegangscode">
+    <br>
     <button onclick="login()">Inloggen</button>
   </div>
 
-  <header style="display:none;" id="dashboardHeader">
-    <h1>Trainingsdashboard <span id="spelerNaam"></span></h1>
-    <a href="#" onclick="logout()">Uitloggen</a>
-  </header>
+  <div id="dashboard" style="display: none;">
+    <header>
+      <h1>Dashboard – <span id="spelerNaam"></span></h1>
+      <a href="#" onclick="logout()">Uitloggen</a>
+    </header>
 
-  <div class="container" style="display:none;" id="dashboardContent">
-    <h2>Voortgang per onderdeel</h2>
-
-    <div class="progress-group">
-      <label>Techniek</label>
-      <input type="range" id="techniekSlider" min="0" max="100" value="0">
-      <div class="progress-bar"><div id="TechniekBar" class="progress-fill"></div></div>
-    </div>
-
-    <div class="progress-group">
-      <label>Fysiek</label>
-      <input type="range" id="fysiekSlider" min="0" max="100" value="0">
-      <div class="progress-bar"><div id="FysiekBar" class="progress-fill"></div></div>
-    </div>
-    
-    <div class="progress-group">
-      <label>Tactiek</label>
-      <input type="range" id="tactiekSlider" min="0" max="100" value="0">
-      <div class="progress-bar"><div id="TactiekBar" class="progress-fill"></div></div>
-    </div>
-    
-    <div class="progress-group">
-      <label>Mentaal</label>
-      <input type="range" id="mentaalSlider" min="0" max="100" value="0">
-      <div class="progress-bar"><div id="MentaalBar" class="progress-fill"></div></div>
-    </div>
-
-    <h2>Oefeningen & Video's</h2>
-    <div class="video">
-      <p>Oefening 1</p>
-      <iframe src="https://www.youtube.com/embed/Z" allowfullscreen></iframe>
-    </div>
-
-    <div class="video">
-      <p>Oefening 2</p>
-      <iframe src="https://www.youtube.com/embed/" allowfullscreen></iframe>
-    </div>
-
-    <h2>Coachfeedback & Doelen</h2>
-    <div class="feedback" id="coachFeedback">Geen feedback beschikbaar.</div>
-  </div>
-
-  <script>
-    const webAppURL = "https://script.google.com/macros/s/AKfycbzlvh9o4E73xN5uc0lUIJvzz3sO-p6GQ5IrqMzIAiKmQcW9aBt9ZWBB0rcd2Kln7WZD/exec";
-
-    function updateBar(id, value) {
-      document.getElementById(id).style.width = value + "%";
-    }
-
-   async function login() {
-  const code = document.getElementById("toegangscode").value;
-
-  try {
-    const res = await fetch(`${webAppURL}?code=${code}`);
-    const data = await res.json();
-
-    if (data.error) {
-      alert("Ongeldige toegangscode.");
-    } else {
-      localStorage.setItem("code", code);
-      window.location.reload(); // laad dashboard met data
-    }
-  } catch (err) {
-    alert("Er is een fout opgetreden bij het inloggen.");
-    console.error(err);
-  }
-}
-    }
-
-    function logout() {
-      localStorage.removeItem("code");
-      window.location.reload();
-    }
-
-    async function laadData() {
-      const code = localStorage.getItem("code");
-      if (!code) return;
-
-      const res = await fetch(`${webAppURL}?code=${code}`);
-      const data = await res.json();
-
-      if (data.error) {
-        alert("Ongeldige code.");
-        logout();
-        return;
-      }
-
-      document.getElementById("loginScherm").style.display = "none";
-      document.getElementById("dashboardHeader").style.display = "flex";
-      document.getElementById("dashboardContent").style.display = "block";
-
-      document.getElementById("spelerNaam").innerText = `– ${data.naam}`;
-      document.getElementById("coachFeedback").innerText = data.doelen;
-
-      document.getElementById("techniekSlider").value = data.techniek;
-      document.getElementById("fysiekSlider").value = data.fysiek;
-      document.getElementById("tactiekSlider").value = data.tactiek;
-      document.getElementById("mentaalSlider").value = data.mentaal;
-
-      updateBar("TechniekBar", data.techniek);
-      updateBar("FysiekBar", data.fysiek);
-      updateBar("TactiekBar", data.tactiek);
-      updateBar("MentaalBar", data.mentaal);
-
-      // Sliders opslaan bij verandering
-      ["techniek", "fysiek", "tactiek", "mentaal"].forEach((type) => {
-        document.getElementById(`${type}Slider`).oninput = async (e) => {
-          const payload = {
-            code,
-            techniek: document.getElementById("techniekSlider").value,
-            fysiek: document.getElementById("fysiekSlider").value,
-            tactiek: document.getElementById("tactiekSlider").value,
-            mentaal: document.getElementById("mentaalSlider").value
-          };
-          updateBar(`${type.charAt(0).toUpperCase() + type.slice(1)}Bar`, e.target.value);
-          await fetch(webAppURL, {
-            method: "POST",
-            body: JSON.stringify(payload),
-            headers: { "Content-Type": "application/json" }
-          });
-        };
-      });
-    }
-
-    laadData();
-  </script>
-</body>
-</html>
+    <div class="container">
+      <h2>Trainingsdoelen
