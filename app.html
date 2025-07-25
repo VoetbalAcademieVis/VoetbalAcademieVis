@@ -15,6 +15,14 @@
       background: #cc0000;
       color: white;
       padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: white;
+      text-decoration: underline;
+      font-size: 0.9rem;
     }
     .container {
       max-width: 900px;
@@ -60,12 +68,19 @@
       border: none;
       border-radius: 10px;
     }
+    .feedback {
+      background: #f9f9f9;
+      padding: 16px;
+      border-left: 5px solid #cc0000;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Trainingsdashboard – VoetbalAcademieVis</h1>
+    <h1>Trainingsdashboard <span id="spelerNaam"></span></h1>
+    <a href="login.html">Uitloggen</a>
   </header>
 
   <div class="container">
@@ -73,33 +88,44 @@
     <h2>Voortgang per onderdeel</h2>
 
     <div class="progress-group">
-      <label>Dribbelen</label>
-      <input type="range" min="0" max="100" value="50" oninput="updateBar('dribbelBar', this.value)">
-      <div class="progress-bar"><div id="dribbelBar" class="progress-fill" style="width: 50%;"></div></div>
+      <label>Techniek</label>
+      <input type="range" min="0" max="100" value="50" oninput="updateBar('TechniekBar', this.value)">
+      <div class="progress-bar"><div id="TechniekBar" class="progress-fill" style="width: 50%;"></div></div>
     </div>
 
     <div class="progress-group">
-      <label>1v1 Aanvallen</label>
-      <input type="range" min="0" max="100" value="60" oninput="updateBar('duelBar', this.value)">
-      <div class="progress-bar"><div id="duelBar" class="progress-fill" style="width: 60%;"></div></div>
+      <label>Fysiek</label>
+      <input type="range" min="0" max="100" value="60" oninput="updateBar('FysiekBar', this.value)">
+      <div class="progress-bar"><div id="FysiekBar" class="progress-fill" style="width: 60%;"></div></div>
     </div>
-
+    
     <div class="progress-group">
-      <label>Afwerken</label>
-      <input type="range" min="0" max="100" value="30" oninput="updateBar('shootBar', this.value)">
-      <div class="progress-bar"><div id="shootBar" class="progress-fill" style="width: 30%;"></div></div>
+      <label>Tactiek</label>
+      <input type="range" min="0" max="100" value="30" oninput="updateBar('TactiekBar', this.value)">
+      <div class="progress-bar"><div id="TactiekBar" class="progress-fill" style="width: 30%;"></div></div>
+    </div>
+    
+    <div class="progress-group">
+      <label>Mentaal</label>
+      <input type="range" min="0" max="100" value="30" oninput="updateBar('MentaalBar', this.value)">
+      <div class="progress-bar"><div id="MentaalBar" class="progress-fill" style="width: 30%;"></div></div>
     </div>
 
     <h2>Oefeningen & Video's</h2>
 
     <div class="video">
-      <p>Oefening 1 – Richtingsverandering + versnellen</p>
-      <iframe src="https://www.youtube.com/embed/ZsX2HcA0UpQ" allowfullscreen></iframe>
+      <p>Oefening 1</p>
+      <iframe src="https://www.youtube.com/embed/Z" allowfullscreen></iframe>
     </div>
 
     <div class="video">
-      <p>Oefening 2 – 1v1 met dribbel en afwerking</p>
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <p>Oefening 2</p>
+      <iframe src="https://www.youtube.com/embed/" allowfullscreen></iframe>
+    </div>
+
+    <h2>Feedback van de Coach</h2>
+    <div class="feedback" id="coachFeedback">
+      <!-- Coachfeedback verschijnt hier
     </div>
 
   </div>
@@ -108,6 +134,19 @@
     function updateBar(id, value) {
       document.getElementById(id).style.width = value + "%";
     }
+
+    // Haal spelernaam uit de URL
+    const params = new URLSearchParams(window.location.search);
+    const speler = params.get('speler') || "speler";
+    document.getElementById("spelerNaam").innerText = `– ${speler.charAt(0).toUpperCase() + speler.slice(1)}`;
+
+    // Simpele feedback per speler (later via database of Google Sheet)
+    const feedbackData = {
+      liam: "Liam, je dribbels zijn sterk! Werk aan je afwerking met je rechterbeen. Oefen oefening 2 deze week 3x.",
+      jayden: "Jayden, goed bezig met je 1v1! Probeer je tempo te verhogen bij versnellingen na een schijnbeweging."
+    };
+
+    document.getElementById("coachFeedback").innerText = feedbackData[speler] || "Geen feedback beschikbaar.";
   </script>
 
 </body>
