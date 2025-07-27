@@ -43,7 +43,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
     header img {
-      height: 80px;
+      height: 240px;
     }
     nav {
       display: flex;
@@ -82,6 +82,35 @@
       padding: 3rem 2rem;
       background: var(--vis-white);
     }
+    /* Wie ben ik-sectie */
+#wie-ben-ik {
+  padding: 60px 20px;
+  background-color: #f7f7f7;
+}
+
+.wiebenik-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.wiebenik-foto {
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  flex: 1 1 300px;
+}
+
+.wiebenik-tekst {
+  flex: 2 1 400px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.wiebenik-tekst p {
+  margin-bottom: 1.2rem;
+}  
     section:nth-child(even) {
       background: var(--vis-gray);
     }
@@ -173,13 +202,10 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="#over">Over ons</a></li>
         <li><a href="#aanbod">Aanbod</a></li>
-        <li><a href="#app">Trainingsapp</a></li>
-        <li><a href="#uitleg-pakketten">Pakketinfo</a></li>
         <li><a href="#pakketten">Pakketten</a></li>
         <li><a href="#aanmelden">Aanmelden</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#privacy">Privacy</a></li>
       </ul>
     </nav>
   </header>
@@ -197,6 +223,24 @@
       Wij begeleiden je met persoonlijke aandacht, moderne technieken en
       een scherp oog voor jouw ontwikkeling. We geloven in trainen met passie en
       resultaat.
+    <section id="wie-ben-ik" class="wie-ben-ik">
+      <h2>Wie ben ik?</h2>
+  <div class="wiebenik-container">
+    <img src="media/bart.jpg" alt="Trainer Bart" class="wiebenik-foto">
+    <div class="wiebenik-tekst">
+      <p>Mijn naam is Bart, oprichter van <strong>VoetbalAcademie VIS</strong>. Ik ben gecertificeerd voetbaltrainer en student aan de opleiding <strong>Sport en Bewegen (niveau 4)</strong>.  
+
+      <p>Mijn passie ligt bij het helpen van jonge spelers (8 t/m 15 jaar) om hun techniek, inzicht en zelfvertrouwen te verbeteren. Dat doe ik via <strong>privétrainingen, groepstrainingen en clinics</strong>. Spelers uit de regio Noord-Holland Noord kunnen bij mij werken aan hun individuele ontwikkeling, in een professionele én persoonlijke setting.</p>
+
+      <p>Mijn droom is om jeugdspelers op te leiden voor de stap naar een BVO of een hoger amateurniveau.</p>
+
+      <p>Daarnaast wil ik als ondernemer groeien in visie, toewijding en leiderschap. Ik geloof dat elke speler uniek is en wil hen helpen het maximale uit hun talent te halen – op en buiten het veld.</p>
+
+      <p><strong>Wil je persoonlijk contact?</strong> Stuur me gerust een berichtje via WhatsApp of Instagram.</p>
+    </div>
+  </div>
+</section>
+      
     </p>
   </section>
 
