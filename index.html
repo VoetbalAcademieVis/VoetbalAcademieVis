@@ -476,22 +476,25 @@
         <option value="20:00">20:00 (alleen vrijdag)</option>
       </select><br />
 
-      <label for="pakket">Kies een pakket:</label><br />
-      <select id="pakket" name="pakket" required>
-        <option value="" disabled selected>-- Selecteer pakket --</option>
-        <optgroup label="Privétraining">
-          <option>Prof - 24 sessies (€435,60 incl. btw)</option>
-          <option>Semi - 12 sessies (€232,32 incl. btw)</option>
-          <option>Amateur - 6 sessies (€123,42 incl. btw)</option>
-          <option>Beginner - 3 sessies (€65,34 incl. btw)</option>
-        </optgroup>
-        <optgroup label="Groepstraining">
-          <option>Prof - 24 sessies (€217,80 incl. btw)</option>
-          <option>Semi - 12 sessies (€116,16 incl. btw)</option>
-          <option>Amateur - 6 sessies (€61,71 incl. btw)</option>
-          <option>Beginner - 3 sessies (€32,67 incl. btw)</option>
-        </optgroup>
-      </select><br /><br />
+      <label for="pakket">Kies je pakket:</label>
+<select id="pakket" name="pakket" required>
+  <option value="">-- Maak een keuze --</option>
+  <option value="Proeftraining - Prive - 1 sessie">Proeftraining - Prive - 1 sessie</option>
+  <option value="Beginner - 3 sessies">Beginner - 3 sessies</option>
+  <option value="Amateur - Prive - 6 sessies">Amateur - 6 sessies</option>
+  <option value="Semi - Prive - 12 sessies">Semi - 12 sessies</option>
+  <option value="Prof - Prive - 24 sessies">Prof - 24 sessies</option>
+</select>
+ <label for="pakket">Kies je pakket:</label>
+<select id="pakket" name="pakket" required>
+  <option value="">-- Maak een keuze --</option>
+  <option value="Proeftraining - Groep - 1 sessie">Proeftraining - 1 sessie</option>
+  <option value="Beginner - Groep - 3 sessies">Beginner - 3 sessies</option>
+  <option value="Amateur - 6 sessies">Amateur - Groep - 6 sessies</option>
+  <option value="Semi - Groep - 12 sessies">Semi - 12 sessies</option>
+  <option value="Prof - Groep - 24 sessies">Prof - 24 sessies</option>
+</select>
+<br /><br />
 
       <button type="submit">Meld je aan</button>
     </form>
@@ -595,10 +598,8 @@
 
     const whatsappUrl = `https://wa.me/31657927473?text=${encodeURIComponent(bericht)}`;
     window.open(whatsappUrl, '_blank');
-  });
-</script>
-<script>
-  function selecteerPakket(pakketNaam) {
+
+function selecteerPakket(pakketNaam) {
     const pakketSelect = document.getElementById('pakket');
     if (pakketSelect) {
       pakketSelect.value = pakketNaam;
