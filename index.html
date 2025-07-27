@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VoetbalAcademieVis</title>
-<link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Logo.jpg" alt="Logo VoetbalAcademieVis" />
-    <nav>
+    <nav aria-label="Hoofdnavigatie">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="#over">Over ons</a></li>
@@ -48,8 +48,8 @@
           <p>Daarnaast wil ik als ondernemer groeien in visie, toewijding en leiderschap. Ik geloof dat elke speler uniek is en wil hen helpen het maximale uit hun talent te halen – op en buiten het veld.</p>
           <p><strong>Wil je persoonlijk contact?</strong> Stuur me gerust een berichtje via WhatsApp of Instagram.</p>
         </div>
-      </div> <!-- sluit div.wiebenik-container -->
-    </section> <!-- sluit section wie-ben-ik -->
+      </div> <!-- Sluit wiebenik-container div netjes af -->
+    </section>
 
     <section id="aanbod" class="aanbod">
       <h2>Ons aanbod</h2>
@@ -88,7 +88,68 @@
     <section id="pakketten" class="pakketten">
       <h2>Trainingspakketten</h2>
       <div class="pakket-container">
-       
+        <article class="pakket prof">
+          <h3>PROF</h3>
+          <p><strong>Privétraining:</strong> 24 sessies – €435,60 incl. btw</p>
+          <p><strong>Groepstraining:</strong> 24 sessies – €217,80 incl. btw</p>
+          <ul>
+            <li>4 sessies p/maand</li>
+            <li>Goedkoopste per sessie</li>
+            <li>Wekelijks coachgesprek</li>
+            <li>Volledige toegang tot Trainingsapp</li>
+            <li>Toegang tot 4 vaardigheidstesten</li>
+          </ul>
+          <a href="#aanmelden" onclick="selecteerPakket('Prof - Privé - 24 sessies')" class="btn btn-prof">Privétraining PROF</a>
+          <a href="#aanmelden" onclick="selecteerPakket('Prof - Groep - 24 sessies')" class="btn btn-prof-light">Groepstraining PROF</a>
+        </article>
+
+        <article class="pakket semi">
+          <h3>SEMI</h3>
+          <p><strong>Privétraining:</strong> 12 sessies – €232,32 incl. btw</p>
+          <p><strong>Groepstraining:</strong> 12 sessies – €116,16 incl. btw</p>
+          <ul>
+            <li>4 sessies p/maand</li>
+            <li>Toegang Trainingsapp</li>
+            <li>Toegang tot 2 vaardigheidstesten</li>
+          </ul>
+          <a href="#aanmelden" onclick="selecteerPakket('Semi - Privé - 12 sessies')" class="btn btn-semi">Privétraining SEMI</a>
+          <a href="#aanmelden" onclick="selecteerPakket('Semi - Groep - 12 sessies')" class="btn btn-semi-light">Groepstraining SEMI</a>
+        </article>
+
+        <article class="pakket amateur">
+          <h3>AMATEUR</h3>
+          <p><strong>Privétraining:</strong> 6 sessies – €123,42 incl. btw</p>
+          <p><strong>Groepstraining:</strong> 6 sessies – €61,71 incl. btw</p>
+          <ul>
+            <li>4 sessies p/maand</li>
+            <li>Toegang tot Trainingsapp</li>
+            <li>Toegang tot 1 vaardigheidstest</li>
+          </ul>
+          <a href="#aanmelden" onclick="selecteerPakket('Amateur - Privé - 6 sessies')" class="btn btn-amateur">Privétraining AMATEUR</a>
+          <a href="#aanmelden" onclick="selecteerPakket('Amateur - Groep - 6 sessies')" class="btn btn-amateur-light">Groepstraining AMATEUR</a>
+        </article>
+
+        <article class="pakket beginner">
+          <h3>BEGINNER</h3>
+          <p><strong>Privétraining:</strong> 3 sessies – €65,34 incl. btw</p>
+          <p><strong>Groepstraining:</strong> 3 sessies – €32,67 incl. btw</p>
+          <ul>
+            <li>Kleinste pakket</li>
+          </ul>
+          <a href="#aanmelden" onclick="selecteerPakket('Beginner - Privé - 3 sessies')" class="btn btn-beginner">Privétraining BEGINNER</a>
+          <a href="#aanmelden" onclick="selecteerPakket('Beginner - Groep - 3 sessies')" class="btn btn-beginner-light">Groepstraining BEGINNER</a>
+        </article>
+
+        <article class="pakket proeftraining">
+          <h3>PROEFTRAINING</h3>
+          <p><strong>Privétraining:</strong> 1 sessie - €0,00 incl. btw</p>
+          <p><strong>Groepstraining:</strong> 1 sessie - €0,00 incl. btw</p>
+          <ul>
+            <li>Kom gratis meetrainen</li>
+          </ul>
+          <a href="#aanmelden" onclick="selecteerPakket('Proeftraining - Privé - 1 sessie')" class="btn btn-proef">Privétraining PROEFTRAINING</a>
+          <a href="#aanmelden" onclick="selecteerPakket('Proeftraining - Groep - 1 sessie')" class="btn btn-proef-light">Groepstraining PROEFTRAINING</a>
+        </article>
       </div>
       <p style="text-align:center; margin-top:1rem; font-weight:bold;">
         NU 15% korting op elk pakket!<br />
@@ -96,70 +157,7 @@
         OP=OP!<br />
         Actie loopt tot 1 september.
       </p>
-<article class="pakket prof">
-      <h3>PROF</h3>
-      <p><strong>Privétraining:</strong> 24 sessies – €435,60 incl. btw</p>
-      <p><strong>Groepstraining:</strong> 24 sessies – €217,80 incl. btw</p>
-      <ul>
-        <li>4 sessies p/maand</li>
-        <li>Goedkoopste per sessie</li>
-        <li>Wekelijks coachgesprek</li>
-        <li>Volledige toegang tot Trainingsapp</li>
-        <li>Toegang tot 4 vaardigheidstesten</li>
-      </ul>
-      <a href="#aanmelden" onclick="selecteerPakket('Prof - Privé - 24 sessies')" class="btn btn-prof">Privétraining PROF</a>
-      <a href="#aanmelden" onclick="selecteerPakket('Prof - Groep - 24 sessies')" class="btn btn-prof-light">Groepstraining PROF</a>
-    </article>
 
-    <article class="pakket semi">
-      <h3>SEMI</h3>
-      <p><strong>Privétraining:</strong> 12 sessies – €232,32 incl. btw</p>
-      <p><strong>Groepstraining:</strong> 12 sessies – €116,16 incl. btw</p>
-      <ul>
-        <li>4 sessies p/maand</li>
-        <li>Toegang Trainingsapp</li>
-        <li>Toegang tot 2 vaardigheidstesten</li>
-      </ul>
-      <a href="#aanmelden" onclick="selecteerPakket('Semi - Privé - 12 sessies')" class="btn btn-semi">Privétraining SEMI</a>
-      <a href="#aanmelden" onclick="selecteerPakket('Semi - Groep - 12 sessies')" class="btn btn-semi-light">Groepstraining SEMI</a>
-    </article>
-
-    <article class="pakket amateur">
-      <h3>AMATEUR</h3>
-      <p><strong>Privétraining:</strong> 6 sessies – €123,42 incl. btw</p>
-      <p><strong>Groepstraining:</strong> 6 sessies – €61,71 incl. btw</p>
-      <ul>
-        <li>4 sessies p/maand</li>
-        <li>Toegang tot Trainingsapp</li>
-        <li>Toegang tot 1 vaardigheidstest</li>
-      </ul>
-      <a href="#aanmelden" onclick="selecteerPakket('Amateur - Privé - 6 sessies')" class="btn btn-amateur">Privétraining AMATEUR</a>
-      <a href="#aanmelden" onclick="selecteerPakket('Amateur - Groep - 6 sessies')" class="btn btn-amateur-light">Groepstraining AMATEUR</a>
-    </article>
-
-    <article class="pakket beginner">
-      <h3>BEGINNER</h3>
-      <p><strong>Privétraining:</strong> 3 sessies – €65,34 incl. btw</p>
-      <p><strong>Groepstraining:</strong> 3 sessies – €32,67 incl. btw</p>
-      <ul>
-        <li>Kleinste pakket</li>
-      </ul>
-      <a href="#aanmelden" onclick="selecteerPakket('Beginner - Privé - 3 sessies')" class="btn btn-beginner">Privétraining BEGINNER</a>
-      <a href="#aanmelden" onclick="selecteerPakket('Beginner - Groep - 3 sessies')" class="btn btn-beginner-light">Groepstraining BEGINNER</a>
-    </article>
-
-    <article class="pakket proeftraining">
-      <h3>PROEFTRAINING</h3>
-      <p><strong>Privétraining:</strong> 1 sessie - €0,00 incl. btw</p>
-      <p><strong>Groepstraining:</strong> 1 sessie - €0,00 incl. btw</p>
-      <ul>
-        <li>Kom gratis meetrainen</li>
-      </ul>
-      <a href="#aanmelden" onclick="selecteerPakket('Proeftraining - Privé - 1 sessie')" class="btn btn-proef">Privétraining PROEFTRAINING</a>
-      <a href="#aanmelden" onclick="selecteerPakket('Proeftraining - Groep - 1 sessie')" class="btn btn-proef-light">Groepstraining PROEFTRAINING</a>
-    </article>
-  </div>
-      <!-- Vergelijkingstabel pakketten -->
       <div class="vergelijking-tabel-container" style="overflow-x:auto; margin-top:3rem;">
         <table class="vergelijking-tabel" style="font-size: 0.9rem; min-width:600px;">
           <thead>
@@ -194,170 +192,142 @@
     </section>
 
     <section id="aanmelden" class="aanmelden">
-    <h2>Aanmeldformulier</h2>
-  <form id="aanmeldFormulier">
-    <label for="naam">Naam speler:</label><br />
-    <input type="text" id="naam" name="naam" required /><br /><br />
+      <h2>Aanmeldformulier</h2>
+      <form id="aanmeldFormulier">
+        <label for="naam">Naam speler:</label><br />
+        <input type="text" id="naam" name="naam" required /><br /><br />
 
-    <label for="leeftijd">Leeftijd speler:</label><br />
-    <input type="number" id="leeftijd" name="leeftijd" min="8" max="15" required /><br /><br />
+        <label for="leeftijd">Leeftijd speler:</label><br />
+        <input type="number" id="leeftijd" name="leeftijd" min="8" max="15" required /><br /><br />
 
-    <label for="dag">Kies een of meer dagen:</label><br />
-    <select id="dag" name="dag[]" multiple required size="5">
-      <option value="maandag">Maandag</option>
-      <option value="dinsdag">Dinsdag</option>
-      <option value="woensdag">Woensdag</option>
-      <option value="donderdag">Donderdag</option>
-      <option value="vrijdag">Vrijdag</option>
-      <option value="zondag">Zondag</option>
-    </select><br />
-    <small>Houd Ctrl (Windows) of Cmd (Mac) ingedrukt om meerdere dagen te selecteren.</small><br /><br />
+        <label for="dag">Kies een of meer dagen:</label><br />
+        <select id="dag" name="dag[]" multiple required size="5">
+          <option value="maandag">Maandag</option>
+          <option value="dinsdag">Dinsdag</option>
+          <option value="woensdag">Woensdag</option>
+          <option value="donderdag">Donderdag</option>
+          <option value="vrijdag">Vrijdag</option>
+          <option value="zondag">Zondag</option>
+        </select><br />
+        <small>Houd Ctrl (Windows) of Cmd (Mac) ingedrukt om meerdere dagen te selecteren.</small><br /><br />
 
-    <label for="tijd">Kies een of meer tijden:</label><br />
-    <select id="tijd" name="tijd[]" multiple required size="5">
-      <option value="13:30">13:30 (zondag, privé)</option>
-      <option value="14:15">14:15 (zondag, privé)</option>
-      <option value="15:00">15:00 (alle dagen, zondag privé)</option>
-      <option value="15:45">15:45 (zondag, privé)</option>
-      <option value="16:00">16:00 (alle dagen)</option>
-      <option value="17:00">17:00 (maandag en vrijdag)</option>
-      <option value="19:00">19:00 (alleen vrijdag)</option>
-      <option value="20:00">20:00 (alleen vrijdag)</option>
-    </select><br /><br />
+        <label for="tijd">Kies een of meer tijden:</label><br />
+        <select id="tijd" name="tijd[]" multiple required size="5">
+          <option value="13:30">13:30 (zondag, privé)</option>
+          <option value="14:15">14:15 (zondag, privé)</option>
+          <option value="15:00">15:00 (alle dagen, zondag privé)</option>
+          <option value="15:45">15:45 (zondag, privé)</option>
+          <option value="16:00">16:00 (alle dagen)</option>
+          <option value="17:00">17:00 (maandag en vrijdag)</option>
+          <option value="19:00">19:00 (alleen vrijdag)</option>
+          <option value="20:00">20:00 (alleen vrijdag)</option>
+        </select><br /><br />
 
-    <label for="pakket">Kies je pakket:</label><br />
-    <select id="pakket" name="pakket" required>
-      <option value="">-- Maak een keuze --</option>
-      <option value="Proeftraining - 1 sessie">Proeftraining - 1 sessie</option>
-      <option value="Beginner - 3 sessies">Beginner - 3 sessies</option>
-      <option value="Amateur - 6 sessies">Amateur - 6 sessies</option>
-      <option value="Semi - 12 sessies">Semi - 12 sessies</option>
-      <option value="Prof - 24 sessies">Prof - 24 sessies</option>
-    </select><br /><br />
+        <label for="pakket">Kies je pakket:</label><br />
+        <select id="pakket" name="pakket" required>
+          <option value="">-- Maak een keuze --</option>
+          <option value="Proeftraining - 1 sessie">Proeftraining - 1 sessie</option>
+          <option value="Beginner - 3 sessies">Beginner - 3 sessies</option>
+          <option value="Amateur - 6 sessies">Amateur - 6 sessies</option>
+          <option value="Semi - 12 sessies">Semi - 12 sessies</option>
+          <option value="Prof - 24 sessies">Prof - 24 sessies</option>
+        </select><br /><br />
 
-    <label for="trainingstype">Kies je trainingstype:</label><br />
-    <select id="trainingstype" name="trainingstype" required>
-      <option value="">-- Kies een optie --</option>
-      <option value="Privétraining">Privétraining</option>
-      <option value="Groepstraining">Groepstraining</option>
-    </select><br /><br />
+        <label for="trainingstype">Kies je trainingstype:</label><br />
+        <select id="trainingstype" name="trainingstype" required>
+          <option value="">-- Kies een optie --</option>
+          <option value="Privétraining">Privétraining</option>
+          <option value="Groepstraining">Groepstraining</option>
+        </select><br /><br />
 
-    <button type="submit">Meld je aan</button>
+        <button type="submit">Meld je aan</button>
+      </form>
+
+      <h3>Snelle keuze pakketten</h3>
+      <div style="display:flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+        <!-- PROF -->
+        <a href="#aanmelden" onclick="selecteerPakket('Prof - 24 sessies', 'Privétraining')" style="background:#b71c1c; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Privétraining PROF</a>
+        <a href="#aanmelden" onclick="selecteerPakket('Prof - 24 sessies', 'Groepstraining')" style="background:#ef5350; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Groepstraining PROF</a>
+
+        <!-- SEMI -->
+        <a href="#aanmelden" onclick="selecteerPakket('Semi - 12 sessies', 'Privétraining')" style="background:#ef6c00; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Privétraining SEMI</a>
+        <a href="#aanmelden" onclick="selecteerPakket('Semi - 12 sessies', 'Groepstraining')" style="background:#ffb74d; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Groepstraining SEMI</a>
+
+        <!-- AMATEUR -->
+        <a href="#aanmelden" onclick="selecteerPakket('Amateur - 6 sessies', 'Privétraining')" style="background:#0288d1; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Privétraining AMATEUR</a>
+        <a href="#aanmelden" onclick="selecteerPakket('Amateur - 6 sessies', 'Groepstraining')" style="background:#81d4fa; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Groepstraining AMATEUR</a>
+
+        <!-- BEGINNER -->
+        <a href="#aanmelden" onclick="selecteerPakket('Beginner - 3 sessies', 'Privétraining')" style="background:#388e3c; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Privétraining BEGINNER</a>
+        <a href="#aanmelden" onclick="selecteerPakket('Beginner - 3 sessies', 'Groepstraining')" style="background:#a5d6a7; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Groepstraining BEGINNER</a>
+
+        <!-- PROEFTRAINING -->
+        <a href="#aanmelden" onclick="selecteerPakket('Proeftraining - 1 sessie', 'Privétraining')" style="background:#5d4037; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Privétraining PROEFTRAINING</a>
+        <a href="#aanmelden" onclick="selecteerPakket('Proeftraining - 1 sessie', 'Groepstraining')" style="background:#d7ccc8; color:#000; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Groepstraining PROEFTRAINING</a>
+      </div>
     </section>
 
     <section id="faq" class="faq">
-     <h2>Veelgestelde vragen</h2>
+      <h2>Veelgestelde vragen</h2>
 
-  <details>
-    <summary><strong>Voor welke leeftijden is VoetbalAcademieVis?</strong></summary>
-    <p>Onze trainingen zijn gericht op jeugd van 8 t/m 15 jaar. Andere leeftijden? Neem contact op voor maatwerk.</p>
-  </details>
+      <details>
+        <summary>Wat is de minimumleeftijd om mee te doen?</summary>
+        <p>Onze trainingen zijn bedoeld voor spelers van 8 t/m 15 jaar.</p>
+      </details>
 
-  <details>
-    <summary><strong>Wat is het verschil tussen privé- en groepstraining?</strong></summary>
-    <p>Privétraining is 1-op-1 en volledig op maat. Groepstraining is met max. 6 spelers en goedkoper.</p>
-  </details>
+      <details>
+        <summary>Hoe meld ik me aan?</summary>
+        <p>Via het aanmeldformulier op deze pagina of door contact op te nemen via WhatsApp of e-mail.</p>
+      </details>
 
-  <details>
-    <summary><strong>Moet ik op een bepaald niveau spelen?</strong></summary>
-    <p>Niet per se. Motivatie en inzet zijn belangrijker dan niveau. We trainen van beginner tot selectiespeler.</p>
-  </details>
+      <details>
+        <summary>Wat zijn de kosten van een privétraining?</summary>
+        <p>De kosten verschillen per pakket, maar gemiddeld betaal je €16 per privétraining.</p>
+      </details>
 
-  <details>
-    <summary><strong>Waar vinden de trainingen plaats?</strong></summary>
-    <p>Op de velden van CVW in Slootdorp en DWOW in Wieringerwerf.</p>
-  </details>
-
-  <details>
-    <summary><strong>Hoe kan ik me aanmelden?</strong></summary>
-    <p>Via het aanmeldformulier op deze pagina. Je wordt daarna automatisch doorgestuurd naar WhatsApp.</p>
-  </details>
+      <details>
+        <summary>Is er een mogelijkheid voor proeftraining?</summary>
+        <p>Ja, we bieden één gratis proeftraining aan zodat je kunt ervaren hoe wij trainen.</p>
+      </details>
     </section>
 
     <section id="contact" class="contact">
-    <h2>Contact</h2>
-  <p>Vragen? Stuur gerust een berichtje via:</p>
-  <ul style="list-style:none; padding-left:0;">
-    <li><strong>Email:</strong> <a href="mailto:voetbalacademievis@gmail.com">voetbalacademievis@gmail.com</a></li>
-    <li><strong>WhatsApp:</strong> <a href="https://wa.me/31657927473" target="_blank" rel="noopener noreferrer">+31 6 57927473</a></li>
-  </ul>
-  <p>We reageren meestal binnen een aantal uur.</p>
+      <h2>Contact</h2>
+      <p>Heb je vragen? Neem contact met ons op via:</p>
+      <ul>
+        <li>Email: <a href="mailto:voetbalacademievis@gmail.com">voetbalacademievis@gmail.com</a></li>
+        <li>WhatsApp: <a href="https://wa.me/31657927473" target="_blank" rel="noopener noreferrer">+31 6 57927473</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/voetbalacademievis" target="_blank" rel="noopener noreferrer">@voetbalacademievis</a></li>
+      </ul>
     </section>
 
     <section id="privacy" class="privacy">
-    <h2>Privacyverklaring</h2>
-  <p>Bij VoetbalAcademieVis vinden we jouw privacy belangrijk. We verwerken jouw persoonsgegevens uitsluitend om de aanmelding en trainingen goed te organiseren. We delen jouw gegevens nooit met derden zonder jouw toestemming. Gegevens worden veilig opgeslagen en alleen bewaard zolang dit nodig is.</p>
-  <p>Je hebt het recht om je gegevens in te zien, te corrigeren of te laten verwijderen. Neem hiervoor contact op via <a href="mailto:voetbalacademievis@gmail.com">voetbalacademievis@gmail.com</a>.</p>
-  <p>Door je aan te melden bij VoetbalAcademieVis ga je akkoord met deze privacyvoorwaarden.</p>
+      <h2>Privacyverklaring</h2>
+      <p>Je gegevens worden vertrouwelijk behandeld en alleen gebruikt voor onze trainingen en communicatie. We respecteren je privacy en voldoen aan de AVG.</p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden</p>
+    <p>&copy; 2025 VoetbalAcademieVis - Alle rechten voorbehouden</p>
   </footer>
 
   <script>
-  // Selecteert pakket én trainingstype in het formulier
-  function selecteerPakket(pakketNaam, trainingstype) {
-    const pakketSelect = document.getElementById('pakket');
-    const trainingSelect = document.getElementById('trainingstype');
-
-    if (pakketSelect) {
-      // Zoek optie die pakketNaam bevat
-      let gevondenIndex = -1;
-      for (let i = 0; i < pakketSelect.options.length; i++) {
-        if (pakketSelect.options[i].text.toLowerCase().includes(pakketNaam.toLowerCase())) {
-          gevondenIndex = i;
-          break;
-        }
+    // Functie om pakket en trainingstype in formulier te selecteren
+    function selecteerPakket(pakketNaam, trainingstype = '') {
+      document.getElementById('pakket').value = pakketNaam;
+      if(trainingstype) {
+        document.getElementById('trainingstype').value = trainingstype;
       }
-      if (gevondenIndex !== -1) pakketSelect.selectedIndex = gevondenIndex;
+      // Scroll naar formulier
+      document.getElementById('aanmelden').scrollIntoView({behavior: 'smooth'});
     }
 
-    if (trainingSelect && trainingstype) {
-      for (let i = 0; i < trainingSelect.options.length; i++) {
-        if (trainingSelect.options[i].value.toLowerCase() === trainingstype.toLowerCase()) {
-          trainingSelect.selectedIndex = i;
-          break;
-        }
-      }
-    }
-
-    // Scroll naar formulier en focus op pakket-select
-    if (pakketSelect) {
-      pakketSelect.focus();
-      pakketSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }
-
-  // Formulierverzending via WhatsApp
-  document.getElementById('aanmeldFormulier').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const naam = document.getElementById('naam').value.trim();
-    const leeftijd = document.getElementById('leeftijd').value.trim();
-    const dagen = Array.from(document.getElementById('dag').selectedOptions).map(opt => opt.value).join(', ');
-    const tijden = Array.from(document.getElementById('tijd').selectedOptions).map(opt => opt.value).join(', ');
-    const pakket = document.getElementById('pakket').value;
-    const trainingstype = document.getElementById('trainingstype').value;
-
-    if (!naam || !leeftijd || !dagen || !tijden || !pakket || !trainingstype) {
-      alert('Vul alle velden in alstublieft.');
-      return;
-    }
-
-    const bericht =
-      `Aanmelding VoetbalAcademieVis:\n\n` +
-      `Naam speler: ${naam}\n` +
-      `Leeftijd: ${leeftijd}\n` +
-      `Voorkeursdagen: ${dagen}\n` +
-      `Voorkeurtijden: ${tijden}\n` +
-      `Gekozen pakket: ${pakket}\n` +
-      `Trainingstype: ${trainingstype}`;
-
-    const whatsappUrl = `https://wa.me/31657927473?text=${encodeURIComponent(bericht)}`;
-    window.open(whatsappUrl, '_blank');
-  });
+    // Formulier afhandeling (basisvoorbeeld)
+    document.getElementById('aanmeldFormulier').addEventListener('submit', function(event){
+      event.preventDefault();
+      alert('Aanmelding ontvangen! We nemen zo snel mogelijk contact met je op.');
+      this.reset();
+    });
   </script>
 </body>
 </html>
