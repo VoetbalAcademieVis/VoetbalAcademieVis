@@ -312,8 +312,9 @@
         <li>Toegang tot 4 vaardigheidstesten</li>
       </ul>
     <!-- PROF -->
-      <a href="#aanmelden" onclick="selecteerPakket('Prof - 24 sessies')" style="display: inline-block; background-color: #b71c1c; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven PROF</a>
-    </div>
+    <a href="#aanmelden" onclick="selecteerPakket('Prof - Privé - 24 sessies')" style="display:inline-block;background-color:#b71c1c;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;margin-right:8px;">Privétraining PROF</a>
+  <a href="#aanmelden" onclick="selecteerPakket('Prof - Groep - 24 sessies')" style="display:inline-block;background-color:#ef5350;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;">Groepstraining PROF</a>
+</div> 
 
     <!-- SEMI -->
     <div style="flex: 1 1 280px; background-color: #fff3e0; border-left: 8px solid #ef6c00; padding: 1.5rem; border-radius: 12px;">
@@ -326,9 +327,9 @@
         <li>Toegang tot 2 vaardigheidstesten</li>
       </ul>
     <!-- SEMI -->
-      <a href="#aanmelden" onclick="selecteerPakket('Semi - 12 sessies')" style="display: inline-block; background-color: #ef6c00; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven SEMI</a>
-    </div>
-
+ <a href="#aanmelden" onclick="selecteerPakket('Semi - Privé - 12 sessies')" style="display:inline-block;background-color:#ef6c00;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;margin-right:8px;">Privétraining SEMI</a>
+  <a href="#aanmelden" onclick="selecteerPakket('Semi - Groep - 12 sessies')" style="display:inline-block;background-color:#ffb74d;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;">Groepstraining SEMI</a>
+</div>
     <!-- AMATEUR -->
     <div style="flex: 1 1 280px; background-color: #e1f5fe; border-left: 8px solid #0288d1; padding: 1.5rem; border-radius: 12px;">
       <h3 style="color: #0288d1;">AMATEUR</h3>
@@ -340,8 +341,9 @@
         <li>Toegang tot 1 Vaardigheidstest</li>
       </ul>
     <!-- AMATEUR -->
-      <a href="#aanmelden" onclick="selecteerPakket('Amateur - 6 sessies')" style="display: inline-block; background-color: #0288d1; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven AMATEUR</a>
-    </div>
+    <a href="#aanmelden" onclick="selecteerPakket('Amateur - Privé - 6 sessies')" style="display:inline-block;background-color:#0288d1;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;margin-right:8px;">Privétraining AMATEUR</a>
+  <a href="#aanmelden" onclick="selecteerPakket('Amateur - Groep - 6 sessies')" style="display:inline-block;background-color:#4fc3f7;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;">Groepstraining AMATEUR</a>
+</div>
 
     <!-- BEGINNER -->
     <div style="flex: 1 1 280px; background-color: #e8f5e9; border-left: 8px solid #66bb6a; padding: 1.5rem; border-radius: 12px;">
@@ -351,8 +353,10 @@
       <ul>
         <li>Kleinste pakket</li>
       </ul>
-<!-- BEGINNER -->
-<a href="#aanmelden" onclick="selecteerPakket('Beginner - 3 sessies')" style="display: inline-block; background-color: #0288d1; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven BEGINNER</a>
+     <!-- BEGINNER -->
+<a href="#aanmelden" onclick="selecteerPakket('Beginner - Privé - 3 sessies') "style="display:inline-block;background-color:#388e3c;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;margin-right:8px;">Privétraining BEGINNER</a>
+<a href="#aanmelden" onclick="selecteerPakket('Beginner - Groep - 3 sessies')"style="display:inline-block;background-color:#66bb6a;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;">Groepstraining BEGINNER</a>
+</div>
     </div>
     <!-- PROEFTRAINING-->
     <div style="flex: 1 1 280px; background-color: #e8f5e7; border-left: 8px solid #66bb6a; padding: 1.5rem; border-radius: 12px;">
@@ -363,8 +367,8 @@
         <li>Kom gratis meetrainen</li>
       </ul>
      <!-- PROEFTRAINING -->
-<a href="#aanmelden" onclick="selecteerPakket('Proeftraining - 1 sessie')"style="display: inline-block; background-color: #b71c1c; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven PROEFTRAINING</a>
-
+<a href="#aanmelden" onclick="selecteerPakket('Proeftraining - Privé - 1 sessie')" style="display:inline-block;background-color:#558b2f;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;margin-right:8px;">Privétraining PROEFTRAINING</a>
+  <a href="#aanmelden" onclick="selecteerPakket('Proeftraining - Groep - 1 sessie')" style="display:inline-block;background-color:#81c784;color:white;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;">Groepstraining PROEFTRAINING</a>
   </div>
 </section>
       NU 15% korting op elk pakket!<br />
@@ -592,6 +596,15 @@
     const whatsappUrl = `https://wa.me/31657927473?text=${encodeURIComponent(bericht)}`;
     window.open(whatsappUrl, '_blank');
   });
-</script>           
+</script>
+<script>
+  function selecteerPakket(pakketNaam) {
+    const pakketSelect = document.getElementById('pakket');
+    if (pakketSelect) {
+      pakketSelect.value = pakketNaam;
+    }
+  }
+</script>
+           
 </body>
 </html>
