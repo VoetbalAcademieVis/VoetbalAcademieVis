@@ -13,16 +13,22 @@ body {
 }
 
 /* Header */
-header {
-  background-color: #000;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  position: sticky;
+header img {
+  max-height: 40px;
+  height: auto;
+  header {
+  position: fixed;
   top: 0;
-  z-index: 999;
+  width: 100%;
+  background: #cc0000;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
