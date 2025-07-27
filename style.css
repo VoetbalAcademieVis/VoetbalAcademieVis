@@ -1,29 +1,35 @@
-/* VIS-Stijl: Zwart-Rood-Wit */
 :root {
   --vis-red: #cc0000;
   --vis-black: #000000;
   --vis-white: #ffffff;
-  --vis-gray: #f7f7f7;
+  --vis-gray-light: #f7f7f7;
+  --vis-gray-dark: #333333;
   --font-main: 'Montserrat', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --transition-speed: 0.3s;
 }
 
-/* Reset + basis */
-* {
+/* Reset en basis */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: var(--font-main);
-  background-color: var(--vis-gray);
-  color: var(--vis-black);
-  line-height: 1.1;
+  background-color: var(--vis-gray-light);
+  color: var(--vis-gray-dark);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 /* Header */
 header {
   background-color: var(--vis-red);
-  color:  var(--vis-black);
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -33,105 +39,327 @@ header {
   z-index: 999;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
+
 header img {
-  height: 100px;
+  height: 60px;
+  object-fit: contain;
 }
-nav {
+
+nav ul {
+  list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
+
 nav a {
-  color: var(--vis-black);
+  color: var(--vis-white);
   text-decoration: none;
   font-weight: 600;
   padding: 0.5rem 1rem;
-  transition: background 0.3s;
-}
-nav a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 6px;
+  transition: background var(--transition-speed);
 }
 
-/* Hero / Intro */
+nav a:hover,
+nav a:focus {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+/* Hero sectie */
 .hero {
   text-align: center;
-  padding: 4rem 2rem;
-  background: var(--vis-black);
-  color: var(--vis-black);
+  padding: 5rem 2rem;
+  background-color: var(--vis-black);
+  color: var(--vis-white);
+  font-family: var(--font-heading);
 }
+
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 1.1;
 }
+
 .hero p {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0.5rem auto 0;
 }
 
 /* Secties */
 section {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   background: var(--vis-white);
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
 }
-section:nth-child(even) {
-  background: var(--vis-gray);
+
+section:nth-of-type(even) {
+  background: var(--vis-gray-light);
 }
+
+/* Titels */
 section h2 {
   color: var(--vis-red);
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-section p {
-  max-width: 800px;
-  margin-bottom: 1rem;
-}
-
-/* Cards (bijv. Premium content, Oefeningen) */
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-.card {
-  background: var(--vis-white);
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  padding: 1rem;
-  transition: transform 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-4px);
-}
-.card h3 {
-  color: var(--vis-red);
-  margin-bottom: 0.5rem;
-}
-
-/* Footer */
-footer {
-  background: var(--vis-black);
-  color: var(--vis-white);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
   text-align: center;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  margin-top: 2rem;
 }
 
-/* Responsief */
+/* Wie ben ik container */
+.wiebenik-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.wiebenik-foto {
+  max-width: 320px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.wiebenik-tekst {
+  flex: 1;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 550px;
+  color: var(--vis-gray-dark);
+}
+
+/* Lijsten */
+ul {
+  list-style: disc inside;
+  line-height: 1.6;
+  color: var(--vis-gray-dark);
+  font-size: 1.1rem;
+}
+
+/* Tabellen */
+.vergelijking-tabel {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--vis-gray-dark);
+}
+
+.vergelijking-tabel th,
+.vergelijking-tabel td {
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.vergelijking-tabel thead tr {
+  background-color: #f9f9f9;
+  font-weight: 700;
+  color: var(--vis-red);
+}
+
+/* Buttons */
+.btn,
+a.btn-link,
+a.btn-prof,
+a.btn-prof-light,
+a.btn-semi,
+a.btn-semi-light,
+a.btn-amateur,
+a.btn-amateur-light,
+a.btn-beginner,
+a.btn-beginner-light,
+a.btn-proef,
+a.btn-proef-light {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-speed), color var(--transition-speed);
+  user-select: none;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.btn-prof {
+  background-color: #b71c1c;
+  color: #fff;
+}
+
+.btn-prof:hover {
+  background-color: #8a1414;
+}
+
+.btn-prof-light {
+  background-color: #ef5350;
+  color: #fff;
+}
+
+.btn-prof-light:hover {
+  background-color: #b23431;
+}
+
+/* Pas dit patroon toe ook op andere buttons */
+
+.btn-semi {
+  background-color: #ef6c00;
+  color: #fff;
+}
+
+.btn-semi:hover {
+  background-color: #b45700;
+}
+
+.btn-semi-light {
+  background-color: #ffb74d;
+  color: #fff;
+}
+
+.btn-semi-light:hover {
+  background-color: #cc9040;
+}
+
+.btn-amateur {
+  background-color: #0288d1;
+  color: #fff;
+}
+
+.btn-amateur:hover {
+  background-color: #026aa7;
+}
+
+.btn-amateur-light {
+  background-color: #4fc3f7;
+  color: #fff;
+}
+
+.btn-amateur-light:hover {
+  background-color: #3ab0f0;
+}
+
+.btn-beginner {
+  background-color: #388e3c;
+  color: #fff;
+}
+
+.btn-beginner:hover {
+  background-color: #2b6b2a;
+}
+
+.btn-beginner-light {
+  background-color: #66bb6a;
+  color: #fff;
+}
+
+.btn-beginner-light:hover {
+  background-color: #519e52;
+}
+
+.btn-proef {
+  background-color: #558b2f;
+  color: #fff;
+}
+
+.btn-proef:hover {
+  background-color: #3e621f;
+}
+
+.btn-proef-light {
+  background-color: #81c784;
+  color: #fff;
+}
+
+.btn-proef-light:hover {
+  background-color: #679f5f;
+}
+
+/* Formulier */
+form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: var(--vis-gray-dark);
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color var(--transition-speed);
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus {
+  border-color: var(--vis-red);
+  outline: none;
+}
+
+form button[type="submit"] {
+  background-color: var(--vis-red);
+  color: var(--vis-white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+
+form button[type="submit"]:hover,
+form button[type="submit"]:focus {
+  background-color: #9c0000;
+  outline: none;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
     align-items: flex-start;
   }
-  nav {
+
+  nav ul {
     flex-direction: column;
-    gap: 0.5rem;
     width: 100%;
     margin-top: 1rem;
   }
+
   .hero h1 {
     font-size: 2rem;
+  }
+
+  .wiebenik-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .wiebenik-foto,
+  .wiebenik-tekst {
+    max-width: 100%;
+  }
+
+  section {
+    padding: 2.5rem 1.5rem;
   }
 }
