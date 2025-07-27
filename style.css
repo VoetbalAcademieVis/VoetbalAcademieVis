@@ -1,272 +1,137 @@
-/* Algemene instellingen */
-html {
-  scroll-behavior: smooth;
+/* VIS-Stijl: Zwart-Rood-Wit */
+:root {
+  --vis-red: #cc0000;
+  --vis-black: #000000;
+  --vis-white: #ffffff;
+  --vis-gray: #f7f7f7;
+  --font-main: 'Montserrat', sans-serif;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
+/* Reset + basis */
+* {
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
-  color: #111;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-main);
+  background-color: var(--vis-gray);
+  color: var(--vis-black);
   line-height: 1.6;
 }
 
 /* Header */
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #cc0000;
-  color: white;
-  padding: 10px 20px;
-  z-index: 1000;
+  background-color: var(--vis-red);
+  color: var(--vis-white);
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-
 header img {
-  max-height: 40px;
+  height: 50px;
 }
-
-.logo {
-  font-weight: bold;
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-}
-
-nav ul {
-  list-style: none;
+nav {
   display: flex;
-  margin: 0;
-  padding: 0;
+  gap: 1rem;
 }
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  color: white;
+nav a {
+  color: var(--vis-white);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-nav ul li a:hover {
-  color: #f44336;
-}
-
-/* Hero sectie */
-.hero {
-  background: url('hero.jpg') center/cover no-repeat;
-  color: white;
-  padding: 120px 20px 60px;
-  text-align: center;
-  background-color: #111;
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: #f44336;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
   transition: background 0.3s;
 }
+nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
 
-.cta-button:hover {
-  background-color: #d7372e;
+/* Hero / Intro */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--vis-black);
+  color: var(--vis-white);
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Secties */
 section {
-  padding: 80px 20px;
-  max-width: 1100px;
-  margin: auto;
+  padding: 3rem 2rem;
+  background: var(--vis-white);
+}
+section:nth-child(even) {
+  background: var(--vis-gray);
+}
+section h2 {
+  color: var(--vis-red);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+section p {
+  max-width: 800px;
+  margin-bottom: 1rem;
 }
 
-h2 {
-  color: #f44336;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  text-align: center;
+/* Cards (bijv. Premium content, Oefeningen) */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
-
-/* Aanbodlijst */
-.aanbod ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.aanbod li::before {
-  content: '⚽';
-  margin-right: 10px;
-  color: #f44336;
-}
-
-/* Pakketkaarten */
-.pakketten ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 0;
-  list-style: none;
-  justify-content: center;
-}
-
-.pakketten li {
-  background: #f9f9f9;
+.card {
+  background: var(--vis-white);
+  border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 20px;
-  flex: 1 1 280px;
-  text-align: center;
-  transition: transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1rem;
+  transition: transform 0.3s ease;
 }
-
-.pakketten li:hover {
-  transform: scale(1.02);
+.card:hover {
+  transform: translateY(-4px);
 }
-
-/* Formulier */
-.aanmelden form {
-  background-color: #f5f5f5;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
-  max-width: 600px;
-  margin: auto;
-}
-
-.aanmelden input,
-select,
-button {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-.aanmelden button {
-  background-color: #25D366;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.aanmelden button:hover {
-  background-color: #1ebe57;
+.card h3 {
+  color: var(--vis-red);
+  margin-bottom: 0.5rem;
 }
 
 /* Footer */
 footer {
-  background-color: #000;
-  color: white;
+  background: var(--vis-black);
+  color: var(--vis-white);
   text-align: center;
-  padding: 30px;
-  margin-top: 60px;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
 
-footer a {
-  color: #f44336;
-  text-decoration: none;
-}
-
-/* FAQ sectie */
-.faq details {
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  padding: 0.75rem;
-  border-radius: 6px;
-  background-color: #f9f9f9;
-}
-
-.faq summary {
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-/* Tabel */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-th, td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #eee;
-  font-weight: bold;
-}
-
-/* Extra instructies */
-form small {
-  color: #666;
-  font-style: italic;
-  font-size: 0.85rem;
-}
-
-/* Responsive */
+/* Responsief */
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    background: #cc0000;
-    padding: 10px;
-  }
-
-  .pakketten ul {
-    flex-direction: column;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .aanmelden form {
-    padding: 20px;
-  }
-
   header {
     flex-direction: column;
-    height: auto;
-    padding: 10px;
+    align-items: flex-start;
   }
-
-  nav ul li {
-    margin: 10px 0;
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
   }
 }
