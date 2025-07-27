@@ -6,12 +6,164 @@
   <title>VoetbalAcademieVis</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    :root {
+      --vis-red: #cc0000;
+      --vis-black: #000000;
+      --vis-white: #ffffff;
+      --vis-gray: #f7f7f7;
+      --font-main: 'Montserrat', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--vis-gray);
+      color: var(--vis-black);
+      line-height: 1.6;
+    }
+
     html { scroll-behavior: smooth; }
     .faq details { margin-bottom: 1rem; }
     .faq summary { cursor: pointer; font-weight: bold; }
+
+    header {
+      background-color: var(--vis-red);
+      color: var(--vis-black);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    header img {
+      height: 80px;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--vis-black);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--vis-black);
+      color: var(--vis-white);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 0.5rem;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      background: var(--vis-white);
+    }
+    section:nth-child(even) {
+      background: var(--vis-gray);
+    }
+    section h2 {
+      color: var(--vis-red);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    section h3 {
+      color: var(--vis-black);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    section p, section ul, section li {
+      max-width: 800px;
+      margin-bottom: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+
+    form input, form select, form button {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    form button {
+      background: var(--vis-red);
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #a80000;
+    }
+
+    footer {
+      background: var(--vis-black);
+      color: var(--vis-white);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
+  
+<body>
+</head>
   <header>
     <div class="logo">
       <img class="logo" src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Logo.jpg" alt="Logo VoetbalAcademieVis" />
@@ -285,17 +437,17 @@
         return;
       }
 
-      const bericht = `Aanmelding VoetbalAcademieVis:\n\n
+      const bericht = Aanmelding VoetbalAcademieVis:\n\n
 Naam speler: ${naam}\n
 Leeftijd: ${leeftijd}\n
 Voorkeursdagen: ${dagen}\n
 Voorkeurtijden: ${tijden}\n
-Gekozen pakket: ${pakket}`;
+Gekozen pakket: ${pakket};
 
-      const whatsappUrl = `https://wa.me/31657927473?text=${encodeURIComponent(bericht)}`;
+      const whatsappUrl = https://wa.me/31657927473?text=${encodeURIComponent(bericht)};
 
       window.open(whatsappUrl, '_blank');
     });
-  </script>
+  </script>               
 </body>
 </html>
