@@ -17,13 +17,13 @@ body {
   font-family: var(--font-main);
   background-color: var(--vis-gray);
   color: var(--vis-black);
-  line-height: 1.6;
+  line-height: 1.1;
 }
 
 /* Header */
 header {
   background-color: var(--vis-red);
-  color: var(--vis-white);
+  color:  var(--vis-black);
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 header img {
-  height: 50px;
+  height: 100px;
 }
 nav {
   display: flex;
