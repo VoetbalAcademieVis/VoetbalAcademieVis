@@ -311,7 +311,8 @@
         <li>Volledige toegang tot Trainingsapp</li>
         <li>Toegang tot 4 vaardigheidstesten</li>
       </ul>
-      <a href="https://wa.me/31657927473?text=Ik%20wil%20me%20inschrijven%20voor%20het%20PROF%20pakket" style="display: inline-block; background-color: #b71c1c; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven PROF</a>
+    <!-- PROF -->
+      <a href="#aanmelden" onclick="selecteerPakket('Prof - 24 sessies')" style="display: inline-block; background-color: #b71c1c; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven PROF</a>
     </div>
 
     <!-- SEMI -->
@@ -324,7 +325,8 @@
         <li>Toegang Trainingsapp</li>
         <li>Toegang tot 2 vaardigheidstesten</li>
       </ul>
-      <a href="https://wa.me/31657927473?text=Ik%20wil%20me%20inschrijven%20voor%20het%20SEMI%20pakket" style="display: inline-block; background-color: #ef6c00; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven SEMI</a>
+    <!-- SEMI -->
+      <a href="#aanmelden" onclick="selecteerPakket('Semi - 12 sessies')" style="display: inline-block; background-color: #ef6c00; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven SEMI</a>
     </div>
 
     <!-- AMATEUR -->
@@ -337,7 +339,8 @@
         <li>Toegang tot Trainingsapp</li>
         <li>Toegang tot 1 Vaardigheidstest</li>
       </ul>
-      <a href="https://wa.me/31657927473?text=Ik%20wil%20me%20inschrijven%20voor%20het%20AMATEUR%20pakket" style="display: inline-block; background-color: #0288d1; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven AMATEUR</a>
+    <!-- AMATEUR -->
+      <a href="#aanmelden" onclick="selecteerPakket('Amateur - 6 sessies')" style="display: inline-block; background-color: #0288d1; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven AMATEUR</a>
     </div>
 
     <!-- BEGINNER -->
@@ -348,7 +351,8 @@
       <ul>
         <li>Kleinste pakket</li>
       </ul>
-<a href="https://wa.me/31657927473?text=Ik%20wil%20me%20inschrijven%20voor%20het%20BEGINNER%20pakket" style="display: inline-block; background-color: #0288d1; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven BEGINNER</a>
+<!-- BEGINNER -->
+<a href="#aanmelden" onclick="selecteerPakket('Beginner - 3 sessies')" style="display: inline-block; background-color: #0288d1; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven BEGINNER</a>
     </div>
     <!-- PROEFTRAINING-->
     <div style="flex: 1 1 280px; background-color: #e8f5e7; border-left: 8px solid #66bb6a; padding: 1.5rem; border-radius: 12px;">
@@ -358,8 +362,8 @@
       <ul>
         <li>Kom gratis meetrainen</li>
       </ul>
-      <a href="https://wa.me/31657927473?text=Ik%20wil%20me%20inschrijven%20voor%20een%20proeftraining" style="display: inline-block; background-color: #66bb6a; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven Proeftraining</a>
-    </div>
+     <!-- PROEFTRAINING -->
+<a href="#aanmelden" onclick="selecteerPakket('Proeftraining - 1 sessie')"style="display: inline-block; background-color: #b71c1c; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Inschrijven PROEFTRAINING</a>
 
   </div>
 </section>
@@ -433,29 +437,7 @@
       <li><strong>Semi:</strong> Voor spelers die serieus werk willen maken van hun ontwikkeling.</li>
       <li><strong>Prof:</strong> Het meest intensieve pakket voor spelers met topambitie en volledige begeleiding.</li>
     </ul>
-    <h3>Voordelen Amateur-pakket</h3>
-    <ul>
-      <li>6 gerichte trainingen met vaste trainer</li>
-      <li>Korting op vaardigheidstest</li>
-    </ul>
-    
-    <h3>Voordelen Semi-pakket</h3>
-    <ul>
-      <li>12 gerichte trainingen met vaste trainer</li>
-      <li>Tussentijdse evaluatie met tips en verbeterpunten</li>
-      <li>Persoonlijk feedbackmoment via WhatsApp of mail</li>
-      <li>Optie tot deelname aan vaardigheidstest</li>
-    </ul>
 
-    <h3>Voordelen Prof-pakket</h3>
-    <ul>
-      <li>Goedkoopste pakket per sessie</li>
-      <li>24 trainingen met maximale individuele aandacht</li>
-      <li>Start- en eindmeting (techniek, wendbaarheid, inzicht)</li>
-      <li>Voortgangsrapport met persoonlijke analyse</li>
-      <li>Voorrang bij inschrijving voor clinics en extra’s</li>
-      <li>Gratis deelname aan 1 groep of privesessie (verschilt per pakket) en vaardigheidstest per periode (periode is 6 weken)</li>
-    </ul>
   </section>
 
   <section id="aanmelden" class="aanmelden">
@@ -566,34 +548,50 @@
     <p>&copy; 2025 VoetbalAcademieVis – Alle rechten voorbehouden</p>
   </footer>
 
-  <script>
-    document.getElementById('aanmeldFormulier').addEventListener('submit', function(event) {
-      event.preventDefault();
+<script>
+  // Zorgt dat juiste pakket geselecteerd wordt via knop
+  function selecteerPakket(pakketNaam) {
+    setTimeout(() => {
+      const pakketSelect = document.getElementById('pakket');
+      if (!pakketSelect) return;
 
-      const naam = document.getElementById('naam').value.trim();
-      const leeftijd = document.getElementById('leeftijd').value.trim();
-
-      const dagen = Array.from(document.getElementById('dag').selectedOptions).map(opt => opt.value).join(', ');
-      const tijden = Array.from(document.getElementById('tijd').selectedOptions).map(opt => opt.value).join(', ');
-
-      const pakket = document.getElementById('pakket').value;
-
-      if (!naam || !leeftijd || !dagen || !tijden || !pakket) {
-        alert('Vul alle velden in alstublieft.');
-        return;
+      for (let i = 0; i < pakketSelect.options.length; i++) {
+        const optie = pakketSelect.options[i];
+        if (optie.text.toLowerCase().includes(pakketNaam.toLowerCase())) {
+          pakketSelect.selectedIndex = i;
+          break;
+        }
       }
 
-      const bericht = Aanmelding VoetbalAcademieVis:\n\n
-Naam speler: ${naam}\n
-Leeftijd: ${leeftijd}\n
-Voorkeursdagen: ${dagen}\n
-Voorkeurtijden: ${tijden}\n
-Gekozen pakket: ${pakket};
+      pakketSelect.focus();
+    }, 300);
+  }
 
-      const whatsappUrl = https://wa.me/31657927473?text=${encodeURIComponent(bericht)};
+  // Formulierverzending via WhatsApp
+  document.getElementById('aanmeldFormulier').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-      window.open(whatsappUrl, '_blank');
-    });
-  </script>               
+    const naam = document.getElementById('naam').value.trim();
+    const leeftijd = document.getElementById('leeftijd').value.trim();
+    const dagen = Array.from(document.getElementById('dag').selectedOptions).map(opt => opt.value).join(', ');
+    const tijden = Array.from(document.getElementById('tijd').selectedOptions).map(opt => opt.value).join(', ');
+    const pakket = document.getElementById('pakket').value;
+
+    if (!naam || !leeftijd || !dagen || !tijden || !pakket) {
+      alert('Vul alle velden in alstublieft.');
+      return;
+    }
+
+    const bericht = `Aanmelding VoetbalAcademieVis:\n\n` +
+                    `Naam speler: ${naam}\n` +
+                    `Leeftijd: ${leeftijd}\n` +
+                    `Voorkeursdagen: ${dagen}\n` +
+                    `Voorkeurtijden: ${tijden}\n` +
+                    `Gekozen pakket: ${pakket}`;
+
+    const whatsappUrl = `https://wa.me/31657927473?text=${encodeURIComponent(bericht)}`;
+    window.open(whatsappUrl, '_blank');
+  });
+</script>           
 </body>
 </html>
