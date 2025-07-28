@@ -308,54 +308,49 @@
   <footer>
     <p>&copy; 2025 VoetbalAcademieVis - Alle rechten voorbehouden</p>
   </footer>
-
-  <script>
-    // Functie om pakket en trainingstype in formulier te selecteren
-    function selecteerPakket(pakketNaam, trainingstype = '') {
-      document.getElementById('pakket').value = pakketNaam;
-      if(trainingstype) {
-        document.getElementById('trainingstype').value = trainingstype;
-      }
-      // Scroll naar formulier
-      document.getElementById('aanmelden').scrollIntoView({behavior: 'smooth'});
+  
+<script>
+  // Functie om pakket en trainingstype in formulier te selecteren
+  function selecteerPakket(pakketNaam, trainingstype = '') {
+    document.getElementById('pakket').value = pakketNaam;
+    if (trainingstype) {
+      document.getElementById('trainingstype').value = trainingstype;
     }
+    // Scroll naar formulier
+    document.getElementById('aanmelden').scrollIntoView({ behavior: 'smooth' });
+  }
 
-    // Formulier afhandeling (basisvoorbeeld)
-    document.getElementById('aanmeldFormulier').addEventListener('submit', function(event){
-      event.preventDefault();
-      alert('Aanmelding ontvangen! We nemen zo snel mogelijk contact met je op.');
-      this.reset();
-      document.getElementById('aanmeldFormulier').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const naam = document.getElementById('naam').value.trim();
-  const leeftijd = document.getElementById('leeftijd').value.trim();
+  // Formulier afhandeling
+  document.getElementById('aanmeldFormulier').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-  // Meerdere selecties ophalen en als lijst maken
-  const dagenSelect = document.getElementById('dag');
-  const geselecteerdeDagen = Array.from(dagenSelect.selectedOptions).map(option => option.value);
+    const naam = document.getElementById('naam').value.trim();
+    const leeftijd = document.getElementById('leeftijd').value.trim();
 
-  const tijdenSelect = document.getElementById('tijd');
-  const geselecteerdeTijden = Array.from(tijdenSelect.selectedOptions).map(option => option.value);
+    const dagenSelect = document.getElementById('dag');
+    const geselecteerdeDagen = Array.from(dagenSelect.selectedOptions).map(option => option.value);
 
-  const pakket = document.getElementById('pakket').value;
-  const trainingstype = document.getElementById('trainingstype').value;
+    const tijdenSelect = document.getElementById('tijd');
+    const geselecteerdeTijden = Array.from(tijdenSelect.selectedOptions).map(option => option.value);
 
-  // Bericht samenstellen
-  let bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\n` +
-                `Naam speler: ${naam}\n` +
-                `Leeftijd speler: ${leeftijd}\n` +
-                `Gekozen dagen: ${geselecteerdeDagen.join(', ')}\n` +
-                `Gekozen tijden: ${geselecteerdeTijden.join(', ')}\n` +
-                `Gekozen pakket: ${pakket}\n` +
-                `Trainingstype: ${trainingstype}\n\n` +
-                `Je kunt deze tekst nog aanpassen.`;
+    const pakket = document.getElementById('pakket').value;
+    const trainingstype = document.getElementById('trainingstype').value;
 
-  const telefoonnummer = '31657927473';
-  const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
+    // Bericht samenstellen
+    let bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\n` +
+      `Naam speler: ${naam}\n` +
+      `Leeftijd speler: ${leeftijd}\n` +
+      `Gekozen dagen: ${geselecteerdeDagen.join(', ')}\n` +
+      `Gekozen tijden: ${geselecteerdeTijden.join(', ')}\n` +
+      `Gekozen pakket: ${pakket}\n` +
+      `Trainingstype: ${trainingstype}\n\n` +
+      `Je kunt deze tekst nog aanpassen.`;
 
-  window.open(whatsappUrl, '_blank');
-});
-    });
-  </script>
+    const telefoonnummer = '31657927473';
+    const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
+
+    window.open(whatsappUrl, '_blank');
+  });
+</script>
 </body>
 </html>
