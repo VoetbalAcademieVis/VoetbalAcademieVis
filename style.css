@@ -40,6 +40,13 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+.hamburger {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+  color: white;
+}
+
 header img {
   height: 60px;
   object-fit: contain;
