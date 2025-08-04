@@ -14,10 +14,9 @@ body {
   position: relative;
 }
 
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
+.logo img {
+  height: 40px; /* pas eventueel aan */
+  width: auto;
 }
 
 .hamburger {
