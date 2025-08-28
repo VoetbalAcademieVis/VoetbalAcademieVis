@@ -212,7 +212,6 @@
         <select id="dag" name="dag[]" multiple required size="5">
           <option value="maandag">Maandag</option>
           <option value="dinsdag">Dinsdag</option>
-          <option value="woensdag">Woensdag</option>
           <option value="donderdag">Donderdag</option>
           <option value="vrijdag">Vrijdag</option>
           <option value="zondag">Zondag</option>
@@ -221,11 +220,11 @@
 
         <label for="tijd">Kies een of meer tijden:</label><br />
         <select id="tijd" name="tijd[]" multiple required size="5">
-          <option value="13:30">13:30 (zondag, privé)</option>
-          <option value="14:15">14:15 (zondag, privé)</option>
-          <option value="15:00">15:00 (alle dagen, zondag privé)</option>
-          <option value="15:45">15:45 (zondag, privé)</option>
-          <option value="16:00">16:00 (alle dagen)</option>
+          <option value="13:30">13:30 (zondag)</option>
+          <option value="14:30">14:30 (zondag)</option>
+          <option value="15:00">15:00 (maandag en dinsdag)</option>
+          <option value="15:30">15:30 (zondag)</option>
+          <option value="16:00">16:00 (maandag en dinsdag)</option>
           <option value="17:00">17:00 (maandag en vrijdag)</option>
           <option value="19:00">19:00 (alleen vrijdag)</option>
           <option value="20:00">20:00 (alleen vrijdag)</option>
@@ -249,12 +248,6 @@
 
         <button type="submit">Meld je aan</button>
       </form>
-
-      <h3>Snelle keuze pakketten</h3>
-      <div style="display:flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
-        <!-- PROF -->
-        <a href="#aanmelden" onclick="selecteerPakket('PROF - 24 sessies', 'Privétraining')" style="background:#b71c1c; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Privétraining PROF</a>
-        <a href="#aanmelden" onclick="selecteerPakket('PROF - 24 sessies', 'Groepstraining')" style="background:#ef5350; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Groepstraining PROF</a>
 
         <!-- TALENT -->
         <a href="#aanmelden" onclick="selecteerPakket('TALENT - 12 sessies', 'Privétraining')" style="background:#ef6c00; color:#fff; padding:0.5rem 1rem; border-radius:8px; text-decoration:none;">Privétraining TALENT</a>
@@ -365,8 +358,8 @@
 
         if (trainingstype === 'Privétraining') {
           if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/cZiqV7azubvQcT9u6uGJQ';
-          if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/q5SKGLEuyffkfbW2ui3Aq';
-          if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/YMC5aVtwPsVtWizUrTcHv';
+          if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/MZvUs8RoXgR59hXETWUGG';
+          if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/Wv9oqDLnyHwWPKbTdewsk';
         } else if (trainingstype === 'Groepstraining') {
           if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/mkajT5Mns9qDBxjG53eTR';
           if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/rCnFe2NK7cWhGhDSFvFfY';
