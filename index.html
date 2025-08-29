@@ -352,12 +352,7 @@
     <p>&copy; 2025 VoetbalAcademieVis - Alle rechten voorbehouden</p>
   </footer>
 
-<script>
-function toggleMenu() {
-  const navMenu = document.getElementById("nav-menu");
-  navMenu.classList.toggle("active");
-}
-
+  <script>
 function verwerkAanmelding() {
   const naam = document.getElementById('naam').value.trim();
   const leeftijd = document.getElementById('leeftijd').value.trim();
@@ -386,26 +381,31 @@ function verwerkAanmelding() {
   const telefoonnummer = '31657927473';
   const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
 
-  alert("Je wordt doorgestuurd naar WhatsApp…"); // feedback
+  // Open WhatsApp direct
   window.open(whatsappUrl, '_blank');
 
+  // Alleen doorgaan naar betaling als het GEEN proeftraining is
   if (pakket !== 'Proeftraining - 1 sessie') {
-    setTimeout(() => {
-      let betaalLink = '';
+    let betaalLink = '';
 
-      if (trainingstype === 'Privétraining') {
-        if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/cZiqV7azubvQcT9u6uGJQ';
-        if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/MZvUs8RoXgR59hXETWUGG';
-        if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/Wv9oqDLnyHwWPKbTdewsk';
-      } else if (trainingstype === 'Groepstraining') {
-        if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/mkajT5Mns9qDBxjG53eTR';
-        if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/rCnFe2NK7cWhGhDSFvFfY';
-        if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/88KTH7WYhw3uwHetb6Rpd';
-      }
+    if (trainingstype === 'Privétraining') {
+      if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/cZiqV7azubvQcT9u6uGJQ';
+      if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/MZvUs8RoXgR59hXETWUGG';
+      if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/Wv9oqDLnyHwWPKbTdewsk';
+    } else if (trainingstype === 'Groepstraining') {
+      if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/mkajT5Mns9qDBxjG53eTR';
+      if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/rCnFe2NK7cWhGhDSFvFfY';
+      if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/88KTH7WYhw3uwHetb6Rpd';
+    }
 
-      if (betaalLink) window.location.href = betaalLink;
-      else alert("Geen geldige combinatie van pakket en trainingstype.");
-    }, 1000);
+    if (betaalLink) {
+      // Korte vertraging zodat WhatsApp-tab kan openen
+      setTimeout(() => {
+        window.location.href = betaalLink;
+      }, 500); 
+    } else {
+      alert("Geen geldige combinatie van pakket en trainingstype.");
+    }
   }
 }
 </script>
