@@ -7,56 +7,149 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
 <header>
   <div class="nav-container">
     <div class="logo">
       <img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Logo.jpg" alt="VoetbalAcademieVis logo">
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-      <ul id="nav-menu" class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#over">Over ons</a></li>
-        <li><a href="#aanbod">Aanbod</a></li>
-        <li><a href="#infotest">Info VaardigheidsTest</a></li>
-        <li><a href="#App">App</a></li>
-        <li><a href="#pakketten">Pakketten</a></li> 
-        <li><a href="#aanmelden">Aanmelden</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
     </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#over">Over ons</a></li>
+      <li><a href="#wie-ben-ik">Wie ben ik?</a></li>
+      <li><a href="#VIS-Methode">VIS-methode</a></li>
+      <li><a href="#aanbod">Aanbod</a></li>
+      <li><a href="#infotest">Info VaardigheidsTest</a></li>
+      <li><a href="#vergelijking">Privé vs Groep</a></li>
+      <li><a href="#pakketten">Alle pakketten</a></li>
+      <li><a href="#app">TrainingsApp</a></li>
+      <li><a href="#aanmelden">Aanmelden</a></li>
+    </ul>
   </div>
 </header>
 
 <main>
-<section class="hero">
+
+<!-- Hero -->
+<section id="hero" class="hero">
   <h1>Word de speler die jij wilt zijn.</h1>
   <p>Bij VoetbalAcademieVis train je op techniek, inzicht en mentaliteit. Alles wat je nodig hebt om door te groeien.</p>
   <a href="#aanmelden" class="cta-button">Meld je nu aan</a>
 </section>
 
+<!-- Over ons -->
 <section id="over">
   <h2>Over VoetbalAcademieVis</h2>
-  <p>
-    VoetbalAcademieVis is er voor ambitieuze spelers en speelsters die meer uit zichzelf willen halen. 
-  </p>
-  <ul>
-    <li><strong>Persoonlijke aandacht</strong> bij elke training</li>
-    <li><strong>Eigen VIS-methode</strong> voor techniek, inzicht en mentaliteit</li>
-    <li><strong>Altijd focus op jouw ontwikkeling</strong></li>
-  </ul>
-  <p>
-    Wij geloven in trainen met passie én resultaat.
-  </p>
+  <p>VoetbalAcademieVis is er voor ambitieuze spelers en speelsters die meer uit zichzelf willen halen.</p>
 </section>
 
+<!-- Wie ben ik -->
+<section id="wie-ben-ik">
+  <h2>Wie ben ik?</h2>
+  <div class="wiebenik-container">
+    <img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Bart.jpg" alt="Trainer Bart" class="wiebenik-foto" />
+    <div class="wiebenik-tekst">
+      <p>Mijn naam is Bart, oprichter van <strong>VoetbalAcademieVis</strong>. Ik ben gecertificeerd voetbaltrainer en student aan de opleiding <strong>Sport en Bewegen</strong>.</p>
+      <p>Mijn passie ligt bij het helpen van spelers en speelsters om hun techniek, inzicht en zelfvertrouwen te verbeteren. Dat doe ik via <strong>privétrainingen, groepstrainingen en clinics</strong>.</p>
+      <p>Mijn droom is om jeugdspelers op te leiden voor de stap naar een BVO of een hoger amateurniveau.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIS-methode -->
 <section id="VIS-Methode">
   <h2>Meetbaar beter</h2>
-  <p>
-    Bij VoetbalAcademieVis begin je met een test op 7 vaardigheden. 
-    Van daaruit maken we jouw persoonlijke plan. 
-    Elke 6 weken meten we opnieuw — groeit je spel niet? Dan krijg je je geld terug. 
-  </p>
+  <p>Bij VoetbalAcademieVis begin je met een test op 7 vaardigheden. Van daaruit maken we jouw persoonlijke plan. Elke 6 weken meten we opnieuw — groeit je spel niet? Dan krijg je je geld terug.</p>
 </section>
+
+<!-- Aanbod -->
+<section id="aanbod">
+  <h2>Ons aanbod</h2>
+  <ul>
+    <li>Individuele en groepstechniektrainingen</li>
+    <li>Individuele spelersanalyse met persoonlijke feedback</li>
+    <li>Elke 6 weken een vaardigheidstest</li>
+    <li>Trainingen aangepast aan leeftijd en niveau</li>
+  </ul>
+</section>
+
+<!-- Info VaardigheidsTest -->
+<section id="infotest">
+  <h2>Wetenschappelijk onderbouwd</h2>
+  <ul>
+    <li>Word getest als een prof</li>
+    <li>Toegang tot officiële vaardigheidstesten op 7 cruciale punten</li>
+    <li>Meld je aan via het aanmeldformulier</li>
+  </ul>
+</section>
+
+<!-- Privétraining vs Groepstraining vergelijking -->
+<section id="vergelijking">
+  <h2>Privétraining vs Groepstraining</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Kenmerk</th>
+        <th>Privétraining</th>
+        <th>Groepstraining</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1-op-1 aandacht</td><td>100% focus op jouw ontwikkeling</td><td>De trainer verdeelt aandacht over max. 4-6 spelers</td></tr>
+      <tr><td>Training op maat</td><td>Volledig afgestemd op jouw leerdoelen</td><td>Combi van individuele en gezamenlijke doelen</td></tr>
+      <tr><td>Prijs per sessie</td><td>Hoger</td><td>50% goedkoper</td></tr>
+      <tr><td>Spelers per training</td><td>1 speler</td><td>4–6 spelers</td></tr>
+      <tr><td>Type oefeningen</td><td>Specifiek, detailgericht</td><td>Afwisseling tussen techniek & samenspel</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Alle pakketten -->
+<section id="pakketten">
+  <h2>Onze Pakketten</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Pakket</th>
+        <th>Privétraining</th>
+        <th>Groepstraining</th>
+        <th>Vaardigheidstesten</th>
+        <th>Coachgesprek</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>BASIS</td><td>6 sessies – €120</td><td>6 sessies – €60</td><td>1 inbegrepen</td><td>-</td></tr>
+      <tr><td>TALENT</td><td>12 sessies – €230</td><td>12 sessies – €115</td><td>2 inbegrepen</td><td>-</td></tr>
+      <tr><td>PROF</td><td>24 sessies – €440</td><td>24 sessies – €220</td><td>4 inbegrepen</td><td>Elke 2 weken</td></tr>
+      <tr><td>PROEFTRAINING</td><td>1 sessie – €0</td><td>1 sessie – €0</td><td>-</td><td>-</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- TrainingsApp vergelijking -->
+<section id="app">
+  <h2>Vergelijk de TrainingsApp</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Functie</th>
+        <th>Gratis</th>
+        <th>Premium (€85/jaar)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>20 techniekoefeningen</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Extra techniekoefeningen</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Spelinzicht-oefeningen</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Doelen stellen</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Feedbackmomenten</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Ontwikkelingsplan</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Trainerdoelen</td><td>❌</td><td>✅</td></tr>
+    </tbody>
+  </table>
+</section>
+
 
 <!-- ... overige secties blijven hetzelfde ... -->
 
