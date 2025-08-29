@@ -352,7 +352,12 @@
     <p>&copy; 2025 VoetbalAcademieVis - Alle rechten voorbehouden</p>
   </footer>
 
- <script>
+<script>
+function toggleMenu() {
+  const navMenu = document.getElementById("nav-menu");
+  navMenu.classList.toggle("active");
+}
+
 function verwerkAanmelding() {
   const naam = document.getElementById('naam').value.trim();
   const leeftijd = document.getElementById('leeftijd').value.trim();
