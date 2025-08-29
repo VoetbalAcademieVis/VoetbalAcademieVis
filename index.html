@@ -293,7 +293,7 @@
     </select><br /><br />
 
     <!-- SUBMIT BUTTON -->
-    <button type="submit">Meld je aan</button>
+   <button type="button" onclick="verwerkAanmelding()">Meld je aan</button>
   </form>
 </section>
 
@@ -351,65 +351,61 @@
   <footer>
     <p>&copy; 2025 VoetbalAcademieVis - Alle rechten voorbehouden</p>
   </footer>
-  
- <script>
-   function toggleMenu() {
+
+<script>
+function toggleMenu() {
   const navMenu = document.getElementById("nav-menu");
   navMenu.classList.toggle("active");
 }
-  
-  document.getElementById('aanmeldFormulier').addEventListener('submit', function (event) {
-    event.preventDefault();
 
-    const naam = document.getElementById('naam').value.trim();
-    const leeftijd = document.getElementById('leeftijd').value.trim();
-    const dagenSelect = document.getElementById('dag');
-    const tijdenSelect = document.getElementById('tijd');
-    const pakket = document.getElementById('pakket').value;
-    const trainingstype = document.getElementById('trainingstype').value;
+function verwerkAanmelding() {
+  const naam = document.getElementById('naam').value.trim();
+  const leeftijd = document.getElementById('leeftijd').value.trim();
+  const dagenSelect = document.getElementById('dag');
+  const tijdenSelect = document.getElementById('tijd');
+  const pakket = document.getElementById('pakket').value;
+  const trainingstype = document.getElementById('trainingstype').value;
 
-    const geselecteerdeDagen = Array.from(dagenSelect.selectedOptions).map(option => option.value);
-    const geselecteerdeTijden = Array.from(tijdenSelect.selectedOptions).map(option => option.value);
+  if (!naam || !leeftijd || !pakket || !trainingstype) {
+    alert("Vul alle verplichte velden in.");
+    return;
+  }
 
-    const bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\n` +
-      `Naam speler: ${naam}\n` +
-      `Leeftijd speler: ${leeftijd}\n` +
-      `Gekozen dagen: ${geselecteerdeDagen.join(', ')}\n` +
-      `Gekozen tijden: ${geselecteerdeTijden.join(', ')}\n` +
-      `Gekozen pakket: ${pakket}\n` +
-      `Trainingstype: ${trainingstype}\n\n` +
-      `Je kunt deze tekst nog aanpassen.`;
+  const geselecteerdeDagen = Array.from(dagenSelect.selectedOptions).map(o => o.value);
+  const geselecteerdeTijden = Array.from(tijdenSelect.selectedOptions).map(o => o.value);
 
-    const telefoonnummer = '31657927473';
-    const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
+  const bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\n` +
+    `Naam speler: ${naam}\n` +
+    `Leeftijd speler: ${leeftijd}\n` +
+    `Gekozen dagen: ${geselecteerdeDagen.join(', ')}\n` +
+    `Gekozen tijden: ${geselecteerdeTijden.join(', ')}\n` +
+    `Gekozen pakket: ${pakket}\n` +
+    `Trainingstype: ${trainingstype}\n\n` +
+    `Je kunt deze tekst nog aanpassen.`;
 
-    // Open WhatsApp in nieuw tabblad
-    window.open(whatsappUrl, '_blank');
+  const telefoonnummer = '31657927473';
+  const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
 
-    // Alleen doorgaan naar betaling als het GEEN proeftraining is
-    if (pakket !== 'Proeftraining - 1 sessie') {
-      // Geef WhatsApp even tijd om te openen
-      setTimeout(() => {
-        let betaalLink = '';
+  alert("Je wordt doorgestuurd naar WhatsApp…"); // feedback
+  window.open(whatsappUrl, '_blank');
 
-        if (trainingstype === 'Privétraining') {
-          if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/cZiqV7azubvQcT9u6uGJQ';
-          if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/MZvUs8RoXgR59hXETWUGG';
-          if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/Wv9oqDLnyHwWPKbTdewsk';
-        } else if (trainingstype === 'Groepstraining') {
-          if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/mkajT5Mns9qDBxjG53eTR';
-          if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/rCnFe2NK7cWhGhDSFvFfY';
-          if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/88KTH7WYhw3uwHetb6Rpd';
-        }
+  if (pakket !== 'Proeftraining - 1 sessie') {
+    setTimeout(() => {
+      let betaalLink = '';
 
-        if (betaalLink) {
-          window.location.href = betaalLink;
-        } else {
-          alert("Geen geldige combinatie van pakket en trainingstype.");
-        }
-      }, 1000); // kortere wachttijd
-    }
-  });
+      if (trainingstype === 'Privétraining') {
+        if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/cZiqV7azubvQcT9u6uGJQ';
+        if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/MZvUs8RoXgR59hXETWUGG';
+        if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/Wv9oqDLnyHwWPKbTdewsk';
+      } else if (trainingstype === 'Groepstraining') {
+        if (pakket === 'BASIS - 6 sessies') betaalLink = 'https://payment-links.mollie.com/payment/mkajT5Mns9qDBxjG53eTR';
+        if (pakket === 'TALENT - 12 sessies') betaalLink = 'https://payment-links.mollie.com/payment/rCnFe2NK7cWhGhDSFvFfY';
+        if (pakket === 'PROF - 24 sessies') betaalLink = 'https://payment-links.mollie.com/payment/88KTH7WYhw3uwHetb6Rpd';
+      }
+
+      if (betaalLink) window.location.href = betaalLink;
+      else alert("Geen geldige combinatie van pakket en trainingstype.");
+    }, 1000);
+  }
+}
 </script>
-</body>
-</html>
