@@ -352,7 +352,7 @@
     <p>&copy; 2025 VoetbalAcademieVis - Alle rechten voorbehouden</p>
   </footer>
 
-  <script>
+ <script>
 function verwerkAanmelding() {
   const naam = document.getElementById('naam').value.trim();
   const leeftijd = document.getElementById('leeftijd').value.trim();
@@ -375,14 +375,16 @@ function verwerkAanmelding() {
     `Gekozen dagen: ${geselecteerdeDagen.join(', ')}\n` +
     `Gekozen tijden: ${geselecteerdeTijden.join(', ')}\n` +
     `Gekozen pakket: ${pakket}\n` +
-    `Trainingstype: ${trainingstype}\n\n` +
-    `Je kunt deze tekst nog aanpassen.`;
+    `Trainingstype: ${trainingstype}`;
 
   const telefoonnummer = '31657927473';
   const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
 
-  // Open WhatsApp direct
-  window.open(whatsappUrl, '_blank');
+  // Open WhatsApp in nieuw tabblad
+  const whatsappWindow = window.open(whatsappUrl, '_blank');
+  if (!whatsappWindow) {
+    alert("Pop-ups zijn geblokkeerd. Sta pop-ups toe om WhatsApp te openen.");
+  }
 
   // Alleen doorgaan naar betaling als het GEEN proeftraining is
   if (pakket !== 'Proeftraining - 1 sessie') {
@@ -399,10 +401,7 @@ function verwerkAanmelding() {
     }
 
     if (betaalLink) {
-      // Korte vertraging zodat WhatsApp-tab kan openen
-      setTimeout(() => {
-        window.location.href = betaalLink;
-      }, 500); 
+      window.location.href = betaalLink;
     } else {
       alert("Geen geldige combinatie van pakket en trainingstype.");
     }
