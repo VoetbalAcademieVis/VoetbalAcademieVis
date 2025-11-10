@@ -11,7 +11,7 @@
 <header>
   <div class="nav-container">
     <div class="logo">
-      <img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Logo.jpg" alt="VoetbalAcademieVis logo">
+      <img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Logo.jpg" alt="VoetbalAcademieVis logo" />
     </div>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
     <ul id="nav-menu" class="nav-menu">
@@ -21,8 +21,8 @@
       <li><a href="#VIS-Methode">VIS-methode</a></li>
       <li><a href="#aanbod">Aanbod</a></li>
       <li><a href="#infotest">Info VaardigheidsTest</a></li>
-      <li><a href="#vergelijking">Privé vs Groep</a></li>
-      <li><a href="#pakketten">Alle pakketten</a></li>
+      <li><a href="#vergelijking">Privétraining vs Groepstraining</a></li>
+      <li><a href="#pakketten">Pakketten</a></li>
       <li><a href="#app">TrainingsApp</a></li>
       <li><a href="#aanmelden">Aanmelden</a></li>
     </ul>
@@ -33,19 +33,19 @@
 
 <!-- Hero -->
 <section id="hero" class="hero">
-  <h1>Word de speler die jij wilt zijn.</h1>
-  <p>Bij VoetbalAcademieVis train je op techniek, inzicht en mentaliteit. Alles wat je nodig hebt om door te groeien.</p>
-  <a href="#aanmelden" class="cta-button">Meld je nu aan</a>
+  <h1>Word de speler die jij wilt zijn</h1>
+  <p class="subheadline">Ontwikkel jouw talent met persoonlijke begeleiding, professionele testen en een plan dat écht werkt.</p>
+  <a href="#aanmelden" class="cta-button">Start vandaag met trainen</a>
 </section>
 
 <!-- Over ons -->
-<section id="over">
+<section id="over" class="section-padding">
   <h2>Over VoetbalAcademieVis</h2>
   <p>VoetbalAcademieVis is er voor ambitieuze spelers en speelsters die meer uit zichzelf willen halen.</p>
 </section>
 
 <!-- Wie ben ik -->
-<section id="wie-ben-ik">
+<section id="wie-ben-ik" class="section-padding">
   <h2>Wie ben ik?</h2>
   <div class="wiebenik-container">
     <img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Bart.jpg" alt="Trainer Bart" class="wiebenik-foto" />
@@ -58,15 +58,16 @@
 </section>
 
 <!-- VIS-methode -->
-<section id="VIS-Methode">
+<section id="VIS-Methode" class="section-padding highlight-section">
   <h2>Meetbaar beter</h2>
-  <p>Bij VoetbalAcademieVis begin je met een test op 7 vaardigheden. Van daaruit maken we jouw persoonlijke plan. Elke 6 weken meten we opnieuw — groeit je spel niet? Dan krijg je je geld terug.</p>
+  <p>Bij VoetbalAcademieVis begin je met een test op 6 vaardigheden. Van daaruit maken we jouw persoonlijke plan. Elke 6 weken meten we opnieuw — groeit je spel niet? Dan krijg je je geld terug.</p>
+  <a href="#aanmelden" class="cta-button cta-small">Vraag direct een proeftraining aan</a>
 </section>
 
 <!-- Aanbod -->
-<section id="aanbod">
+<section id="aanbod" class="section-padding">
   <h2>Ons aanbod</h2>
-  <ul>
+  <ul class="aanbod-list">
     <li>Individuele en groepstechniektrainingen</li>
     <li>Individuele spelersanalyse met persoonlijke feedback</li>
     <li>Elke 6 weken een vaardigheidstest</li>
@@ -75,19 +76,20 @@
 </section>
 
 <!-- Info VaardigheidsTest -->
-<section id="infotest">
+<section id="infotest" class="section-padding">
   <h2>Wetenschappelijk onderbouwd</h2>
-  <ul>
+  <ul class="aanbod-list">
     <li>Word getest als een prof</li>
-    <li>Toegang tot officiële vaardigheidstesten op 7 cruciale punten</li>
+    <li>Toegang tot officiële vaardigheidstesten op 6 cruciale punten</li>
     <li>Meld je aan via het aanmeldformulier</li>
   </ul>
 </section>
 
+
 <!-- Privétraining vs Groepstraining vergelijking -->
-<section id="vergelijking">
+<section id="vergelijking" class="section-padding">
   <h2>Privétraining vs Groepstraining</h2>
-  <table border="1">
+  <table class="pakket-tabel">
     <thead>
       <tr>
         <th>Kenmerk</th>
@@ -97,18 +99,18 @@
     </thead>
     <tbody>
       <tr><td>1-op-1 aandacht</td><td>100% focus op jouw ontwikkeling</td><td>De trainer verdeelt aandacht over max. 4-6 spelers</td></tr>
-      <tr><td>Training op maat</td><td>Volledig afgestemd op jouw leerdoelen</td><td>Combi van individuele en gezamenlijke doelen</td></tr>
+      <tr><td>Training op maat</td><td>Volledig afgestemd op jouw leerdoelen</td><td>Combinatie van individuele en gezamenlijke doelen</td></tr>
       <tr><td>Prijs per sessie</td><td>Hoger</td><td>50% goedkoper</td></tr>
       <tr><td>Spelers per training</td><td>1 speler</td><td>4–6 spelers</td></tr>
-      <tr><td>Type oefeningen</td><td>Specifiek, detailgericht</td><td>Afwisseling tussen techniek & samenspel</td></tr>
+      <tr><td>Type oefeningen</td><td>Specifiek, detailgericht</td><td>Afwisseling tussen techniek &amp; samenspel</td></tr>
     </tbody>
   </table>
 </section>
 
 <!-- Alle pakketten -->
-<section id="pakketten">
+<section id="pakketten" class="section-padding">
   <h2>Onze Pakketten</h2>
-  <table border="1">
+  <table class="pakket-tabel">
     <thead>
       <tr>
         <th>Pakket</th>
@@ -119,24 +121,49 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td>BASIS</td><td>6 sessies – €120</td><td>6 sessies – €60</td><td>1 inbegrepen</td><td>-</td></tr>
-      <tr><td>TALENT</td><td>12 sessies – €230</td><td>12 sessies – €115</td><td>2 inbegrepen</td><td>-</td></tr>
-      <tr><td>PROF</td><td>24 sessies – €440</td><td>24 sessies – €220</td><td>4 inbegrepen</td><td>Elke 2 weken</td></tr>
-      <tr><td>PROEFTRAINING</td><td>1 sessie – €0</td><td>1 sessie – €0</td><td>-</td><td>-</td></tr>
+      <tr>
+        <td><strong>BASIS</strong></td>
+        <td>6 sessies – €120</td>
+        <td>6 sessies – €60</td>
+        <td>1 inbegrepen</td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td><strong>TALENT</strong></td>
+        <td>12 sessies – €230</td>
+        <td>12 sessies – €115</td>
+        <td>2 inbegrepen</td>
+        <td>–</td>
+      </tr>
+      <tr class="highlight-pakket">
+        <td><strong>PROF</strong> <span class="populair-label">Populair</span></td>
+        <td>24 sessies – €440</td>
+        <td>24 sessies – €220</td>
+        <td>4 inbegrepen</td>
+        <td>Elke 2 weken</td>
+      </tr>
+      <tr>
+        <td><strong>PROEFTRAINING</strong></td>
+        <td>1 sessie – Gratis</td>
+        <td>1 sessie – Gratis</td>
+        <td>–</td>
+        <td>–</td>
+      </tr>
     </tbody>
   </table>
+  <a href="#aanmelden" class="cta-button cta-small">Kies jouw pakket en meld je aan</a>
 </section>
 
 <!-- TrainingsApp vergelijking -->
-<section id="app">
+<section id="app" class="section-padding">
   <h2>Vergelijk de TrainingsApp</h2>
   <p>
-  Download hier de 
-  <a href="https://vistrainingsapp.glide.page" target="_blank">
-    VIS Trainingsapp
-  </a>
-</p>
-  <table border="1">
+    Download hier de 
+    <a href="https://vistrainingsapp.glide.page" target="_blank" rel="noopener noreferrer">
+      VIS Trainingsapp
+    </a>
+  </p>
+  <table class="pakket-tabel">
     <thead>
       <tr>
         <th>Functie</th>
@@ -156,10 +183,8 @@
   </table>
 </section>
 
-
-<!-- ... overige secties blijven hetzelfde ... -->
-
-<section id="aanmelden" class="aanmelden">
+<!-- Aanmeldformulier -->
+<section id="aanmelden" class="section-padding aanmelden">
   <h2>Aanmeldformulier</h2>
   <form id="aanmeldFormulier">
     <label for="naam">Naam speler:</label><br />
@@ -170,28 +195,28 @@
 
     <fieldset>
       <legend>Kies je dagen:</legend>
-      <label><input type="checkbox" name="dag" value="maandag"> Maandag</label><br />
-      <label><input type="checkbox" name="dag" value="dinsdag"> Dinsdag</label><br />
-      <label><input type="checkbox" name="dag" value="vrijdag"> Vrijdag</label><br />
-      <label><input type="checkbox" name="dag" value="zondag"> Zondag</label>
+      <label><input type="checkbox" name="dag" value="maandag" /> Maandag</label><br />
+      <label><input type="checkbox" name="dag" value="dinsdag" /> Dinsdag</label><br />
+      <label><input type="checkbox" name="dag" value="vrijdag" /> Vrijdag</label><br />
+      <label><input type="checkbox" name="dag" value="zondag" /> Zondag</label>
     </fieldset><br />
 
     <fieldset>
       <legend>Kies je tijden:</legend>
-      <label><input type="checkbox" name="tijd" value="13:30"> 13:30 (zondag)</label><br />
-      <label><input type="checkbox" name="tijd" value="14:30"> 14:30 (zondag)</label><br />
-      <label><input type="checkbox" name="tijd" value="15:00"> 15:00 (maandag/dinsdag)</label><br />
-      <label><input type="checkbox" name="tijd" value="15:30"> 15:30 (zondag)</label><br />
-      <label><input type="checkbox" name="tijd" value="16:00"> 16:00 (maandag/dinsdag)</label><br />
-      <label><input type="checkbox" name="tijd" value="17:00"> 17:00 (maandag/vrijdag)</label><br />
-      <label><input type="checkbox" name="tijd" value="19:00"> 19:00 (vrijdag)</label><br />
-      <label><input type="checkbox" name="tijd" value="20:00"> 20:00 (vrijdag)</label>
+      <label><input type="checkbox" name="tijd" value="13:30" /> 13:30 (zondag)</label><br />
+      <label><input type="checkbox" name="tijd" value="14:30" /> 14:30 (zondag)</label><br />
+      <label><input type="checkbox" name="tijd" value="15:00" /> 15:00 (maandag/dinsdag)</label><br />
+      <label><input type="checkbox" name="tijd" value="15:30" /> 15:30 (zondag)</label><br />
+      <label><input type="checkbox" name="tijd" value="16:00" /> 16:00 (maandag/dinsdag)</label><br />
+      <label><input type="checkbox" name="tijd" value="17:00" /> 17:00 (maandag/vrijdag)</label><br />
+      <label><input type="checkbox" name="tijd" value="19:00" /> 19:00 (vrijdag)</label><br />
+      <label><input type="checkbox" name="tijd" value="20:00" /> 20:00 (vrijdag)</label>
     </fieldset><br />
 
     <label for="pakket">Kies je pakket:</label><br />
     <select id="pakket" name="pakket" required>
       <option value="">-- Maak een keuze --</option>
-      <option value="Proeftraining">Proeftraining - 1 sessie</option>        
+      <option value="Proeftraining">Proeftraining - 1 sessie</option>
       <option value="BASIS">BASIS - 6 sessies</option>
       <option value="TALENT">TALENT - 12 sessies</option>
       <option value="PROF">PROF - 24 sessies</option>
@@ -204,9 +229,12 @@
       <option value="Groepstraining">Groepstraining</option>
     </select><br /><br />
 
-    <button type="submit">Meld je aan</button>
+    <button type="submit" class="cta-button">Meld je aan</button>
+    <p id="form-feedback" style="color: green; display: none; margin-top: 10px;">Bedankt voor je aanmelding! We nemen snel contact met je op.</p>
   </form>
 </section>
+
+</main>
 
 <footer>
   <p>&copy; 2025 VoetbalAcademieVis - Alle rechten voorbehouden</p>
@@ -260,8 +288,15 @@ document.getElementById('aanmeldFormulier').addEventListener('submit', function(
 
   // Direct naar betaallink na WhatsApp
   if(betaalLink){
-    setTimeout(()=> { window.location.href = betaalLink; }, 500); 
+    setTimeout(()=> { window.location.href = betaalLink; }, 500);
   }
+
+  // Feedback tonen
+  const feedback = document.getElementById('form-feedback');
+  feedback.style.display = 'block';
+
+  // Form resetten
+  e.target.reset();
 });
 </script>
 </body>
