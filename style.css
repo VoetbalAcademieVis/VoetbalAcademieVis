@@ -81,3 +81,40 @@ body {
     background-color: #000000;
   }
 }
+
+/* Voor CTA knoppen */
+.cta-button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+.cta-small {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.highlight-section {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.pakket-tabel {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.pakket-tabel th
