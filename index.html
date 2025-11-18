@@ -5,27 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VoetbalAcademieVis</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Dropdown menu styling */
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: #000;
+      padding: 0.5rem 1rem;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid #ccc;
+      min-width: 180px;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .dropdown-menu li a {
+      padding: 0.5rem 1rem;
+      display: block;
+      white-space: nowrap;
+      color: #333;
+    }
+
+    .dropdown:hover > .dropdown-menu,
+    .dropdown:focus-within > .dropdown-menu {
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <div class="nav-container">
     <div class="logo">
-      <img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Logo.jpg" alt="VoetbalAcademieVis logo" />
+      <a href="#hero"><img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Logo.jpg" alt="VoetbalAcademieVis logo" /></a>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <ul id="nav-menu" class="nav-menu">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#over">Over ons</a></li>
-      <li><a href="#wie-ben-ik">Wie ben ik?</a></li>
-      <li><a href="#VIS-Methode">VIS-methode</a></li>
-      <li><a href="#aanbod">Aanbod</a></li>
-      <li><a href="#infotest">Info VaardigheidsTest</a></li>
-      <li><a href="#vergelijking">Privétraining vs Groepstraining</a></li>
-      <li><a href="#pakketten">Pakketten</a></li>
-      <li><a href="#app">TrainingsApp</a></li>
-      <li><a href="#aanmelden">Aanmelden</a></li>
-    </ul>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Menu openen/sluiten" role="button" tabindex="0" onkeypress="if(event.key === 'Enter') toggleMenu()">
+      ☰
+    </div>
+    <nav>
+      <ul id="nav-menu" class="nav-menu" role="menubar" aria-label="Hoofdnavigatie">
+
+        <!-- Over ons dropdown -->
+        <li role="none" class="dropdown">
+          <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">Over ons ▾</a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="none"><a role="menuitem" href="#over">Over ons</a></li>
+            <li role="none"><a role="menuitem" href="#wie-ben-ik">Wie ben ik?</a></li>
+          </ul>
+        </li>
+
+        <!-- Aanbod dropdown -->
+        <li role="none" class="dropdown">
+          <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">Aanbod ▾</a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="none"><a role="menuitem" href="#app">TrainingsApp</a></li>
+            <li role="none"><a role="menuitem" href="#pakketten">Pakketten</a></li>
+            <li role="none"><a role="menuitem" href="#vergelijking">Privétraining vs Groepstraining</a></li>
+          </ul>
+        </li>
+
+        <!-- Tests & Methode dropdown -->
+        <li role="none" class="dropdown">
+          <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">Tests & Methode ▾</a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="none"><a role="menuitem" href="#infotest">Info VaardigheidsTest</a></li>
+            <li role="none"><a role="menuitem" href="#VIS-Methode">VIS-methode</a></li>
+          </ul>
+        </li>
+
+        <!-- Overige menu-items blijven hetzelfde -->
+        <li role="none"><a role="menuitem" href="#aanmelden">Aanmelden</a></li>
+        <li role="none"><a role="menuitem" href="#hero">Home</a></li>
+
+      </ul>
+    </nav>
   </div>
 </header>
 
@@ -84,7 +157,6 @@
     <li>Meld je aan via het aanmeldformulier</li>
   </ul>
 </section>
-
 
 <!-- Privétraining vs Groepstraining vergelijking -->
 <section id="vergelijking" class="section-padding">
@@ -241,63 +313,78 @@
 </footer>
 
 <script>
-function toggleMenu() {
-  const navMenu = document.getElementById("nav-menu");
-  navMenu.classList.toggle("active");
-}
-
-document.getElementById('aanmeldFormulier').addEventListener('submit', function(e){
-  e.preventDefault();
-
-  const naam = document.getElementById('naam').value.trim();
-  const leeftijd = document.getElementById('leeftijd').value.trim();
-
-  // Dagen en tijden ophalen
-  const dagen = Array.from(document.querySelectorAll('input[name="dag"]:checked')).map(i=>i.value);
-  const tijden = Array.from(document.querySelectorAll('input[name="tijd"]:checked')).map(i=>i.value);
-
-  const pakket = document.getElementById('pakket').value;
-  const trainingstype = document.getElementById('trainingstype').value;
-
-  if(!dagen.length || !tijden.length){
-    alert("Selecteer minimaal één dag en één tijd.");
-    return;
+  function toggleMenu() {
+    const navMenu = document.getElementById("nav-menu");
+    navMenu.classList.toggle("active");
   }
 
-  const bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\nNaam: ${naam}\nLeeftijd: ${leeftijd}\nDagen: ${dagen.join(', ')}\nTijden: ${tijden.join(', ')}\nPakket: ${pakket}\nType: ${trainingstype}`;
+  // Toegankelijke dropdown toggle met keyboard
+  document.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const expanded = link.getAttribute('aria-expanded') === 'true';
+        link.setAttribute('aria-expanded', !expanded);
+        const dropdown = link.nextElementSibling;
+        if (dropdown) {
+          dropdown.style.display = expanded ? 'none' : 'block';
+        }
+      }
+    });
+  });
 
-  const telefoonnummer = '31657927473';
-  const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
+  document.getElementById('aanmeldFormulier').addEventListener('submit', function(e){
+    e.preventDefault();
 
-  // WhatsApp openen
-  window.open(whatsappUrl, '_blank');
+    const naam = document.getElementById('naam').value.trim();
+    const leeftijd = document.getElementById('leeftijd').value.trim();
 
-  // Betaallink bepalen (niet bij proeftraining)
-  let betaalLink = '';
-  if(pakket !== "Proeftraining"){
-    if(trainingstype==="Privétraining"){
-      if(pakket==="BASIS") betaalLink="https://payment-links.mollie.com/payment/8F4xEzqoSuPvLftKugWGQ";
-      if(pakket==="TALENT") betaalLink="https://payment-links.mollie.com/payment/cMSNfK6AeP2PkkhSwnkf7";
-      if(pakket==="PROF") betaalLink="https://payment-links.mollie.com/payment/92uHqzc2Hf7pKbEQmUDrj";
-    } else if(trainingstype==="Groepstraining"){
-      if(pakket==="BASIS") betaalLink="https://payment-links.mollie.com/payment/uPdvUTxk5AxUquHLaxpNf";
-      if(pakket==="TALENT") betaalLink="https://payment-links.mollie.com/payment/5d34qCCmBzLRJJkWgMLKv";
-      if(pakket==="PROF") betaalLink="https://payment-links.mollie.com/payment/bgtoK9GPjFG6Q7SwwBdRz";
+    // Dagen en tijden ophalen
+    const dagen = Array.from(document.querySelectorAll('input[name="dag"]:checked')).map(i=>i.value);
+    const tijden = Array.from(document.querySelectorAll('input[name="tijd"]:checked')).map(i=>i.value);
+
+    const pakket = document.getElementById('pakket').value;
+    const trainingstype = document.getElementById('trainingstype').value;
+
+    if(!dagen.length || !tijden.length){
+      alert("Selecteer minimaal één dag en één tijd.");
+      return;
     }
-  }
 
-  // Direct naar betaallink na WhatsApp
-  if(betaalLink){
-    setTimeout(()=> { window.location.href = betaalLink; }, 500);
-  }
+    const bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\nNaam: ${naam}\nLeeftijd: ${leeftijd}\nDagen: ${dagen.join(', ')}\nTijden: ${tijden.join(', ')}\nPakket: ${pakket}\nType: ${trainingstype}`;
 
-  // Feedback tonen
-  const feedback = document.getElementById('form-feedback');
-  feedback.style.display = 'block';
+    const telefoonnummer = '31657927473';
+    const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
 
-  // Form resetten
-  e.target.reset();
-});
+    // WhatsApp openen
+    window.open(whatsappUrl, '_blank');
+
+    // Betaallink bepalen (niet bij proeftraining)
+    let betaalLink = '';
+    if(pakket !== "Proeftraining"){
+      if(trainingstype==="Privétraining"){
+        if(pakket==="BASIS") betaalLink="https://payment-links.mollie.com/payment/8F4xEzqoSuPvLftKugWGQ";
+        if(pakket==="TALENT") betaalLink="https://payment-links.mollie.com/payment/cMSNfK6AeP2PkkhSwnkf7";
+        if(pakket==="PROF") betaalLink="https://payment-links.mollie.com/payment/92uHqzc2Hf7pKbEQmUDrj";
+      } else if(trainingstype==="Groepstraining"){
+        if(pakket==="BASIS") betaalLink="https://payment-links.mollie.com/payment/uPdvUTxk5AxUquHLaxpNf";
+        if(pakket==="TALENT") betaalLink="https://payment-links.mollie.com/payment/5d34qCCmBzLRJJkWgMLKv";
+        if(pakket==="PROF") betaalLink="https://payment-links.mollie.com/payment/bgtoK9GPjFG6Q7SwwBdRz";
+      }
+    }
+
+    // Direct naar betaallink na WhatsApp
+    if(betaalLink){
+      setTimeout(()=> { window.location.href = betaalLink; }, 500);
+    }
+
+    // Feedback tonen
+    const feedback = document.getElementById('form-feedback');
+    feedback.style.display = 'block';
+
+    // Form resetten
+    e.target.reset();
+  });
 </script>
 </body>
 </html>
