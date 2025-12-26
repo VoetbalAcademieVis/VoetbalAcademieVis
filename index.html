@@ -167,8 +167,6 @@
     </tbody>
   </table>
 </section>
-
-<!-- Alle pakketten -->
 <section id="pakketten" class="section-padding">
   <h2>Onze Pakketten</h2>
   <table class="pakket-tabel">
@@ -177,32 +175,37 @@
         <th>Pakket</th>
         <th>Privétraining</th>
         <th>Groepstraining</th>
+        <th>Techniektrainingen per week</th>
         <th>Vaardigheidstesten</th>
-        <th>Coachgesprek</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><strong>BASIS</strong></td>
-        <td>6 sessies – €120</td>
-        <td>6 sessies – €60</td>
-        <td>1 inbegrepen</td>
+        <td>€50 p/maand</td>
+        <td>€25 p/maand</td>
+        <td>1 techniektraining</td>
+        <td>2 per jaar</td>
         <td>–</td>
       </tr>
       <tr>
         <td><strong>TALENT</strong></td>
-        <td>12 sessies – €230</td>
-        <td>12 sessies – €115</td>
-        <td>2 inbegrepen</td>
-        <td>–</td>
+        <td>€75 p/maand</td>
+        <td>€37,50 p/maand</td>
+        <td>2 techniektrainingen</td>
+        <td>2 per jaar</td>
       </tr>
       <tr class="highlight-pakket">
-        <td><strong>PROF</strong> <span class="populair-label">Populair</span></td>
-        <td>24 sessies – €440</td>
-        <td>24 sessies – €220</td>
-        <td>4 inbegrepen</td>
-        <td>Elke 2 weken</td>
+        <td><strong>ELITE</strong> <span class="populair-label">Populair</span></td>
+        <td>€100 p/maand</td>
+        <td>€50 p/maand</td>
+        <td>2 techniektrainingen + 1 VR training</td>
+        <td>2 per jaar</td>
       </tr>
+    </tbody>
+  </table>
+  <a href="#aanmelden" class="cta-button cta-small">Kies jouw pakket en meld je aan</a>
+</section>
       <tr>
         <td><strong>PROEFTRAINING</strong></td>
         <td>1 sessie – Gratis</td>
@@ -250,43 +253,39 @@
     <input type="text" id="naam" name="naam" placeholder="Voor- en achternaam" required /><br /><br />
 
     <label for="leeftijd">Leeftijd speler:</label><br />
-    <input type="number" id="leeftijd" name="leeftijd" min="8" max="15" placeholder="Bijv. 12" required /><br /><br />
+    <input type="number" id="leeftijd" name="leeftijd" min="6" max="18" placeholder="Bijv. 12" required /><br /><br />
 
     <fieldset>
       <legend>Kies je dagen:</legend>
       <label><input type="checkbox" name="dag" value="maandag" /> Maandag</label><br />
       <label><input type="checkbox" name="dag" value="dinsdag" /> Dinsdag</label><br />
-      <label><input type="checkbox" name="dag" value="vrijdag" /> Vrijdag</label><br />
-      <label><input type="checkbox" name="dag" value="zondag" /> Zondag</label>
+      <label><input type="checkbox" name="dag" value="donderdag" /> Donderdag</label><br />
+      <label><input type="checkbox" name="dag" value="vrijdag" /> Vrijdag</label>
     </fieldset><br />
 
     <fieldset>
       <legend>Kies je tijden:</legend>
-      <label><input type="checkbox" name="tijd" value="13:30" /> 13:30 (zondag)</label><br />
-      <label><input type="checkbox" name="tijd" value="14:30" /> 14:30 (zondag)</label><br />
       <label><input type="checkbox" name="tijd" value="15:00" /> 15:00 (maandag/dinsdag)</label><br />
-      <label><input type="checkbox" name="tijd" value="15:30" /> 15:30 (zondag)</label><br />
-      <label><input type="checkbox" name="tijd" value="16:00" /> 16:00 (maandag/dinsdag)</label><br />
-      <label><input type="checkbox" name="tijd" value="17:00" /> 17:00 (maandag/vrijdag)</label><br />
+      <label><input type="checkbox" name="tijd" value="15:30" /> 15:30 (donderdag/vrijdag)</label><br />
+      <label><input type="checkbox" name="tijd" value="16:00" /> 16:00 (maandag/dinsdag/vrijdag)</label><br />
+      <label><input type="checkbox" name="tijd" value="17:00" /> 17:00 (maandag/dinsdag/vrijdag)</label><br />
       <label><input type="checkbox" name="tijd" value="19:00" /> 19:00 (vrijdag)</label><br />
       <label><input type="checkbox" name="tijd" value="20:00" /> 20:00 (vrijdag)</label>
     </fieldset><br />
 
     <label for="pakket">Kies je pakket:</label><br />
-    <select id="pakket" name="pakket" required>
-      <option value="">-- Maak een keuze --</option>
-      <option value="Proeftraining">Proeftraining - 1 sessie</option>
-      <option value="BASIS">BASIS - 6 sessies</option>
-      <option value="TALENT">TALENT - 12 sessies</option>
-      <option value="PROF">PROF - 24 sessies</option>
-    </select><br /><br />
-
-    <label for="trainingstype">Kies je trainingstype:</label><br />
-    <select id="trainingstype" name="trainingstype" required>
-      <option value="">-- Kies een optie --</option>
-      <option value="Privétraining">Privétraining</option>
-      <option value="Groepstraining">Groepstraining</option>
-    </select><br /><br />
+    
+<label for="pakket">Kies je pakket en trainingstype:</label><br />
+<select id="pakket" name="pakket" required>
+  <option value="">-- Maak een keuze --</option>
+  <option value="Elite-Individual">Elite - Privétraining (€100 p/m)</option>
+  <option value="Talent-Individual">Talent - Privétraining (€75 p/m)</option>
+  <option value="Basis-Individual">Basis - Privétraining (€50 p/m)</option>
+  <option value="Elite-Group">Elite - Groepstraining (€50 p/m)</option>
+  <option value="Talent-Group">Talent - Groepstraining (€37,50 p/m)</option>
+  <option value="Basis-Group">Basis - Groepstraining (€25 p/m)</option>
+  <option value="Proeftraining">Proeftraining - 1 sessie (Gratis)</option>
+</select><br /><br />
 
     <button type="submit" class="cta-button">Meld je aan</button>
     <p id="form-feedback" style="color: green; display: none; margin-top: 10px;">Bedankt voor je aanmelding! We nemen snel contact met je op.</p>
@@ -320,58 +319,65 @@
     });
   });
 
-  document.getElementById('aanmeldFormulier').addEventListener('submit', function(e){
-    e.preventDefault();
+ // Betaallinks per pakket-trainingstype combinatie
+const betaalLinks = {
+  "Elite-Individual": "https://payment-links.mollie.com/payment/hfaDPV9sVdF22cTJzBKwo",
+  "Talent-Individual": "https://payment-links.mollie.com/payment/WiLj5dGYSRBbDJYNUnFUV",
+  "Basis-Individual": "https://payment-links.mollie.com/payment/sshgH8KUM6LYduEqMhwTS",
+  "Elite-Group": "https://payment-links.mollie.com/payment/nt8RaBnSJG2Xa2zB3wUqH",
+  "Talent-Group": "https://payment-links.mollie.com/payment/umexdvgPMLVKXU7rBxJV6",
+  "Basis-Group": "https://payment-links.mollie.com/payment/Ht5pVB9KUektuZNB5iPum"
+};
 
-    const naam = document.getElementById('naam').value.trim();
-    const leeftijd = document.getElementById('leeftijd').value.trim();
+document.getElementById('aanmeldFormulier').addEventListener('submit', function(e){
+  e.preventDefault();
 
-    // Dagen en tijden ophalen
-    const dagen = Array.from(document.querySelectorAll('input[name="dag"]:checked')).map(i=>i.value);
-    const tijden = Array.from(document.querySelectorAll('input[name="tijd"]:checked')).map(i=>i.value);
+  const naam = document.getElementById('naam').value.trim();
+  const leeftijd = document.getElementById('leeftijd').value.trim();
 
-    const pakket = document.getElementById('pakket').value;
-    const trainingstype = document.getElementById('trainingstype').value;
+  const dagen = Array.from(document.querySelectorAll('input[name="dag"]:checked')).map(i=>i.value);
+  const tijden = Array.from(document.querySelectorAll('input[name="tijd"]:checked')).map(i=>i.value);
 
-    if(!dagen.length || !tijden.length){
-      alert("Selecteer minimaal één dag en één tijd.");
-      return;
-    }
+  const pakket = document.getElementById('pakket').value;
 
-    const bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\nNaam: ${naam}\nLeeftijd: ${leeftijd}\nDagen: ${dagen.join(', ')}\nTijden: ${tijden.join(', ')}\nPakket: ${pakket}\nType: ${trainingstype}`;
+  if(!dagen.length || !tijden.length){
+    alert("Selecteer minimaal één dag en één tijd.");
+    return;
+  }
 
-    const telefoonnummer = '31657927473';
-    const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
+  if(!pakket){
+    alert("Kies een pakket.");
+    return;
+  }
 
-    // WhatsApp openen
-    window.open(whatsappUrl, '_blank');
+  // Bericht opbouwen
+  const bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\nNaam: ${naam}\nLeeftijd: ${leeftijd}\nDagen: ${dagen.join(', ')}\nTijden: ${tijden.join(', ')}\nPakket: ${pakket}`;
 
-    // Betaallink bepalen (niet bij proeftraining)
-    let betaalLink = '';
-    if(pakket !== "Proeftraining"){
-      if(trainingstype==="Privétraining"){
-        if(pakket==="BASIS") betaalLink="https://payment-links.mollie.com/payment/8F4xEzqoSuPvLftKugWGQ";
-        if(pakket==="TALENT") betaalLink="https://payment-links.mollie.com/payment/cMSNfK6AeP2PkkhSwnkf7";
-        if(pakket==="PROF") betaalLink="https://payment-links.mollie.com/payment/92uHqzc2Hf7pKbEQmUDrj";
-      } else if(trainingstype==="Groepstraining"){
-        if(pakket==="BASIS") betaalLink="https://payment-links.mollie.com/payment/uPdvUTxk5AxUquHLaxpNf";
-        if(pakket==="TALENT") betaalLink="https://payment-links.mollie.com/payment/5d34qCCmBzLRJJkWgMLKv";
-        if(pakket==="PROF") betaalLink="https://payment-links.mollie.com/payment/bgtoK9GPjFG6Q7SwwBdRz";
-      }
-    }
+  const telefoonnummer = '31657927473';
+  const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
 
-    // Direct naar betaallink na WhatsApp
-    if(betaalLink){
-      setTimeout(()=> { window.location.href = betaalLink; }, 500);
-    }
+  // WhatsApp openen
+  window.open(whatsappUrl, '_blank');
 
-    // Feedback tonen
-    const feedback = document.getElementById('form-feedback');
-    feedback.style.display = 'block';
+  // Betaallink bepalen (niet bij proeftraining)
+  let betaalLink = '';
+  if(pakket !== "Proeftraining"){
+    betaalLink = betaalLinks[pakket] || '';
+  }
 
-    // Form resetten
-    e.target.reset();
-  });
+  // Direct naar betaallink na WhatsApp
+  if(betaalLink){
+    setTimeout(()=> { window.location.href = betaalLink; }, 500);
+  }
+
+  // Feedback tonen
+  const feedback = document.getElementById('form-feedback');
+  feedback.style.display = 'block';
+
+  // Form resetten
+  e.target.reset();
+});
+
 </script>
 </body>
 </html>
