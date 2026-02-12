@@ -1,9 +1,19 @@
+/* ============================
+   ALGEMEEN
+============================ */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   background: #ffffff;
 }
 
+.section-padding {
+  padding: 40px 20px;
+}
+
+/* ============================
+   NAVIGATIE
+============================ */
 .nav-container {
   background-color: #E10600; /* Rood */
   color: white;
@@ -15,7 +25,7 @@ body {
 }
 
 .logo img {
-  height: 20px; /* pas eventueel aan */
+  height: 30px;
   width: auto;
 }
 
@@ -36,6 +46,7 @@ body {
 
 .nav-menu li {
   display: inline-block;
+  position: relative;
 }
 
 .nav-menu a {
@@ -45,12 +56,39 @@ body {
   padding: 0.5rem;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .nav-menu a:hover {
   background-color: #000000; /* zwart accent */
 }
 
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  min-width: 180px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.dropdown-menu li a {
+  padding: 0.5rem 1rem;
+  display: block;
+  white-space: nowrap;
+  color: #333;
+}
+
+.dropdown:hover > .dropdown-menu,
+.dropdown:focus-within > .dropdown-menu {
+  display: block;
+}
+
+/* Responsive navigatie */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -82,7 +120,9 @@ body {
   }
 }
 
-/* Voor CTA knoppen */
+/* ============================
+   CTA KNOPPEN
+============================ */
 .cta-button {
   background-color: #007bff;
   color: white;
@@ -104,6 +144,9 @@ body {
   font-size: 0.9rem;
 }
 
+/* ============================
+   SECTIES
+============================ */
 .highlight-section {
   background-color: #f0f8ff;
   padding: 20px;
@@ -111,57 +154,81 @@ body {
   margin-bottom: 40px;
 }
 
+.aanbod-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.wiebenik-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.wiebenik-foto {
+  max-width: 200px;
+  border-radius: 12px;
+}
+
+.wiebenik-tekst {
+  flex: 1;
+}
+
+/* ============================
+   TABELLEN
+============================ */
 .pakket-tabel {
-   
-  <style>
-    /* Dropdown menu styling */
-    .nav-menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 1rem;
-    }
-
-    .nav-menu li {
-      position: relative;
-    }
-
-    .nav-menu a {
-      text-decoration: none;
-      color: #000;
-      padding: 0.5rem 1rem;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      border: 1px solid #ccc;
-      min-width: 180px;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-
-    .dropdown-menu li a {
-      padding: 0.5rem 1rem;
-      display: block;
-      white-space: nowrap;
-      color: #333;
-    }
-
-    .dropdown:hover > .dropdown-menu,
-    .dropdown:focus-within > .dropdown-menu {
-      display: block;
-    }
-  </style>
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 15px;
 }
 
-.pakket-tabel th
+.pakket-tabel th,
+.pakket-tabel td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.pakket-tabel th {
+  background-color: #E10600;
+  color: white;
+}
+
+.pakket-tabel tr.highlight-pakket {
+  background-color: #fff3e0;
+}
+
+.populair-label {
+  background-color: #ff9800;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+/* ============================
+   FORMULIER
+============================ */
+form input,
+form select {
+  padding: 8px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+form fieldset {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 15px;
+}
+
+form legend {
+  font-weight: bold;
+}
