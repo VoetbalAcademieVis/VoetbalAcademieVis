@@ -88,35 +88,34 @@ body {
   display: block;
 }
 
-/* Responsive navigatie */
+/* ============================
+   RESPONSIVE NAVIGATIE FIX
+============================ */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
   .nav-menu {
     display: none;
     flex-direction: column;
     background-color: #E10600;
-    position: absolute;
-    top: 60px;
+    position: fixed;      /* FIX: menu blijft op top van scherm */
+    top: 0;               /* start helemaal boven */
     right: 0;
+    height: 100vh;        /* neemt volledige hoogte van scherm */
     width: 220px;
-    padding: 1rem;
+    padding: 60px 20px 20px 20px; /* ruimte voor hamburger */
     box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    overflow-y: auto;     /* scroll indien te groot */
+    transition: transform 0.3s ease;
+    transform: translateX(100%); /* verborgen rechts */
   }
 
   .nav-menu.active {
+    transform: translateX(0); /* schuift in beeld */
     display: flex;
   }
 
   .nav-menu li {
-    margin-bottom: 10px;
-  }
-
-  .nav-menu a:hover {
-    background-color: #000000;
+    margin-bottom: 15px;
   }
 }
 
