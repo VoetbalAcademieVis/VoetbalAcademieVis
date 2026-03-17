@@ -5,52 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VoetbalAcademieVis</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Dropdown menu styling */
-    .nav-menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 1rem;
-    }
-
-    .nav-menu li {
-      position: relative;
-    }
-
-    .nav-menu a {
-      text-decoration: none;
-      color: #000;
-      padding: 0.5rem 1rem;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      border: 1px solid #ccc;
-      min-width: 180px;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-
-    .dropdown-menu li a {
-      padding: 0.5rem 1rem;
-      display: block;
-      white-space: nowrap;
-      color: #333;
-    }
-
-    .dropdown:hover > .dropdown-menu,
-    .dropdown:focus-within > .dropdown-menu {
-      display: block;
-    }
-  </style>
 </head>
 <body>
 
@@ -64,8 +18,6 @@
     </div>
     <nav>
       <ul id="nav-menu" class="nav-menu" role="menubar" aria-label="Hoofdnavigatie">
-
-        <!-- Over ons dropdown -->
         <li role="none" class="dropdown">
           <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">Over ons ▾</a>
           <ul class="dropdown-menu" role="menu">
@@ -74,7 +26,6 @@
           </ul>
         </li>
 
-        <!-- Aanbod dropdown -->
         <li role="none" class="dropdown">
           <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">Aanbod ▾</a>
           <ul class="dropdown-menu" role="menu">
@@ -84,7 +35,6 @@
           </ul>
         </li>
 
-        <!-- Tests & Methode dropdown -->
         <li role="none" class="dropdown">
           <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">Tests & Methode ▾</a>
           <ul class="dropdown-menu" role="menu">
@@ -92,10 +42,8 @@
           </ul>
         </li>
 
-        <!-- Overige menu-items -->
         <li role="none"><a role="menuitem" href="#aanmelden">Aanmelden</a></li>
         <li role="none"><a role="menuitem" href="#hero">Home</a></li>
-
       </ul>
     </nav>
   </div>
@@ -105,22 +53,25 @@
 
 <!-- Hero -->
 <section id="hero" class="hero">
-  <h1>High Performance Voetbalontwikkeling voor spelers van 8–18 jaar</h1>
-  <p class="subheadline">
-    Bij VoetbalAcademieVis werken we met meetbare progressie, 6-wekelijkse ontwikkelcycli en persoonlijke begeleiding. 
-    Geen standaardtraining — maar een plan dat écht werkt.
-  </p>
-  <a href="#aanmelden" class="cta-button">Plan jouw proeftraining</a>
+  <div class="hero-content">
+    <h1>High Performance Voetbalontwikkeling voor spelers van 8–18 jaar</h1>
+    <p class="subheadline">
+      Bij VoetbalAcademieVis werken we met meetbare progressie, 6-wekelijkse ontwikkelcycli en persoonlijke begeleiding. 
+      Geen standaardtraining — maar een plan dat écht werkt.
+    </p>
+    <a href="#aanmelden" class="cta-button">Plan jouw proeftraining</a>
+  </div>
 </section>
 
 <!-- Over Ons -->
-<section id="over" class="section-padding">
+<section id="over" class="section-padding card-section">
   <h2>Over VoetbalAcademieVis</h2>
   <p>
     VoetbalAcademieVis is een ontwikkelomgeving voor ambitieuze spelers van 8–18 jaar 
     die structureel beter willen worden. Wij combineren techniektraining, spelinzicht, 
     mentale ontwikkeling en meetbare progressie in één systeem.
   </p>
+
   <h2>Wie ben ik?</h2>
   <div class="wiebenik-container">
     <img src="https://raw.githubusercontent.com/VoetbalAcademieVis/VoetbalAcademieVis/main/media/Bart.jpg" alt="Trainer Bart" class="wiebenik-foto" />
@@ -133,7 +84,7 @@
 </section>
 
 <!-- Tests & Methode -->
-<section id="tests-methode" class="section-padding highlight-section">
+<section id="tests-methode" class="section-padding highlight-section card-section">
   <h2>Wetenschappelijk onderbouwd</h2>
   <p>
     Elke speler start met een nulmeting op 6 cruciale vaardigheden. 
@@ -145,7 +96,7 @@
 </section>
 
 <!-- Aanbod -->
-<section id="aanbod" class="section-padding">
+<section id="aanbod" class="section-padding card-section">
   <h2>Ons aanbod</h2>
   <ul class="aanbod-list">
     <li>6-wekelijkse ontwikkelcycli met persoonlijke focuspunten</li>
@@ -156,74 +107,77 @@
 </section>
 
 <!-- Privétraining vs Groepstraining vergelijking -->
-<section id="vergelijking" class="section-padding">
+<section id="vergelijking" class="section-padding card-section">
   <h2>Privétraining vs Groepstraining</h2>
-  <table class="pakket-tabel">
-    <thead>
-      <tr>
-        <th>Kenmerk</th>
-        <th>Privétraining</th>
-        <th>Groepstraining</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1-op-1 aandacht</td><td>100% focus op jouw ontwikkeling</td><td>De trainer verdeelt aandacht over max. 4-6 spelers</td></tr>
-      <tr><td>Training op maat</td><td>Volledig afgestemd op jouw leerdoelen</td><td>Combinatie van individuele en gezamenlijke doelen</td></tr>
-      <tr><td>Prijs per sessie</td><td>Hoger</td><td>50% goedkoper</td></tr>
-      <tr><td>Spelers per training</td><td>1 speler</td><td>4–6 spelers</td></tr>
-      <tr><td>Type oefeningen</td><td>Specifiek, detailgericht</td><td>Afwisseling tussen techniek &amp; samenspel</td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="pakket-tabel">
+      <thead>
+        <tr>
+          <th>Kenmerk</th>
+          <th>Privétraining</th>
+          <th>Groepstraining</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1-op-1 aandacht</td><td>100% focus op jouw ontwikkeling</td><td>De trainer verdeelt aandacht over max. 4-6 spelers</td></tr>
+        <tr><td>Training op maat</td><td>Volledig afgestemd op jouw leerdoelen</td><td>Combinatie van individuele en gezamenlijke doelen</td></tr>
+        <tr><td>Spelers per training</td><td>1 speler</td><td>4–6 spelers</td></tr>
+        <tr><td>Type oefeningen</td><td>Specifiek, detailgericht</td><td>Afwisseling tussen techniek &amp; samenspel</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- Pakketten -->
-<section id="pakketten" class="section-padding">
+<section id="pakketten" class="section-padding card-section">
   <h2>Onze Pakketten</h2>
   <p>
     Onze pakketten zijn opgebouwd op basis van commitment en ontwikkelintensiteit.
     Hoe hoger het pakket, hoe intensiever de begeleiding en evaluatie.
   </p>
-  <table class="pakket-tabel">
-    <thead>
-      <tr>
-        <th>Pakket</th>
-        <th>Privétraining</th>
-        <th>Groepstraining</th>
-        <th>Techniektrainingen per week</th>
-        <th>Vaardigheidstesten</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>BASIS</strong></td>
-        <td>€50 p/maand</td>
-        <td>€25 p/maand</td>
-        <td>1 techniektraining</td>
-        <td>2 per jaar</td>
-      </tr>
-      <tr>
-        <td><strong>TALENT</strong></td>
-        <td>€75 p/maand</td>
-        <td>€37,50 p/maand</td>
-        <td>2 techniektrainingen</td>
-        <td>2 per jaar</td>
-      </tr>
-      <tr class="highlight-pakket">
-        <td><strong>ELITE</strong> <span class="populair-label">Populair</span></td>
-        <td>€100 p/maand</td>
-        <td>€50 p/maand</td>
-        <td>2 techniektrainingen + 1 VR training</td>
-        <td>2 per jaar</td>
-      </tr>
-      <tr>
-        <td><strong>PROEFTRAINING</strong></td>
-        <td>1 sessie – Gratis</td>
-        <td>1 sessie – Gratis</td>
-        <td>–</td>
-        <td>–</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="pakket-tabel">
+      <thead>
+        <tr>
+          <th>Pakket</th>
+          <th>Privétraining</th>
+          <th>Groepstraining</th>
+          <th>Techniektrainingen per week</th>
+          <th>Vaardigheidstesten</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>BASIS</strong></td>
+          <td>€50 p/maand</td>
+          <td>€25 p/maand</td>
+          <td>1 techniektraining</td>
+          <td>2 per jaar</td>
+        </tr>
+        <tr>
+          <td><strong>TALENT</strong></td>
+          <td>€75 p/maand</td>
+          <td>€37,50 p/maand</td>
+          <td>2 techniektrainingen</td>
+          <td>2 per jaar</td>
+        </tr>
+        <tr class="highlight-pakket">
+          <td><strong>ELITE</strong> <span class="populair-label">Populair</span></td>
+          <td>€100 p/maand</td>
+          <td>€50 p/maand</td>
+          <td>2 techniektrainingen + 1 VR training</td>
+          <td>2 per jaar</td>
+        </tr>
+        <tr>
+          <td><strong>PROEFTRAINING</strong></td>
+          <td>1 sessie – Gratis</td>
+          <td>1 sessie – Gratis</td>
+          <td>–</td>
+          <td>–</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <a href="#aanmelden" class="cta-button cta-small">Kies jouw pakket en meld je aan</a>
 </section>
 
@@ -250,8 +204,7 @@
     </thead>
     <tbody>
       <tr><td>20 techniekoefeningen</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Extra techniekoefeningen</td><td>❌</td><td>✅</td></tr>
-      <tr><td>Spelinzicht-quiz</td><td>❌</td><td>✅</td></tr>
+      <tr><td>40 Extra techniekoefeningen</td><td>❌</td><td>✅</td></tr>
       <tr><td>Doelen stellen</td><td>✅</td><td>✅</td></tr>
       <tr><td>Feedbackmomenten</td><td>❌</td><td>✅</td></tr>
       <tr><td>Ontwikkelingsplan</td><td>❌</td><td>✅</td></tr>
