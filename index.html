@@ -268,38 +268,70 @@
 </footer>
 
 <script>
+  // Hamburger menu toggle
   function toggleMenu() {
-    const navMenu = document.getElementById('aanmeldFormulier').addEventListener('submit', function(e){
-  e.preventDefault();
-
-  const naam = document.getElementById('naam').value.trim();
-  const leeftijd = document.getElementById('leeftijd').value.trim();
-  const dagen = Array.from(document.querySelectorAll('input[name="dag"]:checked')).map(i=>i.value);
-  const tijden = Array.from(document.querySelectorAll('input[name="tijd"]:checked')).map(i=>i.value);
-  const pakket = document.getElementById('pakket').value;
-
-  if(!dagen.length || !tijden.length){
-    alert("Selecteer minimaal één dag en één tijd.");
-    return;
-  }
-  if(!pakket){
-    alert("Kies een pakket.");
-    return;
+    const navMenu = document.getElementById("nav-menu");
+    navMenu.classList.toggle("active");
   }
 
-  const bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\nNaam: ${naam}\nLeeftijd: ${leeftijd}\nDagen: ${dagen.join(', ')}\nTijden: ${tijden.join(', ')}\nPakket: ${pakket}`;
-  const telefoonnummer = '31657927473';
-  const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
+  // Dropdown menu via toetsenbord
+  document.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const expanded = link.getAttribute('aria-expanded') === 'true';
+        link.setAttribute('aria-expanded', !expanded);
+        const dropdown = link.nextElementSibling;
+        if (dropdown) {
+          dropdown.style.display = expanded ? 'none' : 'block';
+        }
+      }
+    });
+  });
 
-  // Open beide in nieuwe tabbladen (één actie per klik)
-  window.open(whatsappUrl, '_blank');
+  // Betaallinks
+  const betaalLinks = {
+    "Elite-Individual": "https://payment-links.mollie.com/payment/hfaDPV9sVdF22cTJzBKwo",
+    "Talent-Individual": "https://payment-links.mollie.com/payment/WiLj5dGYSRBbDJYNUnFUV",
+    "Basis-Individual": "https://payment-links.mollie.com/payment/sshgH8KUM6LYduEqMhwTS",
+    "Elite-Group": "https://payment-links.mollie.com/payment/nt8RaBnSJG2Xa2zB3wUqH",
+    "Talent-Group": "https://payment-links.mollie.com/payment/umexdvgPMLVKXU7rBxJV6",
+    "Basis-Group": "https://payment-links.mollie.com/payment/Ht5pVB9KUektuZNB5iPum"
+  };
 
-  if(pakket !== "Proeftraining"){
-    const betaalLink = betaalLinks[pakket];
-    if(betaalLink) window.open(betaalLink, '_blank');
-  }
+  // Formulier aanmelden
+  const aanmeldForm = document.getElementById('aanmeldFormulier');
+  const aanmeldButton = aanmeldForm.querySelector('button');
 
-  // Feedback tonen en form reset
-  document.getElementById('form-feedback').style.display = 'block';
-  e.target.reset();
-});
+  aanmeldButton.addEventListener('click', function(e){
+    e.preventDefault();
+
+    const naam = document.getElementById('naam').value.trim();
+    const leeftijd = document.getElementById('leeftijd').value.trim();
+    const dagen = Array.from(document.querySelectorAll('input[name="dag"]:checked')).map(i=>i.value);
+    const tijden = Array.from(document.querySelectorAll('input[name="tijd"]:checked')).map(i=>i.value);
+    const pakket = document.getElementById('pakket').value;
+
+    if(!naam || !leeftijd || !dagen.length || !tijden.length || !pakket){
+      alert("Vul alle velden correct in en kies minimaal één dag, tijd en pakket.");
+      return;
+    }
+
+    // Betaallink (niet bij proeftraining)
+    const betaalLink = pakket !== "Proeftraining" ? betaalLinks[pakket] : '';
+
+    // Bericht voor WhatsApp (inclusief betaal-link als die er is)
+    let bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\nNaam: ${naam}\nLeeftijd: ${leeftijd}\nDagen: ${dagen.join(', ')}\nTijden: ${tijden.join(', ')}\nPakket: ${pakket}`;
+    if(betaalLink) bericht += `\n\nBetaallink: ${betaalLink}`;
+
+    const telefoonnummer = '31657927473';
+    const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
+
+    // WhatsApp openen in nieuw tabblad
+    window.open(whatsappUrl, '_blank');
+
+    // Feedback tonen en form reset
+    document.getElementById('form-feedback').style.display = 'block';
+    aanmeldForm.reset();
+  });
+</script>
