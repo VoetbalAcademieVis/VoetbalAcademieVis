@@ -269,45 +269,13 @@
 
 <script>
   function toggleMenu() {
-    const navMenu = document.getElementById("nav-menu");
-    navMenu.classList.toggle("active");
-  }
-
-  document.querySelectorAll('.dropdown > a').forEach(link => {
-    link.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const expanded = link.getAttribute('aria-expanded') === 'true';
-        link.setAttribute('aria-expanded', !expanded);
-        const dropdown = link.nextElementSibling;
-        if (dropdown) {
-          dropdown.style.display = expanded ? 'none' : 'block';
-        }
-      }
-    });
-  });
-
- const betaalLinks = {
-  "Elite-Individual": "https://payment-links.mollie.com/payment/hfaDPV9sVdF22cTJzBKwo",
-  "Talent-Individual": "https://payment-links.mollie.com/payment/WiLj5dGYSRBbDJYNUnFUV",
-  "Basis-Individual": "https://payment-links.mollie.com/payment/sshgH8KUM6LYduEqMhwTS",
-  "Elite-Group": "https://payment-links.mollie.com/payment/nt8RaBnSJG2Xa2zB3wUqH",
-  "Talent-Group": "https://payment-links.mollie.com/payment/umexdvgPMLVKXU7rBxJV6",
-  "Basis-Group": "https://payment-links.mollie.com/payment/Ht5pVB9KUektuZNB5iPum"
-};
-
-document.getElementById('aanmeldFormulier').addEventListener('submit', function(e){
+    const navMenu = document.getElementById('aanmeldFormulier').addEventListener('submit', function(e){
   e.preventDefault();
 
   const naam = document.getElementById('naam').value.trim();
   const leeftijd = document.getElementById('leeftijd').value.trim();
-
-const leeftijd = document.getElementById('leeftijd').value.trim();
-
   const dagen = Array.from(document.querySelectorAll('input[name="dag"]:checked')).map(i=>i.value);
-
   const tijden = Array.from(document.querySelectorAll('input[name="tijd"]:checked')).map(i=>i.value);
-
   const pakket = document.getElementById('pakket').value;
 
   if(!dagen.length || !tijden.length){
@@ -326,7 +294,7 @@ const leeftijd = document.getElementById('leeftijd').value.trim();
   const telefoonnummer = '31657927473';
   const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
 
-  // WhatsApp openen
+  // WhatsApp in nieuw tabblad openen
   window.open(whatsappUrl, '_blank');
 
   // Betaallink bepalen (niet bij proeftraining)
@@ -335,9 +303,11 @@ const leeftijd = document.getElementById('leeftijd').value.trim();
     betaalLink = betaalLinks[pakket] || '';
   }
 
-  // Direct naar betaallink na WhatsApp
+  // Betaallink openen in nieuw tabblad na kleine vertraging
   if(betaalLink){
-    setTimeout(()=> { window.location.href = betaalLink; }, 500);
+    setTimeout(() => {
+      window.location.href = betaalLink; // kan ook window.open(betaalLink, '_blank');
+    }, 1000); // 1 seconde vertraging zodat WhatsApp kan openen
   }
 
   // Feedback tonen
@@ -347,7 +317,3 @@ const leeftijd = document.getElementById('leeftijd').value.trim();
   // Form resetten
   e.target.reset();
 });
-
-</script>
-</body>
-</html>
