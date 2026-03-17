@@ -282,38 +282,24 @@
     alert("Selecteer minimaal één dag en één tijd.");
     return;
   }
-
   if(!pakket){
     alert("Kies een pakket.");
     return;
   }
 
-  // Bericht opbouwen
   const bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\nNaam: ${naam}\nLeeftijd: ${leeftijd}\nDagen: ${dagen.join(', ')}\nTijden: ${tijden.join(', ')}\nPakket: ${pakket}`;
-
   const telefoonnummer = '31657927473';
   const whatsappUrl = `https://wa.me/${telefoonnummer}?text=${encodeURIComponent(bericht)}`;
 
-  // WhatsApp in nieuw tabblad openen
+  // Open beide in nieuwe tabbladen (één actie per klik)
   window.open(whatsappUrl, '_blank');
 
-  // Betaallink bepalen (niet bij proeftraining)
-  let betaalLink = '';
   if(pakket !== "Proeftraining"){
-    betaalLink = betaalLinks[pakket] || '';
+    const betaalLink = betaalLinks[pakket];
+    if(betaalLink) window.open(betaalLink, '_blank');
   }
 
-  // Betaallink openen in nieuw tabblad na kleine vertraging
-  if(betaalLink){
-    setTimeout(() => {
-      window.location.href = betaalLink; // kan ook window.open(betaalLink, '_blank');
-    }, 1000); // 1 seconde vertraging zodat WhatsApp kan openen
-  }
-
-  // Feedback tonen
-  const feedback = document.getElementById('form-feedback');
-  feedback.style.display = 'block';
-
-  // Form resetten
+  // Feedback tonen en form reset
+  document.getElementById('form-feedback').style.display = 'block';
   e.target.reset();
 });
