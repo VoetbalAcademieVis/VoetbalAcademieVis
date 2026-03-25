@@ -262,6 +262,20 @@ form select {
   font-size: 1rem;
 }
 
+.form-submit-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px; /* voldoende ruimte boven de knop */
+}
+
+.form-submit-container .cta-button {
+  display: block;       /* blokweergave zodat hij volledig zichtbaar is */
+  margin: 0 auto;       /* centreert de knop */
+  width: 200px;         /* vaste breedte, kan je aanpassen */
+  padding: 15px 20px;
+  font-size: 1rem;
+}
+
 form fieldset {
   border: 1px solid #ccc;
   border-radius: 10px;
