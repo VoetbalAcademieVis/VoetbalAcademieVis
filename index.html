@@ -271,63 +271,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <script>
-// GSAP activeren
+// =======================
+// GSAP ANIMATIES
+// =======================
 gsap.registerPlugin(ScrollTrigger);
 
-// =======================
 // HERO ANIMATIES (stap 2)
-// =======================
-gsap.from(".hero h1", {
-  y: 80,
-  opacity: 0,
-  duration: 1,
-  ease: "power3.out"
-});
+gsap.from(".hero h1", { y: 80, opacity: 0, duration: 1, ease: "power3.out" });
+gsap.from(".hero .subheadline", { y: 80, opacity: 0, duration: 1, delay: 0.3 });
+gsap.from(".cta-button", { scale: 0.8, opacity: 0, duration: 0.8, delay: 0.6 });
 
-gsap.from(".hero .subheadline", {
-  y: 80,
-  opacity: 0,
-  duration: 1,
-  delay: 0.3
-});
-
-gsap.from(".cta-button", {
-  scale: 0.8,
-  opacity: 0,
-  duration: 0.8,
-  delay: 0.6
-});
-
-// =======================
 // SCROLL ANIMATIES (stap 3)
-// =======================
 gsap.utils.toArray(".card-section").forEach(section => {
   gsap.from(section, {
-    scrollTrigger: {
-      trigger: section,
-      start: "top 80%"
-    },
+    scrollTrigger: { trigger: section, start: "top 80%" },
     y: 100,
     opacity: 0,
     duration: 1
   });
 });
 
-// =======================
 // FOTO ANIMATIE (stap 4)
-// =======================
 gsap.from(".wiebenik-foto", {
-  scrollTrigger: {
-    trigger: ".wiebenik-container",
-    start: "top 80%"
-  },
+  scrollTrigger: { trigger: ".wiebenik-container", start: "top 80%" },
   x: -100,
   opacity: 0,
   duration: 1
 });
 
 // =======================
-// MENU + FORM (stap 5)
+// MENU + FORMULIER (stap 5)
 // =======================
 
 // Hamburger menu
@@ -336,7 +309,7 @@ function toggleMenu() {
   navMenu.classList.toggle("active");
 }
 
-// Dropdown keyboard
+// Dropdown via toetsenbord
 document.querySelectorAll('.dropdown > a').forEach(link => {
   link.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -344,9 +317,7 @@ document.querySelectorAll('.dropdown > a').forEach(link => {
       const expanded = link.getAttribute('aria-expanded') === 'true';
       link.setAttribute('aria-expanded', !expanded);
       const dropdown = link.nextElementSibling;
-      if (dropdown) {
-        dropdown.style.display = expanded ? 'none' : 'block';
-      }
+      if (dropdown) dropdown.style.display = expanded ? 'none' : 'block';
     }
   });
 });
@@ -379,14 +350,31 @@ aanmeldButton.addEventListener('click', function(e){
     return;
   }
 
-  const betaalLink = pakket !== "Proeftraining" ? betaalLinks[pakket] : '';
+  // Betaallink (niet bij proeftraining)
+  const betaalLink = pakket !== "Proeftraining" ? betaalLinks[pakket] : null;
 
-  let bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis\n\nNaam: ${naam}\nLeeftijd: ${leeftijd}\nDagen: ${dagen.join(', ')}\nTijden: ${tijden.join(', ')}\nPakket: ${pakket}`;
-  if(betaalLink) bericht += `\n\nBetaallink: ${betaalLink}`;
+  // WhatsApp bericht (ZONDER betaallink)
+  let bericht = `Hallo, ik wil me aanmelden bij VoetbalAcademieVis
+
+Naam: ${naam}
+Leeftijd: ${leeftijd}
+Dagen: ${dagen.join(', ')}
+Tijden: ${tijden.join(', ')}
+Pakket: ${pakket}`;
 
   const whatsappUrl = `https://wa.me/31657927473?text=${encodeURIComponent(bericht)}`;
+
+  // 1. WhatsApp openen
   window.open(whatsappUrl, '_blank');
 
+  // 2. Redirect naar betaling als nodig
+  if(betaalLink){
+    setTimeout(() => {
+      window.location.href = betaalLink;
+    }, 1500); // 1.5 sec vertraging
+  }
+
+  // Feedback tonen en formulier reset
   document.getElementById('form-feedback').style.display = 'block';
   aanmeldForm.reset();
 });
