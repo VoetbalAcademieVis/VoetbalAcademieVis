@@ -262,6 +262,11 @@ form select {
   font-size: 1rem;
 }
 
+.aanmelden, form {
+  position: relative;
+  z-index: 10;
+}
+
 .form-submit-container {
   width: 100%;
   text-align: center;
