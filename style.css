@@ -270,7 +270,7 @@ form select {
 .form-submit-container {
   width: 100%;
   text-align: center;
-  margin-top: 30px; /* voldoende ruimte boven de knop */
+  margin-top: 50px; /* voldoende ruimte boven de knop */
 }
 
 .form-submit-container .cta-button {
