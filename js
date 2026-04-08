@@ -31,13 +31,26 @@ gsap.from(".wiebenik-foto", {
   duration: 1
 });
 
-// Hamburger menu en dropdown code blijft hetzelfde
-function toggleMenu() { document.getElementById("nav-menu").classList.toggle("active"); }
+// Hamburger menu
+function toggleMenu() {
+  document.getElementById("nav-menu").classList.toggle("active");
+}
 
-// Dropdown via toetsenbord
-document.querySelectorAll('.dropdown > a').forEach(link=>{
-  link.addEventListener('keydown', e=>{
-    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); const expanded=link.getAttribute('aria-expanded')==='true'; link.setAttribute('aria-expanded',!expanded); const dropdown=link.nextElementSibling; if(dropdown) dropdown.style.display=expanded?'none':'block'; }
+// Dropdown via toetsenbord (Enter of Spatie)
+document.querySelectorAll('.dropdown > a').forEach(link => {
+  link.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      
+      const dropdown = link.nextElementSibling; // het menu onder de link
+      const expanded = link.getAttribute('aria-expanded') === 'true';
+      
+      link.setAttribute('aria-expanded', !expanded); // toggle aria-expanded
+      
+      if (dropdown) {
+        dropdown.style.display = expanded ? 'none' : 'block'; // toon/verberg menu
+      }
+    }
   });
 });
 
