@@ -333,3 +333,19 @@ footer {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
+/* SOCIAL BUTTONS */
+.hero-buttons a {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.hero-buttons a:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
