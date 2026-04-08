@@ -1,4 +1,5 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script
+ src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>
 // GSAP animaties voor hero
@@ -69,5 +70,6 @@ aanmeldForm.addEventListener('submit', function(e){
   if(betaalLink){ setTimeout(()=>{ window.location.href=betaalLink; },1500); }
   document.getElementById('form-feedback').style.display='block';
   aanmeldForm.reset();
-});
+}); 
+
 </script>
